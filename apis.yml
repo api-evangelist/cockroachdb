@@ -1,5 +1,6 @@
 aid: cockroachdb
-url: https://raw.githubusercontent.com/api-evangelist/cockroachdb/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/cockroachdb/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis:
   - aid: cockroachdb:cloud-api
@@ -9,7 +10,8 @@ apis:
       - Database
       - Cluster Management
       - Infrastructure
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://cockroachlabs.cloud/api/v1
     humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
     properties:
@@ -20,16 +22,12 @@ apis:
       - url: openapi/cockroachdb-cloud-api-openapi.yml
         type: OpenAPI
     description: >-
-      The CockroachDB Cloud API is a REST interface that provides programmatic
-      access to manage the lifecycle of clusters within a CockroachDB Cloud
-      organization. It enables developers and operators to create, configure,
-      scale, and delete CockroachDB Serverless and Dedicated clusters without
-      using the web console. The API supports operations including cluster
-      provisioning, node management, network authorization, customer-managed
-      encryption keys, and export configurations. Authentication is handled via
-      bearer tokens, and the API is rate-limited to 10 requests per second per
-      user. It can also be accessed through the CockroachDB Cloud Terraform
-      provider for infrastructure-as-code workflows.
+      The CockroachDB Cloud API is a REST interface that provides programmatic access
+      to manage the lifecycle of clusters within a CockroachDB Cloud organization.
+      It enables developers and operators to create, configure, scale, and delete
+      CockroachDB Serverless and Dedicated clusters without using the web console.
+      The API supports operations including cluster provisioning, node management,
+      network authorization, customer-managed encryption keys, and export configurations.
 
   - aid: cockroachdb:cluster-api
     name: CockroachDB Cluster API
@@ -38,7 +36,8 @@ apis:
       - Cluster
       - Monitoring
       - Nodes
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: 
+      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://localhost:8080/api/v2
     humanURL: https://www.cockroachlabs.com/docs/stable/cluster-api
     properties:
@@ -49,18 +48,17 @@ apis:
       - url: openapi/cockroachdb-cluster-api-openapi.yml
         type: OpenAPI
     description: >-
-      The CockroachDB Cluster API is a REST API hosted by all nodes of a
-      CockroachDB cluster that provides information about the cluster, its nodes,
-      and operational status. It is available on the same HTTP port used by the
-      DB Console, defaulting to port 8080, and exposes endpoints under the
-      /api/v2 base path. The API enables monitoring and troubleshooting workflows
-      using any HTTP-capable tooling, covering endpoints for health checks, node
-      details, sessions, ranges, and database metadata. Authentication requires
-      requesting a session token via the /login endpoint and passing it with
-      subsequent requests using the X-Cockroach-API-Session header.
+      The CockroachDB Cluster API is a REST API hosted by all nodes of a CockroachDB
+      cluster that provides information about the cluster, its nodes, and operational
+      status. It is available on the same HTTP port used by the DB Console, defaulting
+      to port 8080, and exposes endpoints under the /api/v2 base path. The API enables
+      monitoring and troubleshooting workflows using any HTTP-capable tooling, covering
+      endpoints for health checks, node details, sessions, ranges, and database metadata.
 
 common:
   - url: json-schema/cockroachdb-cluster-schema.json
     type: JSONSchema
   - url: json-ld/cockroachdb-context.jsonld
     type: JSON-LD
+description: >-
+  The Cloud API is used to manage clusters within an organization.
