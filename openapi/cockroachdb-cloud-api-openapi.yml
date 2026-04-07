@@ -23,29 +23,38 @@ servers:
   - url: https://cockroachlabs.cloud
     description: CockroachDB Cloud Production Server
 tags:
-  - name: Clusters
-    description: >-
-      Create, list, retrieve, update, and delete CockroachDB Serverless and
-      Dedicated clusters within an organization.
-  - name: Databases
-    description: >-
-      Manage databases within a CockroachDB cluster, including creation,
-      listing, updating, and deletion.
-  - name: SQLUsers
-    description: >-
-      Manage SQL users for a cluster, including creating users, listing users,
-      and updating SQL user passwords.
   - name: APIKeys
     description: >-
       Manage API keys for programmatic access, including creation, retrieval,
       listing, updating, and deletion.
-  - name: ServiceAccounts
+  - name: AuditLogs
     description: >-
-      Manage service accounts used for machine-to-machine authentication within
-      the organization.
-  - name: Organizations
+      Retrieve audit log events for the organization to support compliance and
+      security investigations.
+  - name: BackupRestore
     description: >-
-      Retrieve information about the caller's CockroachDB Cloud organization.
+      Manage cluster backups, backup configurations, and restore operations for
+      CockroachDB clusters.
+  - name: Billing
+    description: >-
+      Retrieve invoices and billing information for the CockroachDB Cloud
+      organization.
+  - name: Clusters
+    description: >-
+      Create, list, retrieve, update, and delete CockroachDB Serverless and
+      Dedicated clusters within an organization.
+  - name: CMEK
+    description: >-
+      Manage customer-managed encryption keys (CMEK) for encrypting cluster
+      data at rest using customer-controlled keys.
+  - name: Databases
+    description: >-
+      Manage databases within a CockroachDB cluster, including creation,
+      listing, updating, and deletion.
+  - name: EgressRules
+    description: >-
+      Configure egress traffic rules and egress private endpoints for outbound
+      cluster network traffic.
   - name: Folders
     description: >-
       Organize clusters and other resources into hierarchical folder structures
@@ -53,50 +62,41 @@ tags:
   - name: IPAllowlists
     description: >-
       Configure IP allowlist entries to control network access to a cluster.
-  - name: PrivateEndpoints
-    description: >-
-      Manage private endpoint services and connections for secure VPC-level
-      access to clusters.
-  - name: EgressRules
-    description: >-
-      Configure egress traffic rules and egress private endpoints for outbound
-      cluster network traffic.
-  - name: BackupRestore
-    description: >-
-      Manage cluster backups, backup configurations, and restore operations for
-      CockroachDB clusters.
-  - name: LogExport
-    description: >-
-      Configure log export to external destinations such as AWS CloudWatch or
-      GCP Cloud Logging.
-  - name: MetricExport
-    description: >-
-      Configure metric export integrations including AWS CloudWatch, Datadog,
-      and Prometheus.
-  - name: CMEK
-    description: >-
-      Manage customer-managed encryption keys (CMEK) for encrypting cluster
-      data at rest using customer-controlled keys.
-  - name: RoleManagement
-    description: >-
-      Manage role-based access control, including assigning and removing roles
-      for users across organization, folder, and cluster scopes.
-  - name: Billing
-    description: >-
-      Retrieve invoices and billing information for the CockroachDB Cloud
-      organization.
-  - name: AuditLogs
-    description: >-
-      Retrieve audit log events for the organization to support compliance and
-      security investigations.
   - name: JWTIssuers
     description: >-
       Manage JWT issuer configurations for external identity provider
       integrations.
+  - name: LogExport
+    description: >-
+      Configure log export to external destinations such as AWS CloudWatch or
+      GCP Cloud Logging.
   - name: MaintenanceWindows
     description: >-
       Configure maintenance windows and blackout periods for cluster upgrade
       scheduling.
+  - name: MetricExport
+    description: >-
+      Configure metric export integrations including AWS CloudWatch, Datadog,
+      and Prometheus.
+  - name: Organizations
+    description: >-
+      Retrieve information about the caller's CockroachDB Cloud organization.
+  - name: PrivateEndpoints
+    description: >-
+      Manage private endpoint services and connections for secure VPC-level
+      access to clusters.
+  - name: RoleManagement
+    description: >-
+      Manage role-based access control, including assigning and removing roles
+      for users across organization, folder, and cluster scopes.
+  - name: ServiceAccounts
+    description: >-
+      Manage service accounts used for machine-to-machine authentication within
+      the organization.
+  - name: SQLUsers
+    description: >-
+      Manage SQL users for a cluster, including creating users, listing users,
+      and updating SQL user passwords.
   - name: VersionDeferral
     description: >-
       Manage cluster version deferral policies to delay automatic CockroachDB

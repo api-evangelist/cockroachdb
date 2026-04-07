@@ -43,14 +43,14 @@ tags:
     description: >-
       List and inspect range information for the cluster, including hot ranges
       by node and detailed information for specific range IDs.
-  - name: Sessions
-    description: >-
-      List active SQL sessions across all nodes of the cluster, with optional
-      filtering by username.
   - name: Rules
     description: >-
       Retrieve alerting rules templates for use with Prometheus-compatible
       alerting systems.
+  - name: Sessions
+    description: >-
+      List active SQL sessions across all nodes of the cluster, with optional
+      filtering by username.
 security:
   - sessionAuth: []
 paths:

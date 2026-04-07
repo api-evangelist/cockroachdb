@@ -1,17 +1,15 @@
 aid: cockroachdb
-url: 
-  https://raw.githubusercontent.com/api-evangelist/cockroachdb/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/cockroachdb/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis:
   - aid: cockroachdb:cloud-api
     name: CockroachDB Cloud API
     tags:
       - Cloud
-      - Database
       - Cluster Management
+      - Database
       - Infrastructure
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://cockroachlabs.cloud/api/v1
     humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
     properties:
@@ -32,12 +30,11 @@ apis:
   - aid: cockroachdb:cluster-api
     name: CockroachDB Cluster API
     tags:
-      - Database
       - Cluster
+      - Database
       - Monitoring
       - Nodes
-    image: 
-      https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://localhost:8080/api/v2
     humanURL: https://www.cockroachlabs.com/docs/stable/cluster-api
     properties:
