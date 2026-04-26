@@ -1,0 +1,197 @@
+# Naftiko capabilities profile for CockroachDB.
+# Capabilities span the CockroachDB Cloud API (cluster lifecycle, security,
+# identity, billing, export) and the per-node CockroachDB Cluster API
+# (health, sessions, ranges, databases).
+provider: cockroachdb
+name: CockroachDB
+description: >-
+  Distributed, PostgreSQL-compatible SQL database. The Cloud API manages
+  cluster lifecycle; the Cluster API exposes per-node operational state.
+capabilities:
+  - id: cockroachdb.cluster.create
+    name: Create cluster
+    description: Provision a new CockroachDB Cloud cluster (Basic, Standard, or Advanced).
+    api: cockroachdb:cloud-api
+    inputs:
+      - name
+      - provider
+      - spec
+      - regions
+      - plan
+    outputs:
+      - id
+      - state
+      - cockroach_version
+
+  - id: cockroachdb.cluster.list
+    name: List clusters
+    description: Enumerate CockroachDB Cloud clusters in the organization.
+    api: cockroachdb:cloud-api
+    inputs:
+      - pagination.limit
+      - pagination.start
+      - show_inactive
+    outputs:
+      - clusters
+      - pagination
+
+  - id: cockroachdb.cluster.get
+    name: Get cluster
+    description: Retrieve metadata, plan, regions, and state for a cluster.
+    api: cockroachdb:cloud-api
+    inputs:
+      - cluster_id
+    outputs:
+      - id
+      - state
+      - regions
+      - plan
+
+  - id: cockroachdb.cluster.scale
+    name: Scale cluster
+    description: Change vCPU, storage, or node count on a cluster.
+    api: cockroachdb:cloud-api
+    inputs:
+      - cluster_id
+      - dedicated.machine_type
+      - dedicated.num_virtual_cpus
+      - dedicated.storage_gib
+    outputs:
+      - id
+      - upgrade_status
+
+  - id: cockroachdb.cluster.delete
+    name: Delete cluster
+    description: Tear down a CockroachDB Cloud cluster.
+    api: cockroachdb:cloud-api
+    inputs:
+      - cluster_id
+    outputs:
+      - id
+      - state
+
+  - id: cockroachdb.sql-users.create
+    name: Create SQL user
+    description: Add a SQL user with password to a cluster.
+    api: cockroachdb:cloud-api
+    inputs:
+      - cluster_id
+      - name
+      - password
+    outputs:
+      - name
+
+  - id: cockroachdb.network.allowlist.add
+    name: Add IP allowlist entry
+    description: Authorize an IP CIDR range to reach the cluster.
+    api: cockroachdb:cloud-api
+    inputs:
+      - cluster_id
+      - cidr_ip
+      - cidr_mask
+      - name
+      - sql
+      - ui
+    outputs:
+      - allowlist
+
+  - id: cockroachdb.cmek.enable
+    name: Enable CMEK
+    description: Enable customer-managed encryption keys on an Advanced cluster.
+    api: cockroachdb:cloud-api
+    inputs:
+      - cluster_id
+      - region_specs
+    outputs:
+      - status
+
+  - id: cockroachdb.cmek.rotate
+    name: Rotate CMEK
+    description: Rotate the customer-managed encryption key for a cluster.
+    api: cockroachdb:cloud-api
+    inputs:
+      - cluster_id
+      - region_specs
+    outputs:
+      - status
+
+  - id: cockroachdb.maintenance.set-window
+    name: Set maintenance window
+    description: Configure the weekly maintenance window for a cluster.
+    api: cockroachdb:cloud-api
+    inputs:
+      - cluster_id
+      - offset_duration
+      - window_duration
+    outputs:
+      - offset_duration
+      - window_duration
+
+  - id: cockroachdb.audit-logs.export
+    name: Configure audit log export
+    description: Stream Cloud audit logs to AWS S3, GCS, or Azure Blob.
+    api: cockroachdb:cloud-api
+    inputs:
+      - cluster_id
+      - log_name
+      - target_region
+    outputs:
+      - status
+
+  - id: cockroachdb.regions.list
+    name: List supported regions
+    description: List cloud-provider regions where CockroachDB Cloud can deploy.
+    api: cockroachdb:cloud-api
+    inputs:
+      - provider
+      - serverless
+    outputs:
+      - regions
+
+  - id: cockroachdb.invoices.list
+    name: List invoices
+    description: Retrieve organization-level invoices for billing reconciliation.
+    api: cockroachdb:cloud-api
+    inputs:
+      - pagination.limit
+    outputs:
+      - invoices
+
+  - id: cockroachdb.cluster-api.health
+    name: Cluster health check
+    description: Probe a node's /api/v2/health endpoint for readiness.
+    api: cockroachdb:cluster-api
+    inputs:
+      - ready
+    outputs:
+      - status
+
+  - id: cockroachdb.cluster-api.list-nodes
+    name: List nodes
+    description: List CockroachDB nodes from a node's perspective.
+    api: cockroachdb:cluster-api
+    inputs:
+      - limit
+      - offset
+    outputs:
+      - nodes
+
+  - id: cockroachdb.cluster-api.list-sessions
+    name: List sessions
+    description: Inspect active SQL sessions across the cluster.
+    api: cockroachdb:cluster-api
+    inputs:
+      - exclude_closed_sessions
+      - username
+    outputs:
+      - sessions
+
+  - id: cockroachdb.cluster-api.list-databases
+    name: List databases
+    description: Enumerate user databases in the cluster.
+    api: cockroachdb:cluster-api
+    inputs:
+      - limit
+      - offset
+    outputs:
+      - databases
