@@ -1,0 +1,32 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: CockroachDB
+providerId: cockroachdb
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Database
+description: CockroachDB throughput scales with cluster size.
+sources:
+  - https://www.cockroachlabs.com/pricing/
+  - https://www.cockroachlabs.com/docs/cockroachcloud/quickstart
+headers: {}
+responseCodes:
+  throttled: 429
+limits:
+  - name: Cluster throughput
+    scope: cluster
+    metric: requests_per_second
+    limit: scales with vCPUs
+  - name: Cloud API
+    scope: user
+    metric: requests_per_minute
+    limit: 60
+    timeFrame: minute
+  - name: Concurrent connections
+    scope: cluster
+    metric: concurrent
+    limit: varies

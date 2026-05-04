@@ -1,0 +1,109 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: CockroachDB
+providerId: cockroachdb
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Database
+  - Distributed SQL
+description: 'CockroachDB Cloud tiers: Basic / Standard / Advanced.'
+sources:
+  - https://www.cockroachlabs.com/pricing/
+plans:
+  - id: cockroachdb-basic
+    name: Basic
+    type: freemium
+    description: 'Free tier: 50M RUs + 10 GiB storage/mo.'
+    entries:
+      - label: Request units free
+        name: ru_free
+        type: quota
+        metric: RU
+        limit: 50000000
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Storage free
+        name: storage_free
+        type: quota
+        metric: GiB
+        limit: 10
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: On-demand compute scales to zero
+      - name: AWS/GCP multi-region (select)
+      - name: IP allowlist
+      - name: 99.99% availability
+  - id: cockroachdb-standard
+    name: Standard
+    type: paid
+    description: From $0.18/hr for 2 vCPUs.
+    entries:
+      - label: 2 vCPU per hour
+        name: vcpu_2
+        type: metered
+        metric: hour
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.18'
+        userMultiplied: false
+      - label: Per vCPU hour (scale)
+        name: vcpu
+        type: metered
+        metric: hour
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: varies
+        userMultiplied: false
+    elements:
+      - name: Provisioned compute up to 200 vCPUs
+      - name: On-demand storage
+      - name: AWS/GCP multi-region
+      - name: Private connectivity
+      - name: Datadog metrics export
+      - name: 99.99% availability
+  - id: cockroachdb-advanced
+    name: Advanced
+    type: enterprise
+    description: From $0.60/hr for 4 vCPUs.
+    entries:
+      - label: 4 vCPU per hour
+        name: vcpu_4
+        type: metered
+        metric: hour
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.60'
+        userMultiplied: false
+      - label: Annual contract (custom)
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Provisioned compute + storage unlimited
+      - name: AWS/GCP/Azure all regions
+      - name: Private connectivity
+      - name: Up to 99.999% availability
+      - name: CMEK
+      - name: PCI/HIPAA controls

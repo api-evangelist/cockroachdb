@@ -1,11 +1,9 @@
 aid: cockroachdb
 url: https://raw.githubusercontent.com/api-evangelist/cockroachdb/refs/heads/main/apis.yml
 name: CockroachDB
-description: >-
-  CockroachDB is a distributed SQL database with strong consistency,
-  PostgreSQL compatibility, and a managed cloud offering. The Cloud API
-  manages cluster lifecycle; the Cluster API exposes per-node operational
-  state for monitoring and troubleshooting.
+description: CockroachDB is a distributed SQL database with strong consistency, PostgreSQL compatibility,
+  and a managed cloud offering. The Cloud API manages cluster lifecycle; the Cluster API exposes per-node
+  operational state for monitoring and troubleshooting.
 tags:
   - Cluster Management
   - Cloud
@@ -19,17 +17,14 @@ image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 x-type: company
 created: '2024-11-24'
-modified: '2026-04-26'
+modified: '2026-05-04'
 position: Consumer
-x-overview: >-
-  CockroachDB is a distributed, PostgreSQL-compatible SQL database built by
-  Cockroach Labs. It scales horizontally, survives disk, machine, rack, and
-  data-center failures with localized fallout, and provides ACID transactions
-  across geographies. CockroachDB is offered as a fully managed service on
-  cockroachlabs.cloud (Basic, Standard, Advanced plans) and as self-hosted
-  software. Two REST APIs are available: the CockroachDB Cloud API for
-  managing the lifecycle of cloud-hosted clusters, and the per-node CockroachDB
-  Cluster API for cluster health, monitoring, and operational status.
+x-overview: 'CockroachDB is a distributed, PostgreSQL-compatible SQL database built by Cockroach Labs.
+  It scales horizontally, survives disk, machine, rack, and data-center failures with localized fallout,
+  and provides ACID transactions across geographies. CockroachDB is offered as a fully managed service
+  on cockroachlabs.cloud (Basic, Standard, Advanced plans) and as self-hosted software. Two REST APIs
+  are available: the CockroachDB Cloud API for managing the lifecycle of cloud-hosted clusters, and the
+  per-node CockroachDB Cluster API for cluster health, monitoring, and operational status.'
 apis:
   - aid: cockroachdb:cloud-api
     name: CockroachDB Cloud API
@@ -48,14 +43,11 @@ apis:
         type: APIReference
       - url: openapi/cockroachdb-cloud-api-openapi.yml
         type: OpenAPI
-    description: >-
-      REST API for managing the lifecycle of CockroachDB Cloud clusters.
-      Supports cluster provisioning, scaling, deletion, SQL user management,
-      network authorization (IP allowlists, private endpoints), customer-managed
-      encryption keys (CMEK), maintenance windows, version deferral, audit log
-      export, metric and log export, SCIM v2 group/user provisioning, folder
-      organization, service accounts, API keys, invoices, and backup
-      configuration. Authenticated via bearer tokens and rate-limited to 10
+    description: REST API for managing the lifecycle of CockroachDB Cloud clusters. Supports cluster provisioning,
+      scaling, deletion, SQL user management, network authorization (IP allowlists, private endpoints),
+      customer-managed encryption keys (CMEK), maintenance windows, version deferral, audit log export,
+      metric and log export, SCIM v2 group/user provisioning, folder organization, service accounts, API
+      keys, invoices, and backup configuration. Authenticated via bearer tokens and rate-limited to 10
       requests per second per user.
     x-features:
       - Bearer-token authentication
@@ -71,7 +63,6 @@ apis:
       - SCIM-based identity sync
       - Audit log export to SIEM
       - Cost monitoring via invoices
-
   - aid: cockroachdb:cluster-api
     name: CockroachDB Cluster API
     tags:
@@ -90,13 +81,10 @@ apis:
         type: APIReference
       - url: openapi/cockroachdb-cluster-api-openapi.yml
         type: OpenAPI
-    description: >-
-      REST API hosted by every CockroachDB node under the /api/v2 base path,
-      exposed on the same HTTP port as the DB Console (default 8080). Provides
-      health checks, node detail, hot range info, session and query
-      introspection, database and table metadata, and event log retrieval.
-      Authentication uses session tokens obtained via /api/v2/login/ and passed
-      in the X-Cockroach-API-Session header.
+    description: REST API hosted by every CockroachDB node under the /api/v2 base path, exposed on the
+      same HTTP port as the DB Console (default 8080). Provides health checks, node detail, hot range
+      info, session and query introspection, database and table metadata, and event log retrieval. Authentication
+      uses session tokens obtained via /api/v2/login/ and passed in the X-Cockroach-API-Session header.
     x-features:
       - Available on every CockroachDB node
       - Session-token auth via /api/v2/login/
@@ -107,7 +95,6 @@ apis:
       - Liveness probes and readiness checks
       - Hot-range and session troubleshooting
       - Self-hosted observability integrations
-
 common:
   - url: json-schema/cockroachdb-cluster-schema.json
     type: JSONSchema
@@ -129,6 +116,27 @@ common:
     url: https://github.com/cockroachdb/cockroach
   - type: Status
     url: https://status.cockroachlabs.cloud/
+  - type: Features
+    data:
+      - 'Basic free: 50M RUs + 10 GiB storage/mo, scales to zero'
+      - 'Standard from $0.18/hr (2 vCPUs): provisioned compute up to 200 vCPUs'
+      - 'Advanced from $0.60/hr (4 vCPUs): unlimited scale, CMEK, PCI/HIPAA'
+      - Multi-region across AWS/GCP/Azure
+      - Postgres wire-compatible SQL
+      - Strongly consistent multi-region writes
+      - Cloud API at 60 req/min/user
+      - Datadog metrics export (Standard+)
+      - Private connectivity (Standard+)
+      - Up to 99.999% availability (Advanced)
+      - Customer-managed encryption keys (CMEK) on Advanced
+      - Backup and PITR included
+      - Distributed SQL with horizontal scale
+      - JSONB and full-text search
+      - Geo-partitioned tables
+      - ACID transactions across regions
+    sources:
+      - https://www.cockroachlabs.com/pricing/
+    updated: '2026-05-04'
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
