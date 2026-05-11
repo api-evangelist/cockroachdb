@@ -137,6 +137,11 @@ common:
     sources:
       - https://www.cockroachlabs.com/pricing/
     updated: '2026-05-04'
+  - type: Integrations
+    url: https://www.cockroachlabs.com/partners/
+integrations:
+  - name: partner-icon
+  - name: Become a partner
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
