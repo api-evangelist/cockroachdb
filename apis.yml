@@ -15,7 +15,7 @@ tags:
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
-x-type: company
+kind: company
 created: '2024-11-24'
 modified: '2026-05-04'
 position: Consumer
@@ -99,7 +99,7 @@ common:
   - url: json-schema/cockroachdb-cluster-schema.json
     type: JSONSchema
   - url: json-ld/cockroachdb-context.jsonld
-    type: JSON-LD
+    type: JSONLD
   - url: rules/cockroachdb-rules.yml
     type: Spectral
   - url: capabilities/cockroachdb-capabilities.yml
@@ -114,7 +114,7 @@ common:
     url: https://cockroachlabs.cloud/
   - type: GitHub
     url: https://github.com/cockroachdb/cockroach
-  - type: Status
+  - type: StatusPage
     url: https://status.cockroachlabs.cloud/
   - type: Features
     data:
