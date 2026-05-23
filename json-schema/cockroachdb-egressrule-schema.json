@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EgressRule",
+  "title": "EgressRule",
+  "type": "object",
+  "description": "Represents an egress traffic rule controlling outbound connections from a CockroachDB cluster.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the egress rule."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the egress rule."
+    },
+    "destination": {
+      "type": "string",
+      "description": "Destination hostname or CIDR for allowed outbound traffic."
+    },
+    "ports": {
+      "type": "array",
+      "description": "List of destination port numbers allowed by this rule.",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of egress rule (FQDN or CIDR)."
+    }
+  }
+}

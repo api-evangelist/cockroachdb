@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddEgressRuleRequest",
+  "title": "AddEgressRuleRequest",
+  "type": "object",
+  "description": "Request body for adding an egress rule.",
+  "required": [
+    "name",
+    "destination"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name for the new egress rule."
+    },
+    "destination": {
+      "type": "string",
+      "description": "Destination FQDN or CIDR to allow outbound traffic to."
+    },
+    "ports": {
+      "type": "array",
+      "description": "List of destination ports to allow.",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "type": {
+      "type": "string",
+      "description": "Rule type. Accepted values are FQDN and CIDR."
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListPrivateEndpointServicesResponse",
+  "title": "ListPrivateEndpointServicesResponse",
+  "type": "object",
+  "description": "List of private endpoint services for a cluster.",
+  "properties": {
+    "services": {
+      "type": "array",
+      "description": "Array of private endpoint service objects.",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

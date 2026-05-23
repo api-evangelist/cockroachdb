@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EnableDatadogMetricExportRequest",
+  "title": "EnableDatadogMetricExportRequest",
+  "type": "object",
+  "description": "Request body for enabling Datadog metric export.",
+  "required": [
+    "api_key"
+  ],
+  "properties": {
+    "api_key": {
+      "type": "string",
+      "description": "Datadog API key for authentication."
+    },
+    "site": {
+      "type": "string",
+      "description": "Datadog site endpoint (e.g. US1, EU1)."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListDatabasesResponse",
+  "title": "ListDatabasesResponse",
+  "type": "object",
+  "description": "Paginated list of databases in a cluster.",
+  "properties": {
+    "databases": {
+      "type": "array",
+      "description": "Array of database objects.",
+      "items": {
+        "$ref": "#/components/schemas/Database"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

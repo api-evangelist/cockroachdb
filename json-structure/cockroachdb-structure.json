@@ -1,0 +1,1339 @@
+{
+  "provider": "CockroachDB",
+  "providerId": "cockroachdb",
+  "kind": "json-structure",
+  "description": "Structural overview of the CockroachDB API surface; extracted from openapi/.",
+  "schemaCount": 78,
+  "operationCount": 89,
+  "schemas": [
+    {
+      "name": "Error",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "Organization",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "id",
+        "name"
+      ]
+    },
+    {
+      "name": "Cluster",
+      "type": "object",
+      "propertyCount": 21,
+      "required": [
+        "id",
+        "name",
+        "cloud_provider",
+        "state",
+        "operation_status",
+        "plan",
+        "regions",
+        "cockroach_version",
+        "creator_id"
+      ]
+    },
+    {
+      "name": "Region",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "ClusterConfig",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ServerlessClusterConfig",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "DedicatedClusterConfig",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "CreateClusterRequest",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "name",
+        "provider",
+        "spec"
+      ]
+    },
+    {
+      "name": "UpdateClusterSpecification",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ListClustersResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListClusterNodesResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ClusterNode",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ListAvailableRegionsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "AvailableRegion",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ListMajorClusterVersionsResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "GetConnectionStringResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Database",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "CreateDatabaseRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "UpdateDatabaseRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ListDatabasesResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "SQLUser",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CreateSQLUserRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "name",
+        "password"
+      ]
+    },
+    {
+      "name": "UpdateSQLUserPasswordRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "password"
+      ]
+    },
+    {
+      "name": "ListSQLUsersResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ApiKey",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CreateApiKeyRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "name",
+        "service_account_id"
+      ]
+    },
+    {
+      "name": "CreateApiKeyResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateApiKeySpecification",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ListApiKeysResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ServiceAccount",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "CreateServiceAccountRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "UpdateServiceAccountSpecification",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListServiceAccountsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Folder",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CreateFolderRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "UpdateFolderSpecification",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListFoldersResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListFolderContentsResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "AllowlistEntry",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "cidr_ip",
+        "cidr_mask"
+      ]
+    },
+    {
+      "name": "ListAllowlistEntriesResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "PrivateEndpointConnection",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "ListPrivateEndpointServicesResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ListPrivateEndpointConnectionsResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "AddPrivateEndpointConnectionRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "endpoint_id"
+      ]
+    },
+    {
+      "name": "EgressRule",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "AddEgressRuleRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "name",
+        "destination"
+      ]
+    },
+    {
+      "name": "EditEgressRuleRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ListEgressRulesResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "BackupConfiguration",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UpdateBackupConfigurationSpec",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Restore",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CreateRestoreRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "backup_id"
+      ]
+    },
+    {
+      "name": "ListBackupsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListRestoresResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "LogExportClusterInfo",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "EnableLogExportRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type"
+      ]
+    },
+    {
+      "name": "CloudWatchMetricExportInfo",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "EnableCloudWatchMetricExportRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "role_arn"
+      ]
+    },
+    {
+      "name": "DatadogMetricExportInfo",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "EnableDatadogMetricExportRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "api_key"
+      ]
+    },
+    {
+      "name": "PrometheusMetricExportInfo",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "CMEKClusterInfo",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CMEKClusterSpecification",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "region_specs"
+      ]
+    },
+    {
+      "name": "UpdateCMEKStatusRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "status"
+      ]
+    },
+    {
+      "name": "ListRoleGrantsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "GetAllRolesForUserResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "SetRolesForUserRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "roles"
+      ]
+    },
+    {
+      "name": "GetPersonUsersByEmailResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ListInvoicesResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Invoice",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "ListAuditLogsResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "JWTIssuer",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AddJWTIssuerRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "issuer_url",
+        "jwks_id"
+      ]
+    },
+    {
+      "name": "UpdateJWTIssuerRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListJWTIssuersResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "MaintenanceWindow",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ClusterVersionDeferral",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "PaginationResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/api/v1/organization",
+      "operationId": "GetOrganizationInfo",
+      "summary": "Get organization information",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters",
+      "operationId": "ListClusters",
+      "summary": "List clusters",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters",
+      "operationId": "CreateCluster",
+      "summary": "Create a cluster",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}",
+      "operationId": "GetCluster",
+      "summary": "Get a cluster",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}",
+      "operationId": "DeleteCluster",
+      "summary": "Delete a cluster",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/clusters/{cluster_id}",
+      "operationId": "UpdateCluster",
+      "summary": "Update a cluster",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/connection-string",
+      "operationId": "GetConnectionString",
+      "summary": "Get connection string",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/nodes",
+      "operationId": "ListClusterNodes",
+      "summary": "List cluster nodes",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/available-regions",
+      "operationId": "ListAvailableRegions",
+      "summary": "List available regions",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/cluster-versions",
+      "operationId": "ListMajorClusterVersions",
+      "summary": "List major cluster versions",
+      "tags": [
+        "Clusters"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/databases",
+      "operationId": "ListDatabases",
+      "summary": "List databases",
+      "tags": [
+        "Databases"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/databases",
+      "operationId": "CreateDatabase",
+      "summary": "Create a database",
+      "tags": [
+        "Databases"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}/databases/{name}",
+      "operationId": "DeleteDatabase",
+      "summary": "Delete a database",
+      "tags": [
+        "Databases"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/clusters/{cluster_id}/databases/{name}",
+      "operationId": "EditDatabase",
+      "summary": "Update a database",
+      "tags": [
+        "Databases"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/sql-users",
+      "operationId": "ListSQLUsers",
+      "summary": "List SQL users",
+      "tags": [
+        "SQLUsers"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/sql-users",
+      "operationId": "CreateSQLUser",
+      "summary": "Create a SQL user",
+      "tags": [
+        "SQLUsers"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}/sql-users/{name}",
+      "operationId": "DeleteSQLUser",
+      "summary": "Delete a SQL user",
+      "tags": [
+        "SQLUsers"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/clusters/{cluster_id}/sql-users/{name}/password",
+      "operationId": "UpdateSQLUserPassword",
+      "summary": "Update SQL user password",
+      "tags": [
+        "SQLUsers"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/api-keys",
+      "operationId": "ListApiKeys",
+      "summary": "List API keys",
+      "tags": [
+        "APIKeys"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/api-keys",
+      "operationId": "CreateApiKey",
+      "summary": "Create an API key",
+      "tags": [
+        "APIKeys"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/api-keys/{id}",
+      "operationId": "GetApiKey",
+      "summary": "Get an API key",
+      "tags": [
+        "APIKeys"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/api-keys/{id}",
+      "operationId": "DeleteApiKey",
+      "summary": "Delete an API key",
+      "tags": [
+        "APIKeys"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/api-keys/{id}",
+      "operationId": "UpdateApiKey",
+      "summary": "Update an API key",
+      "tags": [
+        "APIKeys"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-accounts",
+      "operationId": "ListServiceAccounts",
+      "summary": "List service accounts",
+      "tags": [
+        "ServiceAccounts"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/service-accounts",
+      "operationId": "CreateServiceAccount",
+      "summary": "Create a service account",
+      "tags": [
+        "ServiceAccounts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/service-accounts/{id}",
+      "operationId": "GetServiceAccount",
+      "summary": "Get a service account",
+      "tags": [
+        "ServiceAccounts"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/service-accounts/{id}",
+      "operationId": "DeleteServiceAccount",
+      "summary": "Delete a service account",
+      "tags": [
+        "ServiceAccounts"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/service-accounts/{id}",
+      "operationId": "UpdateServiceAccount",
+      "summary": "Update a service account",
+      "tags": [
+        "ServiceAccounts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/folders",
+      "operationId": "ListFolders",
+      "summary": "List folders",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/folders",
+      "operationId": "CreateFolder",
+      "summary": "Create a folder",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/folders/{folder_id}",
+      "operationId": "GetFolder",
+      "summary": "Get a folder",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/folders/{folder_id}",
+      "operationId": "DeleteFolder",
+      "summary": "Delete a folder",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/folders/{folder_id}",
+      "operationId": "UpdateFolder",
+      "summary": "Update a folder",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/folders/{folder_id}/contents",
+      "operationId": "ListFolderContents",
+      "summary": "List folder contents",
+      "tags": [
+        "Folders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/networking/allowlist",
+      "operationId": "ListAllowlistEntries",
+      "summary": "List IP allowlist entries",
+      "tags": [
+        "IPAllowlists"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/networking/allowlist",
+      "operationId": "AddAllowlistEntry",
+      "summary": "Add IP allowlist entry",
+      "tags": [
+        "IPAllowlists"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}/networking/allowlist/{cidr_ip}/{cidr_mask}",
+      "operationId": "DeleteAllowlistEntry",
+      "summary": "Delete IP allowlist entry",
+      "tags": [
+        "IPAllowlists"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/clusters/{cluster_id}/networking/allowlist/{cidr_ip}/{cidr_mask}",
+      "operationId": "UpdateAllowlistEntry",
+      "summary": "Update IP allowlist entry",
+      "tags": [
+        "IPAllowlists"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/networking/private-endpoint-services",
+      "operationId": "ListPrivateEndpointServices",
+      "summary": "List private endpoint services",
+      "tags": [
+        "PrivateEndpoints"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/networking/private-endpoint-services",
+      "operationId": "CreatePrivateEndpointServices",
+      "summary": "Create private endpoint services",
+      "tags": [
+        "PrivateEndpoints"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/networking/private-endpoint-connections",
+      "operationId": "ListPrivateEndpointConnections",
+      "summary": "List private endpoint connections",
+      "tags": [
+        "PrivateEndpoints"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/networking/private-endpoint-connections",
+      "operationId": "AddPrivateEndpointConnection",
+      "summary": "Add a private endpoint connection",
+      "tags": [
+        "PrivateEndpoints"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}/networking/private-endpoint-connections/{endpoint_id}",
+      "operationId": "DeletePrivateEndpointConnection",
+      "summary": "Delete a private endpoint connection",
+      "tags": [
+        "PrivateEndpoints"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/networking/egress-rules",
+      "operationId": "ListEgressRules",
+      "summary": "List egress rules",
+      "tags": [
+        "EgressRules"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/networking/egress-rules",
+      "operationId": "AddEgressRule",
+      "summary": "Add an egress rule",
+      "tags": [
+        "EgressRules"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/networking/egress-rules/{rule_id}",
+      "operationId": "GetEgressRule",
+      "summary": "Get an egress rule",
+      "tags": [
+        "EgressRules"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}/networking/egress-rules/{rule_id}",
+      "operationId": "DeleteEgressRule",
+      "summary": "Delete an egress rule",
+      "tags": [
+        "EgressRules"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/clusters/{cluster_id}/networking/egress-rules/{rule_id}",
+      "operationId": "EditEgressRule",
+      "summary": "Update an egress rule",
+      "tags": [
+        "EgressRules"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/backups",
+      "operationId": "ListBackups",
+      "summary": "List backups",
+      "tags": [
+        "BackupRestore"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/backups-config",
+      "operationId": "GetBackupConfiguration",
+      "summary": "Get backup configuration",
+      "tags": [
+        "BackupRestore"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/clusters/{cluster_id}/backups-config",
+      "operationId": "UpdateBackupConfiguration",
+      "summary": "Update backup configuration",
+      "tags": [
+        "BackupRestore"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/restores",
+      "operationId": "ListRestores",
+      "summary": "List restores",
+      "tags": [
+        "BackupRestore"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/restores",
+      "operationId": "CreateRestore",
+      "summary": "Create a restore",
+      "tags": [
+        "BackupRestore"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/restores/{restore_id}",
+      "operationId": "GetRestore",
+      "summary": "Get a restore",
+      "tags": [
+        "BackupRestore"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/logexport",
+      "operationId": "GetLogExportInfo",
+      "summary": "Get log export configuration",
+      "tags": [
+        "LogExport"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/logexport",
+      "operationId": "EnableLogExport",
+      "summary": "Enable log export",
+      "tags": [
+        "LogExport"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}/logexport",
+      "operationId": "DeleteLogExport",
+      "summary": "Disable log export",
+      "tags": [
+        "LogExport"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/metricexport/cloudwatch",
+      "operationId": "GetCloudWatchMetricExportInfo",
+      "summary": "Get CloudWatch metric export configuration",
+      "tags": [
+        "MetricExport"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/metricexport/cloudwatch",
+      "operationId": "EnableCloudWatchMetricExport",
+      "summary": "Enable CloudWatch metric export",
+      "tags": [
+        "MetricExport"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}/metricexport/cloudwatch",
+      "operationId": "DeleteCloudWatchMetricExport",
+      "summary": "Disable CloudWatch metric export",
+      "tags": [
+        "MetricExport"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/metricexport/datadog",
+      "operationId": "GetDatadogMetricExportInfo",
+      "summary": "Get Datadog metric export configuration",
+      "tags": [
+        "MetricExport"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/metricexport/datadog",
+      "operationId": "EnableDatadogMetricExport",
+      "summary": "Enable Datadog metric export",
+      "tags": [
+        "MetricExport"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}/metricexport/datadog",
+      "operationId": "DeleteDatadogMetricExport",
+      "summary": "Disable Datadog metric export",
+      "tags": [
+        "MetricExport"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/metricexport/prometheus",
+      "operationId": "GetPrometheusMetricExportInfo",
+      "summary": "Get Prometheus metric export configuration",
+      "tags": [
+        "MetricExport"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/metricexport/prometheus",
+      "operationId": "EnablePrometheusMetricExport",
+      "summary": "Enable Prometheus metric export",
+      "tags": [
+        "MetricExport"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}/metricexport/prometheus",
+      "operationId": "DeletePrometheusMetricExport",
+      "summary": "Disable Prometheus metric export",
+      "tags": [
+        "MetricExport"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/cmek",
+      "operationId": "GetCMEKClusterInfo",
+      "summary": "Get CMEK configuration",
+      "tags": [
+        "CMEK"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/clusters/{cluster_id}/cmek",
+      "operationId": "EnableCMEKSpec",
+      "summary": "Enable CMEK",
+      "tags": [
+        "CMEK"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/clusters/{cluster_id}/cmek",
+      "operationId": "UpdateCMEKSpec",
+      "summary": "Update CMEK specification",
+      "tags": [
+        "CMEK"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/clusters/{cluster_id}/cmek",
+      "operationId": "UpdateCMEKStatus",
+      "summary": "Update CMEK status",
+      "tags": [
+        "CMEK"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "operationId": "ListRoleGrants",
+      "summary": "List role grants",
+      "tags": [
+        "RoleManagement"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/roles/{user_id}",
+      "operationId": "GetAllRolesForUser",
+      "summary": "Get all roles for a user",
+      "tags": [
+        "RoleManagement"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/roles/{user_id}",
+      "operationId": "SetRolesForUser",
+      "summary": "Set roles for a user",
+      "tags": [
+        "RoleManagement"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/roles/{user_id}/{resource_type}/{resource_id}/{role_name}",
+      "operationId": "AddUserToRole",
+      "summary": "Add user to role",
+      "tags": [
+        "RoleManagement"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/roles/{user_id}/{resource_type}/{resource_id}/{role_name}",
+      "operationId": "RemoveUserFromRole",
+      "summary": "Remove user from role",
+      "tags": [
+        "RoleManagement"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/persons-by-email",
+      "operationId": "GetPersonUsersByEmail",
+      "summary": "Get person users by email",
+      "tags": [
+        "RoleManagement"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/invoices",
+      "operationId": "ListInvoices",
+      "summary": "List invoices",
+      "tags": [
+        "Billing"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/invoices/{invoice_id}",
+      "operationId": "GetInvoice",
+      "summary": "Get an invoice",
+      "tags": [
+        "Billing"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auditlogevents",
+      "operationId": "ListAuditLogs",
+      "summary": "List audit log events",
+      "tags": [
+        "AuditLogs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/jwt-issuers",
+      "operationId": "ListJWTIssuers",
+      "summary": "List JWT issuers",
+      "tags": [
+        "JWTIssuers"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/jwt-issuers",
+      "operationId": "AddJWTIssuer",
+      "summary": "Add a JWT issuer",
+      "tags": [
+        "JWTIssuers"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/jwt-issuers/{id}",
+      "operationId": "GetJWTIssuer",
+      "summary": "Get a JWT issuer",
+      "tags": [
+        "JWTIssuers"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/jwt-issuers/{id}",
+      "operationId": "DeleteJWTIssuer",
+      "summary": "Delete a JWT issuer",
+      "tags": [
+        "JWTIssuers"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/jwt-issuers/{id}",
+      "operationId": "UpdateJWTIssuer",
+      "summary": "Update a JWT issuer",
+      "tags": [
+        "JWTIssuers"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/maintenance-window",
+      "operationId": "GetMaintenanceWindow",
+      "summary": "Get maintenance window",
+      "tags": [
+        "MaintenanceWindows"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/clusters/{cluster_id}/maintenance-window",
+      "operationId": "SetMaintenanceWindow",
+      "summary": "Set maintenance window",
+      "tags": [
+        "MaintenanceWindows"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/v1/clusters/{cluster_id}/maintenance-window",
+      "operationId": "DeleteMaintenanceWindow",
+      "summary": "Delete maintenance window",
+      "tags": [
+        "MaintenanceWindows"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/clusters/{cluster_id}/version-deferral",
+      "operationId": "GetClusterVersionDeferral",
+      "summary": "Get version deferral",
+      "tags": [
+        "VersionDeferral"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/v1/clusters/{cluster_id}/version-deferral",
+      "operationId": "SetClusterVersionDeferral",
+      "summary": "Set version deferral",
+      "tags": [
+        "VersionDeferral"
+      ]
+    }
+  ]
+}

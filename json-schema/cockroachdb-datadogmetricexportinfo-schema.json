@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DatadogMetricExportInfo",
+  "title": "DatadogMetricExportInfo",
+  "type": "object",
+  "description": "Datadog metric export configuration for a cluster.",
+  "properties": {
+    "cluster_id": {
+      "type": "string",
+      "description": "ID of the cluster this configuration applies to."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of Datadog metric export."
+    },
+    "site": {
+      "type": "string",
+      "description": "Datadog site to export metrics to."
+    }
+  }
+}

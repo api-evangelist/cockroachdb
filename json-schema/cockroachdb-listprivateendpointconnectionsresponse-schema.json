@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListPrivateEndpointConnectionsResponse",
+  "title": "ListPrivateEndpointConnectionsResponse",
+  "type": "object",
+  "description": "List of private endpoint connections for a cluster.",
+  "properties": {
+    "connections": {
+      "type": "array",
+      "description": "Array of private endpoint connection objects.",
+      "items": {
+        "$ref": "#/components/schemas/PrivateEndpointConnection"
+      }
+    }
+  }
+}

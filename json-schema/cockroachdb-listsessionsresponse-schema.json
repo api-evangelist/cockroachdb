@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListSessionsResponse",
+  "title": "ListSessionsResponse",
+  "type": "object",
+  "description": "List of active SQL sessions across all cluster nodes.",
+  "properties": {
+    "sessions": {
+      "type": "array",
+      "description": "Array of active session objects.",
+      "items": {
+        "$ref": "#/components/schemas/Session"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "description": "Errors encountered while collecting session data from individual nodes. Sessions from healthy nodes are still returned.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "node_id": {
+            "type": "integer",
+            "description": "Node ID that returned an error."
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message from the node."
+          }
+        }
+      }
+    },
+    "next": {
+      "type": "integer",
+      "description": "Pagination cursor for the next page of session results."
+    }
+  }
+}

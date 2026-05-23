@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateClusterRequest",
+  "title": "CreateClusterRequest",
+  "type": "object",
+  "description": "Request body for creating a new CockroachDB Cloud cluster.",
+  "required": [
+    "name",
+    "provider",
+    "spec"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name for the new cluster.",
+      "maxLength": 40
+    },
+    "provider": {
+      "type": "string",
+      "description": "Cloud provider to host the cluster.",
+      "enum": [
+        "GCP",
+        "AWS",
+        "AZURE"
+      ]
+    },
+    "spec": {
+      "type": "object",
+      "description": "Cluster specification, either a ServerlessClusterCreateSpecification or DedicatedClusterCreateSpecification."
+    },
+    "regions": {
+      "type": "array",
+      "description": "List of regions to deploy the cluster in.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "parent_id": {
+      "type": "string",
+      "description": "Folder ID to place the cluster in, if applicable."
+    }
+  }
+}

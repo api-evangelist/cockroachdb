@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListRoleGrantsResponse",
+  "title": "ListRoleGrantsResponse",
+  "type": "object",
+  "description": "Paginated list of role grants in the organization.",
+  "properties": {
+    "grants": {
+      "type": "array",
+      "description": "Array of role grant objects.",
+      "items": {
+        "type": "object"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

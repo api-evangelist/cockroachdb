@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddJWTIssuerRequest",
+  "title": "AddJWTIssuerRequest",
+  "type": "object",
+  "description": "Request body for adding a JWT issuer.",
+  "required": [
+    "issuer_url",
+    "jwks_id"
+  ],
+  "properties": {
+    "issuer_url": {
+      "type": "string",
+      "description": "URL of the JWT issuer."
+    },
+    "jwks_id": {
+      "type": "string",
+      "description": "Identifier for the JSON Web Key Set."
+    }
+  }
+}

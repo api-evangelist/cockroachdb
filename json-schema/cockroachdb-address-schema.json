@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Address",
+  "title": "Address",
+  "type": "object",
+  "description": "Network address of a CockroachDB node.",
+  "properties": {
+    "network_field": {
+      "type": "string",
+      "description": "Network protocol (e.g. tcp)."
+    },
+    "address_field": {
+      "type": "string",
+      "description": "Host and port of the node (e.g. 10.0.0.1:26257)."
+    }
+  }
+}

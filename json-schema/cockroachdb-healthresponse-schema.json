@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HealthResponse",
+  "title": "HealthResponse",
+  "type": "object",
+  "description": "Health status of the CockroachDB node.",
+  "properties": {
+    "node_id": {
+      "type": "integer",
+      "description": "Numeric identifier of the responding node."
+    },
+    "ready": {
+      "type": "boolean",
+      "description": "True if the node is fully operational and ready to accept SQL connections."
+    }
+  }
+}

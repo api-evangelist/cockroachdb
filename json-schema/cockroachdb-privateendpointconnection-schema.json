@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PrivateEndpointConnection",
+  "title": "PrivateEndpointConnection",
+  "type": "object",
+  "description": "Represents a private endpoint connection for VPC-level access to a CockroachDB cluster.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the private endpoint connection."
+    },
+    "cloud_provider": {
+      "type": "string",
+      "description": "Cloud provider where the endpoint is hosted."
+    },
+    "status": {
+      "type": "string",
+      "description": "Status of the private endpoint connection."
+    },
+    "endpoint_id": {
+      "type": "string",
+      "description": "Cloud provider endpoint identifier."
+    },
+    "region_name": {
+      "type": "string",
+      "description": "Cloud region of the endpoint."
+    }
+  }
+}

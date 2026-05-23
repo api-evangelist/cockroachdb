@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SQLUser",
+  "title": "SQLUser",
+  "type": "object",
+  "description": "Represents a SQL user on a CockroachDB cluster.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Username of the SQL user."
+    }
+  }
+}

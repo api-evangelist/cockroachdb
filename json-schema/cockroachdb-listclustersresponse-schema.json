@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListClustersResponse",
+  "title": "ListClustersResponse",
+  "type": "object",
+  "description": "Paginated list of clusters in the organization.",
+  "properties": {
+    "clusters": {
+      "type": "array",
+      "description": "Array of cluster objects.",
+      "items": {
+        "$ref": "#/components/schemas/Cluster"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListMajorClusterVersionsResponse",
+  "title": "ListMajorClusterVersionsResponse",
+  "type": "object",
+  "description": "List of available major CockroachDB versions.",
+  "properties": {
+    "versions": {
+      "type": "array",
+      "description": "Array of version objects.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "Major version string."
+          }
+        }
+      }
+    }
+  }
+}

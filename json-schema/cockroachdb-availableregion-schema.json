@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AvailableRegion",
+  "title": "AvailableRegion",
+  "type": "object",
+  "description": "A cloud provider region available for cluster deployment.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Cloud region identifier."
+    },
+    "provider": {
+      "type": "string",
+      "description": "Cloud provider the region belongs to."
+    },
+    "serverless": {
+      "type": "boolean",
+      "description": "Whether this region supports Serverless clusters."
+    }
+  }
+}

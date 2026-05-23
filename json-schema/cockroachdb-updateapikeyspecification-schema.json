@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateApiKeySpecification",
+  "title": "UpdateApiKeySpecification",
+  "type": "object",
+  "description": "Specification for updating an API key's metadata.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "New name for the API key."
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListInvoicesResponse",
+  "title": "ListInvoicesResponse",
+  "type": "object",
+  "description": "List of invoices for the organization.",
+  "properties": {
+    "invoices": {
+      "type": "array",
+      "description": "Array of invoice objects.",
+      "items": {
+        "$ref": "#/components/schemas/Invoice"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClusterNode",
+  "title": "ClusterNode",
+  "type": "object",
+  "description": "Represents an individual node within a CockroachDB cluster.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Node name or identifier."
+    },
+    "region_name": {
+      "type": "string",
+      "description": "Cloud region the node is deployed in."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current operational status of the node."
+    }
+  }
+}

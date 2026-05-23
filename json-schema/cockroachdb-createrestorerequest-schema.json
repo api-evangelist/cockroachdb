@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateRestoreRequest",
+  "title": "CreateRestoreRequest",
+  "type": "object",
+  "description": "Request body for initiating a cluster restore.",
+  "required": [
+    "backup_id"
+  ],
+  "properties": {
+    "backup_id": {
+      "type": "string",
+      "description": "ID of the backup to restore from."
+    },
+    "target": {
+      "type": "object",
+      "description": "Optional target specification for the restore."
+    }
+  }
+}

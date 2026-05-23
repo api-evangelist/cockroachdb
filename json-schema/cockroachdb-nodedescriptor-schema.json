@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NodeDescriptor",
+  "title": "NodeDescriptor",
+  "type": "object",
+  "description": "Identifies and locates a specific node within the CockroachDB cluster.",
+  "properties": {
+    "node_id": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Numeric identifier of the node."
+    },
+    "address": {
+      "$ref": "#/components/schemas/Address"
+    },
+    "attrs": {
+      "type": "object",
+      "description": "Node attribute key-value pairs used for zone configuration."
+    },
+    "locality": {
+      "$ref": "#/components/schemas/Locality"
+    },
+    "server_version": {
+      "type": "object",
+      "description": "CockroachDB server version running on this node."
+    },
+    "build_tag": {
+      "type": "string",
+      "description": "Build tag string for the CockroachDB binary."
+    },
+    "started_at": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unix nanosecond timestamp when the node started."
+    },
+    "cluster_name": {
+      "type": "string",
+      "description": "Name of the cluster this node belongs to."
+    },
+    "sql_address": {
+      "$ref": "#/components/schemas/Address"
+    }
+  }
+}

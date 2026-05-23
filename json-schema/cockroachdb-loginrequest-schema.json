@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LoginRequest",
+  "title": "LoginRequest",
+  "type": "object",
+  "description": "Credentials for authenticating to the Cluster API.",
+  "required": [
+    "username",
+    "password"
+  ],
+  "properties": {
+    "username": {
+      "type": "string",
+      "description": "SQL username to authenticate with."
+    },
+    "password": {
+      "type": "string",
+      "description": "Password for the SQL user.",
+      "format": "password"
+    }
+  }
+}

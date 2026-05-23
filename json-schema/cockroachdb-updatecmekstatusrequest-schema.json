@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateCMEKStatusRequest",
+  "title": "UpdateCMEKStatusRequest",
+  "type": "object",
+  "description": "Request body for updating CMEK operational status.",
+  "required": [
+    "status"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "New CMEK status. Accepted values include REVOKE and ROTATE."
+    }
+  }
+}

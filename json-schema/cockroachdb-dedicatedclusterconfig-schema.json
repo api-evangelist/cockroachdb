@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DedicatedClusterConfig",
+  "title": "DedicatedClusterConfig",
+  "type": "object",
+  "description": "Configuration specific to CockroachDB Dedicated clusters.",
+  "properties": {
+    "machine_type": {
+      "type": "string",
+      "description": "Machine type used for cluster nodes."
+    },
+    "num_virtual_cpus": {
+      "type": "integer",
+      "description": "Number of virtual CPUs per node."
+    },
+    "storage_gib": {
+      "type": "integer",
+      "description": "Storage capacity per node in gibibytes."
+    },
+    "memory_gib": {
+      "type": "number",
+      "description": "Memory per node in gibibytes."
+    },
+    "disk_iops": {
+      "type": "integer",
+      "description": "Disk IOPS allocated per node."
+    }
+  }
+}

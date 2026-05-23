@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateBackupConfigurationSpec",
+  "title": "UpdateBackupConfigurationSpec",
+  "type": "object",
+  "description": "Specification for updating backup configuration.",
+  "properties": {
+    "frequency_minutes": {
+      "type": "integer",
+      "description": "New backup frequency in minutes."
+    },
+    "retention_days": {
+      "type": "integer",
+      "description": "New retention period in days."
+    }
+  }
+}

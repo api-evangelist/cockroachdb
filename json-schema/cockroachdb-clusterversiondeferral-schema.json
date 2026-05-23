@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClusterVersionDeferral",
+  "title": "ClusterVersionDeferral",
+  "type": "object",
+  "description": "Version deferral policy for a cluster, controlling whether automatic CockroachDB version upgrades are deferred.",
+  "properties": {
+    "deferral_policy": {
+      "type": "string",
+      "description": "Deferral policy. Values include NOT_DEFERRED (upgrades proceed immediately) and FIXED_DEFERRAL (upgrades are delayed).",
+      "enum": [
+        "NOT_DEFERRED",
+        "FIXED_DEFERRAL"
+      ]
+    }
+  }
+}

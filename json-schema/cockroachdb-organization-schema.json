@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Organization",
+  "title": "Organization",
+  "type": "object",
+  "description": "Represents a CockroachDB Cloud organization, which is the top-level container for all clusters, users, and billing.",
+  "required": [
+    "id",
+    "name"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the organization."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the organization."
+    },
+    "label": {
+      "type": "string",
+      "description": "Short label for the organization."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the organization was created."
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GetPersonUsersByEmailResponse",
+  "title": "GetPersonUsersByEmailResponse",
+  "type": "object",
+  "description": "Person user accounts matching the queried email address.",
+  "properties": {
+    "users": {
+      "type": "array",
+      "description": "Array of user account objects.",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

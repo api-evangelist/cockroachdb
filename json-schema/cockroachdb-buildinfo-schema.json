@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BuildInfo",
+  "title": "BuildInfo",
+  "type": "object",
+  "description": "Build and version metadata for the CockroachDB binary on a node.",
+  "properties": {
+    "go_version": {
+      "type": "string",
+      "description": "Go runtime version used to build CockroachDB."
+    },
+    "tag": {
+      "type": "string",
+      "description": "Git tag of the CockroachDB release."
+    },
+    "time": {
+      "type": "string",
+      "description": "Build timestamp."
+    },
+    "revision": {
+      "type": "string",
+      "description": "Git revision hash of the build."
+    },
+    "cgo_compiler": {
+      "type": "string",
+      "description": "CGO compiler version used in the build."
+    },
+    "platform": {
+      "type": "string",
+      "description": "Target platform for the build (e.g. linux amd64)."
+    },
+    "distribution": {
+      "type": "string",
+      "description": "CockroachDB distribution type (e.g. CCL or OSS)."
+    },
+    "type": {
+      "type": "string",
+      "description": "Build type (e.g. release or development)."
+    },
+    "channel": {
+      "type": "string",
+      "description": "Release channel the binary belongs to."
+    }
+  }
+}

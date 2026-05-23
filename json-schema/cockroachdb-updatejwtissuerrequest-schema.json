@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateJWTIssuerRequest",
+  "title": "UpdateJWTIssuerRequest",
+  "type": "object",
+  "description": "Request body for updating a JWT issuer.",
+  "properties": {
+    "issuer_url": {
+      "type": "string",
+      "description": "Updated URL of the JWT issuer."
+    },
+    "jwks_id": {
+      "type": "string",
+      "description": "Updated JWKS identifier."
+    }
+  }
+}

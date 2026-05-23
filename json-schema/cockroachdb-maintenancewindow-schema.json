@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MaintenanceWindow",
+  "title": "MaintenanceWindow",
+  "type": "object",
+  "description": "Defines the time window during which CockroachDB Cloud may perform automatic maintenance and version upgrade operations on a cluster.",
+  "properties": {
+    "day_of_week": {
+      "type": "integer",
+      "description": "Day of the week for maintenance. 0=Sunday, 6=Saturday.",
+      "minimum": 0,
+      "maximum": 6
+    },
+    "start_hour": {
+      "type": "integer",
+      "description": "Hour of day (UTC) when the maintenance window begins.",
+      "minimum": 0,
+      "maximum": 23
+    }
+  }
+}

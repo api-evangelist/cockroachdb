@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CMEKClusterInfo",
+  "title": "CMEKClusterInfo",
+  "type": "object",
+  "description": "Customer-managed encryption key configuration for a cluster.",
+  "properties": {
+    "cluster_id": {
+      "type": "string",
+      "description": "ID of the cluster this CMEK configuration applies to."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current CMEK operational status."
+    },
+    "spec": {
+      "$ref": "#/components/schemas/CMEKClusterSpecification"
+    }
+  }
+}

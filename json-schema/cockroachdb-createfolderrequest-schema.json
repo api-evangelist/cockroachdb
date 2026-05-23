@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateFolderRequest",
+  "title": "CreateFolderRequest",
+  "type": "object",
+  "description": "Request body for creating a new folder.",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name for the new folder."
+    },
+    "parent_id": {
+      "type": "string",
+      "description": "Parent folder ID to nest this folder under."
+    }
+  }
+}

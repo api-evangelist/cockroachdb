@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListEgressRulesResponse",
+  "title": "ListEgressRulesResponse",
+  "type": "object",
+  "description": "Paginated list of egress rules for a cluster.",
+  "properties": {
+    "rules": {
+      "type": "array",
+      "description": "Array of egress rule objects.",
+      "items": {
+        "$ref": "#/components/schemas/EgressRule"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

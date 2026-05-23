@@ -1,0 +1,47 @@
+name: CockroachDB Domain Vocabulary
+provider: CockroachDB
+providerId: cockroachdb
+description: Tag-derived vocabulary for the CockroachDB API surface; sourced from openapi/ tags.
+terms:
+- term: APIKeys
+  description: Manage API keys for programmatic access, including creation, retrieval, listing, updating, and deletion.
+- term: AuditLogs
+  description: Retrieve audit log events for the organization to support compliance and security investigations.
+- term: BackupRestore
+  description: Manage cluster backups, backup configurations, and restore operations for CockroachDB clusters.
+- term: Billing
+  description: Retrieve invoices and billing information for the CockroachDB Cloud organization.
+- term: Clusters
+  description: Create, list, retrieve, update, and delete CockroachDB Serverless and Dedicated clusters within an organization.
+- term: CMEK
+  description: Manage customer-managed encryption keys (CMEK) for encrypting cluster data at rest using customer-controlled
+    keys.
+- term: Databases
+  description: Manage databases within a CockroachDB cluster, including creation, listing, updating, and deletion.
+- term: EgressRules
+  description: Configure egress traffic rules and egress private endpoints for outbound cluster network traffic.
+- term: Folders
+  description: Organize clusters and other resources into hierarchical folder structures within the organization.
+- term: IPAllowlists
+  description: Configure IP allowlist entries to control network access to a cluster.
+- term: JWTIssuers
+  description: Manage JWT issuer configurations for external identity provider integrations.
+- term: LogExport
+  description: Configure log export to external destinations such as AWS CloudWatch or GCP Cloud Logging.
+- term: MaintenanceWindows
+  description: Configure maintenance windows and blackout periods for cluster upgrade scheduling.
+- term: MetricExport
+  description: Configure metric export integrations including AWS CloudWatch, Datadog, and Prometheus.
+- term: Organizations
+  description: Retrieve information about the caller's CockroachDB Cloud organization.
+- term: PrivateEndpoints
+  description: Manage private endpoint services and connections for secure VPC-level access to clusters.
+- term: RoleManagement
+  description: Manage role-based access control, including assigning and removing roles for users across organization, folder,
+    and cluster scopes.
+- term: ServiceAccounts
+  description: Manage service accounts used for machine-to-machine authentication within the organization.
+- term: SQLUsers
+  description: Manage SQL users for a cluster, including creating users, listing users, and updating SQL user passwords.
+- term: VersionDeferral
+  description: Manage cluster version deferral policies to delay automatic CockroachDB version upgrades.

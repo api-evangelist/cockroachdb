@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LoginResponse",
+  "title": "LoginResponse",
+  "type": "object",
+  "description": "Response from a successful login request.",
+  "properties": {
+    "session": {
+      "type": "string",
+      "description": "Session token. Also returned in the X-Cockroach-API-Session response header for convenience."
+    }
+  }
+}

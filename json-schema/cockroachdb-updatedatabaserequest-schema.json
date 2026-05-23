@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateDatabaseRequest",
+  "title": "UpdateDatabaseRequest",
+  "type": "object",
+  "description": "Request body for updating an existing database.",
+  "properties": {
+    "new_name": {
+      "type": "string",
+      "description": "New name for the database."
+    }
+  }
+}

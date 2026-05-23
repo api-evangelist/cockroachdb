@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Locality",
+  "title": "Locality",
+  "type": "object",
+  "description": "Geographic or topological locality tiers assigned to the node, used for zone configuration and replica placement.",
+  "properties": {
+    "tiers": {
+      "type": "array",
+      "description": "Ordered list of locality tiers from most general to most specific.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Locality tier key (e.g. region, zone, rack)."
+          },
+          "value": {
+            "type": "string",
+            "description": "Locality tier value (e.g. us-east-1, us-east-1a)."
+          }
+        }
+      }
+    }
+  }
+}

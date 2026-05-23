@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NodeStatus",
+  "title": "NodeStatus",
+  "type": "object",
+  "description": "Status and metadata for a single node in the CockroachDB cluster, including address, build details, locality, store information, and activity metrics.",
+  "properties": {
+    "desc": {
+      "$ref": "#/components/schemas/NodeDescriptor"
+    },
+    "build_info": {
+      "$ref": "#/components/schemas/BuildInfo"
+    },
+    "started_at": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unix nanosecond timestamp when the node process started."
+    },
+    "updated_at": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unix nanosecond timestamp of the most recent status update."
+    },
+    "metrics": {
+      "type": "object",
+      "description": "Map of metric name to value for this node, covering CPU, memory, disk, network, and SQL throughput metrics.",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "store_statuses": {
+      "type": "array",
+      "description": "Status objects for each store (disk) on this node.",
+      "items": {
+        "type": "object"
+      }
+    },
+    "args": {
+      "type": "array",
+      "description": "Command-line arguments the node process was started with.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "env": {
+      "type": "array",
+      "description": "Environment variables set in the node process.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "activity": {
+      "type": "object",
+      "description": "Per-node activity metrics including bytes sent and received."
+    }
+  }
+}

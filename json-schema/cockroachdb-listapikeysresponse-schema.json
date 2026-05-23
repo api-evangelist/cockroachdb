@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListApiKeysResponse",
+  "title": "ListApiKeysResponse",
+  "type": "object",
+  "description": "Paginated list of API keys.",
+  "properties": {
+    "api_keys": {
+      "type": "array",
+      "description": "Array of API key objects.",
+      "items": {
+        "$ref": "#/components/schemas/ApiKey"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

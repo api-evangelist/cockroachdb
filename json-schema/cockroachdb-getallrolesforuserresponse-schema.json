@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GetAllRolesForUserResponse",
+  "title": "GetAllRolesForUserResponse",
+  "type": "object",
+  "description": "All role grants assigned to a specific user.",
+  "properties": {
+    "roles": {
+      "type": "array",
+      "description": "Array of role grant objects.",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

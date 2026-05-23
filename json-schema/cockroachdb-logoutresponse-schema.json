@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LogoutResponse",
+  "title": "LogoutResponse",
+  "type": "object",
+  "description": "Response from a logout request confirming session termination.",
+  "properties": {
+    "logged_out": {
+      "type": "boolean",
+      "description": "True if the session was successfully terminated."
+    }
+  }
+}

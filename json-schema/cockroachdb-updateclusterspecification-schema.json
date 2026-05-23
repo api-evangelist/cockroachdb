@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateClusterSpecification",
+  "title": "UpdateClusterSpecification",
+  "type": "object",
+  "description": "Specification for modifying an existing cluster's configuration.",
+  "properties": {
+    "dedicated": {
+      "type": "object",
+      "description": "Updated dedicated cluster configuration fields."
+    },
+    "serverless": {
+      "type": "object",
+      "description": "Updated serverless cluster configuration fields."
+    },
+    "cockroach_version": {
+      "type": "string",
+      "description": "Target CockroachDB version for the upgrade."
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Session",
+  "title": "Session",
+  "type": "object",
+  "description": "An active SQL session on the CockroachDB cluster, representing a connection from a client application.",
+  "properties": {
+    "node_id": {
+      "type": "integer",
+      "description": "Node ID where this session is being served."
+    },
+    "username": {
+      "type": "string",
+      "description": "SQL username of the session."
+    },
+    "client_address": {
+      "type": "string",
+      "description": "Network address of the client (host:port)."
+    },
+    "application_name": {
+      "type": "string",
+      "description": "Application name reported by the SQL client driver."
+    },
+    "start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the session was established."
+    },
+    "last_active_query": {
+      "type": "string",
+      "description": "Most recently executed SQL query in this session."
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the session."
+    },
+    "alloc_bytes": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Memory allocated by this session in bytes."
+    },
+    "max_alloc_bytes": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Peak memory allocation for this session in bytes."
+    },
+    "active_queries": {
+      "type": "array",
+      "description": "Currently executing queries within this session.",
+      "items": {
+        "type": "object"
+      }
+    },
+    "active_txn": {
+      "type": "object",
+      "description": "Currently active transaction within this session, if any."
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListAuditLogsResponse",
+  "title": "ListAuditLogsResponse",
+  "type": "object",
+  "description": "Audit log events returned from the API.",
+  "properties": {
+    "entries": {
+      "type": "array",
+      "description": "Array of audit log entry objects.",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

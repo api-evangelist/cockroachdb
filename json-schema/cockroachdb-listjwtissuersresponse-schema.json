@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListJWTIssuersResponse",
+  "title": "ListJWTIssuersResponse",
+  "type": "object",
+  "description": "Paginated list of JWT issuers.",
+  "properties": {
+    "issuers": {
+      "type": "array",
+      "description": "Array of JWT issuer objects.",
+      "items": {
+        "$ref": "#/components/schemas/JWTIssuer"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

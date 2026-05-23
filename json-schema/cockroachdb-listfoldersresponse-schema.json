@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListFoldersResponse",
+  "title": "ListFoldersResponse",
+  "type": "object",
+  "description": "Paginated list of folders.",
+  "properties": {
+    "folders": {
+      "type": "array",
+      "description": "Array of folder objects.",
+      "items": {
+        "$ref": "#/components/schemas/Folder"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListHotRangesResponse",
+  "title": "ListHotRangesResponse",
+  "type": "object",
+  "description": "Hot ranges across the cluster or filtered to a specific node.",
+  "properties": {
+    "ranges": {
+      "type": "array",
+      "description": "Array of hot range objects sorted by activity level.",
+      "items": {
+        "$ref": "#/components/schemas/HotRange"
+      }
+    },
+    "next": {
+      "type": "integer",
+      "description": "Pagination cursor for the next page of hot range results."
+    }
+  }
+}

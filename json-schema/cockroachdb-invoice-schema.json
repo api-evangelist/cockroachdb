@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Invoice",
+  "title": "Invoice",
+  "type": "object",
+  "description": "A billing invoice for a CockroachDB Cloud organization.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the invoice."
+    },
+    "status": {
+      "type": "string",
+      "description": "Status of the invoice. Values include Finalized and Draft."
+    },
+    "period_start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start of the billing period covered by this invoice."
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End of the billing period covered by this invoice."
+    },
+    "total_amount": {
+      "type": "number",
+      "description": "Total invoice amount in US cents."
+    }
+  }
+}

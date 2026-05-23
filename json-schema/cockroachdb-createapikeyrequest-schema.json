@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateApiKeyRequest",
+  "title": "CreateApiKeyRequest",
+  "type": "object",
+  "description": "Request body for creating a new API key.",
+  "required": [
+    "name",
+    "service_account_id"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name for the new API key."
+    },
+    "service_account_id": {
+      "type": "string",
+      "description": "ID of the service account to associate the key with."
+    }
+  }
+}

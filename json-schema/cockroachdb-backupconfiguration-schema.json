@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/BackupConfiguration",
+  "title": "BackupConfiguration",
+  "type": "object",
+  "description": "Backup configuration settings for a CockroachDB cluster.",
+  "properties": {
+    "cluster_id": {
+      "type": "string",
+      "description": "Cluster ID the configuration applies to."
+    },
+    "frequency_minutes": {
+      "type": "integer",
+      "description": "How often backups are taken, in minutes."
+    },
+    "retention_days": {
+      "type": "integer",
+      "description": "Number of days backups are retained."
+    }
+  }
+}

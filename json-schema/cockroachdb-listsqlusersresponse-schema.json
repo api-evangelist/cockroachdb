@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListSQLUsersResponse",
+  "title": "ListSQLUsersResponse",
+  "type": "object",
+  "description": "Paginated list of SQL users for a cluster.",
+  "properties": {
+    "users": {
+      "type": "array",
+      "description": "Array of SQL user objects.",
+      "items": {
+        "$ref": "#/components/schemas/SQLUser"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

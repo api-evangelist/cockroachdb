@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListNodesResponse",
+  "title": "ListNodesResponse",
+  "type": "object",
+  "description": "List of nodes in the CockroachDB cluster with pagination metadata.",
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "description": "Array of node status objects.",
+      "items": {
+        "$ref": "#/components/schemas/NodeStatus"
+      }
+    },
+    "next": {
+      "type": "integer",
+      "description": "Offset value to use to retrieve the next page of results. Absent when there are no more results."
+    }
+  }
+}

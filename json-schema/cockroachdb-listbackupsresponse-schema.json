@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListBackupsResponse",
+  "title": "ListBackupsResponse",
+  "type": "object",
+  "description": "Paginated list of cluster backups.",
+  "properties": {
+    "backups": {
+      "type": "array",
+      "description": "Array of backup objects.",
+      "items": {
+        "type": "object"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

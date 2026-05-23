@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClusterConfig",
+  "title": "ClusterConfig",
+  "type": "object",
+  "description": "Configuration settings for a CockroachDB cluster.",
+  "properties": {
+    "serverless": {
+      "$ref": "#/components/schemas/ServerlessClusterConfig"
+    },
+    "dedicated": {
+      "$ref": "#/components/schemas/DedicatedClusterConfig"
+    }
+  }
+}

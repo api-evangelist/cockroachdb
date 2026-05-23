@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RangeDescriptor",
+  "title": "RangeDescriptor",
+  "type": "object",
+  "description": "Describes a range's identity, key bounds, and replica set.",
+  "properties": {
+    "range_id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unique identifier of the range."
+    },
+    "start_key": {
+      "type": "string",
+      "description": "Base64-encoded start key of the range."
+    },
+    "end_key": {
+      "type": "string",
+      "description": "Base64-encoded end key of the range."
+    },
+    "internal_replicas": {
+      "type": "array",
+      "description": "List of replicas for this range.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "node_id": {
+            "type": "integer",
+            "description": "Node hosting this replica."
+          },
+          "store_id": {
+            "type": "integer",
+            "description": "Store on the node hosting this replica."
+          },
+          "replica_id": {
+            "type": "integer",
+            "description": "Unique identifier of this replica within the range."
+          }
+        }
+      }
+    }
+  }
+}

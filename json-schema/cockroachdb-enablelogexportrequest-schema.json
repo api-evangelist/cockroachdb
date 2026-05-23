@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EnableLogExportRequest",
+  "title": "EnableLogExportRequest",
+  "type": "object",
+  "description": "Request body for enabling log export.",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Type of log export destination. Accepted values are AWS_CLOUDWATCH and GCP_CLOUD_LOGGING.",
+      "enum": [
+        "AWS_CLOUDWATCH",
+        "GCP_CLOUD_LOGGING"
+      ]
+    },
+    "log_name": {
+      "type": "string",
+      "description": "Name for the log stream or log group."
+    },
+    "groups": {
+      "type": "array",
+      "description": "Channel groups to export.",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

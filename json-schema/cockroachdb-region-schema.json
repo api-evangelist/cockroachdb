@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Region",
+  "title": "Region",
+  "type": "object",
+  "description": "A geographic region where the cluster or its nodes are deployed.",
+  "required": [
+    "name"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Cloud provider region identifier (e.g. us-east-1)."
+    },
+    "sql_dns": {
+      "type": "string",
+      "description": "DNS hostname for SQL connections routed to this region."
+    },
+    "node_count": {
+      "type": "integer",
+      "description": "Number of nodes in this region."
+    }
+  }
+}

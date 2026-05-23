@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListNodeRangesResponse",
+  "title": "ListNodeRangesResponse",
+  "type": "object",
+  "description": "Range information for a specific node with pagination metadata.",
+  "properties": {
+    "ranges": {
+      "type": "array",
+      "description": "Array of range information objects for the node.",
+      "items": {
+        "$ref": "#/components/schemas/RangeInfo"
+      }
+    },
+    "next": {
+      "type": "integer",
+      "description": "Offset for retrieving the next page of results."
+    }
+  }
+}

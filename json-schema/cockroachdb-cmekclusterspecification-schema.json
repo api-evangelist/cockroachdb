@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CMEKClusterSpecification",
+  "title": "CMEKClusterSpecification",
+  "type": "object",
+  "description": "Specification defining the customer-managed encryption key configuration for a CockroachDB cluster.",
+  "required": [
+    "region_specs"
+  ],
+  "properties": {
+    "region_specs": {
+      "type": "array",
+      "description": "Per-region CMEK key specifications.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "string",
+            "description": "Cloud region the key applies to."
+          },
+          "key": {
+            "type": "object",
+            "description": "Key specification including type and URI."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListFolderContentsResponse",
+  "title": "ListFolderContentsResponse",
+  "type": "object",
+  "description": "Contents of a folder including clusters and sub-folders.",
+  "properties": {
+    "resources": {
+      "type": "array",
+      "description": "Array of resource objects (clusters or folders).",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateSQLUserRequest",
+  "title": "CreateSQLUserRequest",
+  "type": "object",
+  "description": "Request body for creating a new SQL user.",
+  "required": [
+    "name",
+    "password"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Username for the new SQL user."
+    },
+    "password": {
+      "type": "string",
+      "description": "Initial password for the SQL user.",
+      "format": "password"
+    }
+  }
+}

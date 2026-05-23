@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListRestoresResponse",
+  "title": "ListRestoresResponse",
+  "type": "object",
+  "description": "Paginated list of restore operations.",
+  "properties": {
+    "restores": {
+      "type": "array",
+      "description": "Array of restore operation objects.",
+      "items": {
+        "$ref": "#/components/schemas/Restore"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

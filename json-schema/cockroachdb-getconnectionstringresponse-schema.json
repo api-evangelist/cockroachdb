@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GetConnectionStringResponse",
+  "title": "GetConnectionStringResponse",
+  "type": "object",
+  "description": "Connection string for a cluster.",
+  "properties": {
+    "connection_string": {
+      "type": "string",
+      "description": "Formatted connection string for the cluster."
+    }
+  }
+}

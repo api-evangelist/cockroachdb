@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddPrivateEndpointConnectionRequest",
+  "title": "AddPrivateEndpointConnectionRequest",
+  "type": "object",
+  "description": "Request body for adding a private endpoint connection.",
+  "required": [
+    "endpoint_id"
+  ],
+  "properties": {
+    "endpoint_id": {
+      "type": "string",
+      "description": "Cloud provider endpoint identifier to connect."
+    }
+  }
+}

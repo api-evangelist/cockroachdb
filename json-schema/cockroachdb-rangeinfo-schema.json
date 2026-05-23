@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RangeInfo",
+  "title": "RangeInfo",
+  "type": "object",
+  "description": "Information about a single range, including span, replica placement, lease holder, and per-replica statistics.",
+  "properties": {
+    "desc": {
+      "$ref": "#/components/schemas/RangeDescriptor"
+    },
+    "span": {
+      "type": "object",
+      "description": "Key span covered by this range."
+    },
+    "source_node_id": {
+      "type": "integer",
+      "description": "Node ID that provided this range information."
+    },
+    "source_store_id": {
+      "type": "integer",
+      "description": "Store ID on the source node that holds this range."
+    },
+    "error_message": {
+      "type": "string",
+      "description": "Error message if range information could not be retrieved."
+    },
+    "lease_holder": {
+      "type": "integer",
+      "description": "Store ID of the current leaseholder replica."
+    },
+    "raft_state": {
+      "type": "string",
+      "description": "Raft consensus state of this range (e.g. Leader, Follower)."
+    },
+    "stats": {
+      "type": "object",
+      "description": "Aggregate statistics for the range including key/value counts."
+    }
+  }
+}

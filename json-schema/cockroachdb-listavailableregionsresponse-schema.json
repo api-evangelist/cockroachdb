@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListAvailableRegionsResponse",
+  "title": "ListAvailableRegionsResponse",
+  "type": "object",
+  "description": "Paginated list of available cloud regions.",
+  "properties": {
+    "regions": {
+      "type": "array",
+      "description": "Array of available region objects.",
+      "items": {
+        "$ref": "#/components/schemas/AvailableRegion"
+      }
+    },
+    "pagination": {
+      "$ref": "#/components/schemas/PaginationResponse"
+    }
+  }
+}

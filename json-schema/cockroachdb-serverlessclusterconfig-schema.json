@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ServerlessClusterConfig",
+  "title": "ServerlessClusterConfig",
+  "type": "object",
+  "description": "Configuration specific to CockroachDB Serverless clusters.",
+  "properties": {
+    "spend_limit": {
+      "type": "integer",
+      "description": "Monthly spend limit in US cents. 0 means no limit."
+    },
+    "routing_id": {
+      "type": "string",
+      "description": "Unique routing identifier for the serverless cluster."
+    },
+    "usage_limits": {
+      "type": "object",
+      "description": "Usage-based limits for request units and storage."
+    }
+  }
+}

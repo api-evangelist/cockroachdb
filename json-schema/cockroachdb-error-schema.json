@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Error",
+  "title": "Error",
+  "type": "object",
+  "description": "Standard error response returned by the API.",
+  "properties": {
+    "code": {
+      "type": "integer",
+      "description": "HTTP status code of the error."
+    },
+    "message": {
+      "type": "string",
+      "description": "Human-readable description of the error."
+    },
+    "details": {
+      "type": "array",
+      "description": "Additional detail objects providing error context.",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

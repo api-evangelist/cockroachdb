@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JWTIssuer",
+  "title": "JWTIssuer",
+  "type": "object",
+  "description": "A JWT issuer configuration for external identity provider integration.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the JWT issuer."
+    },
+    "issuer_url": {
+      "type": "string",
+      "description": "URL of the JWT issuer (identity provider)."
+    },
+    "jwks_id": {
+      "type": "string",
+      "description": "Identifier for the JSON Web Key Set."
+    }
+  }
+}

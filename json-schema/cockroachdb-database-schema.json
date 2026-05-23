@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Database",
+  "title": "Database",
+  "type": "object",
+  "description": "Represents a database within a CockroachDB cluster.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the database."
+    },
+    "table_count": {
+      "type": "integer",
+      "description": "Number of tables in the database."
+    }
+  }
+}

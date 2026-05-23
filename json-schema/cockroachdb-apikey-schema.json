@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApiKey",
+  "title": "ApiKey",
+  "type": "object",
+  "description": "Represents an API key used for authenticating requests to the CockroachDB Cloud API.",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the API key."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the API key."
+    },
+    "service_account_id": {
+      "type": "string",
+      "description": "Service account associated with this API key."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the API key was created."
+    }
+  }
+}

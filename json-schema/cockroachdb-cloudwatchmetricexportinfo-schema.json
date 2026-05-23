@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CloudWatchMetricExportInfo",
+  "title": "CloudWatchMetricExportInfo",
+  "type": "object",
+  "description": "AWS CloudWatch metric export configuration for a cluster.",
+  "properties": {
+    "cluster_id": {
+      "type": "string",
+      "description": "ID of the cluster this configuration applies to."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of CloudWatch metric export."
+    },
+    "role_arn": {
+      "type": "string",
+      "description": "AWS IAM role ARN used for CloudWatch metric export."
+    }
+  }
+}

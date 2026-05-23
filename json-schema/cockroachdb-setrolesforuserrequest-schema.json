@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SetRolesForUserRequest",
+  "title": "SetRolesForUserRequest",
+  "type": "object",
+  "description": "Request body for setting all roles for a user.",
+  "required": [
+    "roles"
+  ],
+  "properties": {
+    "roles": {
+      "type": "array",
+      "description": "Complete set of role grants to assign to the user.",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}
