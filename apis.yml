@@ -14,7 +14,7 @@ tags:
   - PostgreSQL Compatible
   - SQL
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 kind: company
 created: '2024-11-24'
@@ -35,7 +35,7 @@ apis:
       - Cluster Management
       - Database
       - Infrastructure
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://cockroachlabs.cloud
     humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
     properties:
@@ -73,7 +73,7 @@ apis:
       - Monitoring
       - Nodes
       - Observability
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://localhost:8080/api/v2
     humanURL: https://www.cockroachlabs.com/docs/stable/cluster-api
     properties:
