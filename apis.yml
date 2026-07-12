@@ -99,6 +99,14 @@ apis:
       - Hot-range and session troubleshooting
       - Self-hosted observability integrations
 common:
+  - type: TrustCenter
+    url: security/cockroachdb-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/cockroachdb-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/cockroachdb-domain-security.yml
+  - type: Authentication
+    url: authentication/cockroachdb-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/cockroach-labs
   - url: json-schema/cockroachdb-cluster-schema.json
@@ -142,6 +150,8 @@ common:
     updated: '2026-05-04'
   - type: Integrations
     url: https://www.cockroachlabs.com/partners/
+  - type: Blog
+    url: https://cockroachlabs.com/rss.xml
 integrations:
   - name: partner-icon
   - name: Become a partner
