@@ -1,0 +1,21 @@
+{
+  "repo": "cockroachdb",
+  "feeds": [
+    {
+      "source": "https://cockroachlabs.com/rss.xml",
+      "feed_url": "https://cockroachlabs.com/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.cockroachlabs.com/partners/",
+      "feed_url": "https://www.cockroachlabs.com/partners/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 66
+}
