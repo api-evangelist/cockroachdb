@@ -99,6 +99,8 @@ apis:
       - Hot-range and session troubleshooting
       - Self-hosted observability integrations
 common:
+  - type: AgenticAccess
+    url: agentic-access/cockroachdb-agentic-access.yml
   - type: TrustCenter
     url: security/cockroachdb-trust-center.yml
   - type: VulnerabilityDisclosure
