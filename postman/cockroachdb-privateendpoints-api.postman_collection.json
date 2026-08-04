@@ -1,0 +1,1177 @@
+{
+  "info": {
+    "_postman_id": "88a8798d-8602-4db4-8ffb-984808b565e3",
+    "name": "CockroachDB Cloud APIKeys PrivateEndpoints API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:24:10.000Z",
+    "updatedAt": "2026-07-28T01:24:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-88a8798d-8602-4db4-8ffb-984808b565e3"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "clusters",
+              "item": [
+                {
+                  "name": "{cluster_id}",
+                  "item": [
+                    {
+                      "name": "networking",
+                      "item": [
+                        {
+                          "name": "private-endpoint-services",
+                          "item": [
+                            {
+                              "name": "List private endpoint services",
+                              "id": "44edbe0e-2e23-4a8c-9423-820dd3a46dec",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-services",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "networking",
+                                    "private-endpoint-services"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "fcd65f7b-33b8-4152-8aee-dab2ebf4af15",
+                                      "key": "cluster_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a list of private endpoint services configured for the specified cluster."
+                              },
+                              "response": [
+                                {
+                                  "id": "c512b887-979b-4be3-a02e-2126d249f505",
+                                  "name": "List of private endpoint services returned successfully.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-services",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-services"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-c512b887-979b-4be3-a02e-2126d249f505"
+                                },
+                                {
+                                  "id": "62b978a2-97f6-4372-a79b-fa71d3900696",
+                                  "name": "Authentication credentials are missing or invalid.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-services",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-services"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-62b978a2-97f6-4372-a79b-fa71d3900696"
+                                },
+                                {
+                                  "id": "f889a8c3-3a48-48b1-84dd-4f84b45423ad",
+                                  "name": "The requested resource was not found.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-services",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-services"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-f889a8c3-3a48-48b1-84dd-4f84b45423ad"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:24:11.000Z",
+                              "updatedAt": "2026-07-28T01:24:11.000Z",
+                              "uid": "35240-44edbe0e-2e23-4a8c-9423-820dd3a46dec"
+                            },
+                            {
+                              "name": "Create private endpoint services",
+                              "id": "b32bcac7-b390-4178-8b13-365459ef14eb",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-services",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "networking",
+                                    "private-endpoint-services"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "2f4e8cd0-4234-44a9-8618-b0071ae264a3",
+                                      "key": "cluster_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                    }
+                                  ]
+                                },
+                                "description": "Creates private endpoint services for the specified cluster to enable VPC-level private connectivity."
+                              },
+                              "response": [
+                                {
+                                  "id": "9a8c0b09-b109-425c-9ac2-ee4c468e0c9f",
+                                  "name": "Private endpoint services created successfully.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-services",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-services"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-9a8c0b09-b109-425c-9ac2-ee4c468e0c9f"
+                                },
+                                {
+                                  "id": "a4168de2-c073-4d01-ab65-30132b6faf2a",
+                                  "name": "Authentication credentials are missing or invalid.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-services",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-services"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-a4168de2-c073-4d01-ab65-30132b6faf2a"
+                                },
+                                {
+                                  "id": "7b2874fc-dfb5-4d5c-9894-82b209c5b434",
+                                  "name": "The requested resource was not found.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-services",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-services"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-7b2874fc-dfb5-4d5c-9894-82b209c5b434"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:24:11.000Z",
+                              "updatedAt": "2026-07-28T01:24:11.000Z",
+                              "uid": "35240-b32bcac7-b390-4178-8b13-365459ef14eb"
+                            }
+                          ],
+                          "id": "961aded0-fddc-4c47-962d-60509accbcbe",
+                          "createdAt": "2026-07-28T01:24:11.000Z",
+                          "updatedAt": "2026-07-28T01:24:11.000Z",
+                          "uid": "35240-961aded0-fddc-4c47-962d-60509accbcbe"
+                        },
+                        {
+                          "name": "private-endpoint-connections",
+                          "item": [
+                            {
+                              "name": "{endpoint_id}",
+                              "item": [
+                                {
+                                  "name": "Delete a private endpoint connection",
+                                  "id": "6d580f28-0914-4904-81b7-27581ab58951",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections/:endpoint_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-connections",
+                                        ":endpoint_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "f4d19b46-a3ee-4ed1-87a6-548c19bc1812",
+                                          "key": "cluster_id",
+                                          "value": "<string>",
+                                          "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                        },
+                                        {
+                                          "id": "650d1066-b8c4-4142-babe-dd9563e63f1f",
+                                          "key": "endpoint_id",
+                                          "value": "<string>",
+                                          "description": "(Required) Unique identifier of the private endpoint connection."
+                                        }
+                                      ]
+                                    },
+                                    "description": "Removes a specific private endpoint connection from the cluster."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "ccc1d9b4-7766-4fe4-b839-a9e9e4de0c4a",
+                                      "name": "Private endpoint connection deleted successfully.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections/:endpoint_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "clusters",
+                                            ":cluster_id",
+                                            "networking",
+                                            "private-endpoint-connections",
+                                            ":endpoint_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cluster_id"
+                                            },
+                                            {
+                                              "key": "endpoint_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"id\": \"<string>\",\n  \"cloud_provider\": \"<string>\",\n  \"status\": \"<string>\",\n  \"endpoint_id\": \"<string>\",\n  \"region_name\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:24:11.000Z",
+                                      "updatedAt": "2026-07-28T01:24:11.000Z",
+                                      "uid": "35240-ccc1d9b4-7766-4fe4-b839-a9e9e4de0c4a"
+                                    },
+                                    {
+                                      "id": "f6eb9f54-8c97-4563-b929-af06e63a425e",
+                                      "name": "Authentication credentials are missing or invalid.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections/:endpoint_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "clusters",
+                                            ":cluster_id",
+                                            "networking",
+                                            "private-endpoint-connections",
+                                            ":endpoint_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cluster_id"
+                                            },
+                                            {
+                                              "key": "endpoint_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:24:11.000Z",
+                                      "updatedAt": "2026-07-28T01:24:11.000Z",
+                                      "uid": "35240-f6eb9f54-8c97-4563-b929-af06e63a425e"
+                                    },
+                                    {
+                                      "id": "a6bd8cee-e46f-44d0-a8fc-e913e41b3d3e",
+                                      "name": "The requested resource was not found.",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections/:endpoint_id",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "clusters",
+                                            ":cluster_id",
+                                            "networking",
+                                            "private-endpoint-connections",
+                                            ":endpoint_id"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cluster_id"
+                                            },
+                                            {
+                                              "key": "endpoint_id"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:24:11.000Z",
+                                      "updatedAt": "2026-07-28T01:24:11.000Z",
+                                      "uid": "35240-a6bd8cee-e46f-44d0-a8fc-e913e41b3d3e"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-6d580f28-0914-4904-81b7-27581ab58951"
+                                }
+                              ],
+                              "id": "5d2336c1-0805-42b9-ba81-94441f991b3f",
+                              "createdAt": "2026-07-28T01:24:11.000Z",
+                              "updatedAt": "2026-07-28T01:24:11.000Z",
+                              "uid": "35240-5d2336c1-0805-42b9-ba81-94441f991b3f"
+                            },
+                            {
+                              "name": "List private endpoint connections",
+                              "id": "5bc8eed7-720f-481a-98b6-b387cc12decf",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "networking",
+                                    "private-endpoint-connections"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d14fab35-e479-4dd0-a107-37c41b278e18",
+                                      "key": "cluster_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a list of private endpoint connections for the specified cluster."
+                              },
+                              "response": [
+                                {
+                                  "id": "2e6ec8e3-e716-4cd0-b064-0c3b50a5a019",
+                                  "name": "List of private endpoint connections returned successfully.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-connections"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"connections\": [\n    {\n      \"id\": \"<string>\",\n      \"cloud_provider\": \"<string>\",\n      \"status\": \"<string>\",\n      \"endpoint_id\": \"<string>\",\n      \"region_name\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"cloud_provider\": \"<string>\",\n      \"status\": \"<string>\",\n      \"endpoint_id\": \"<string>\",\n      \"region_name\": \"<string>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-2e6ec8e3-e716-4cd0-b064-0c3b50a5a019"
+                                },
+                                {
+                                  "id": "8da8c83d-039f-4d87-ac7b-d7667fad43f2",
+                                  "name": "Authentication credentials are missing or invalid.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-connections"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-8da8c83d-039f-4d87-ac7b-d7667fad43f2"
+                                },
+                                {
+                                  "id": "c968ed8c-29cc-4ab6-8dc8-8d8300d205d6",
+                                  "name": "The requested resource was not found.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-connections"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-c968ed8c-29cc-4ab6-8dc8-8d8300d205d6"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:24:11.000Z",
+                              "updatedAt": "2026-07-28T01:24:11.000Z",
+                              "uid": "35240-5bc8eed7-720f-481a-98b6-b387cc12decf"
+                            },
+                            {
+                              "name": "Add a private endpoint connection",
+                              "id": "1ebd108a-eac8-456e-bbde-cd3f000acf24",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"endpoint_id\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "networking",
+                                    "private-endpoint-connections"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "f56f9e67-f1b0-42b6-859a-20bbada77139",
+                                      "key": "cluster_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                    }
+                                  ]
+                                },
+                                "description": "Adds a new private endpoint connection for the specified cluster."
+                              },
+                              "response": [
+                                {
+                                  "id": "0eabf4f2-76b3-4ce5-bfe0-e4e68097783f",
+                                  "name": "Private endpoint connection added successfully.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"endpoint_id\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-connections"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"cloud_provider\": \"<string>\",\n  \"status\": \"<string>\",\n  \"endpoint_id\": \"<string>\",\n  \"region_name\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-0eabf4f2-76b3-4ce5-bfe0-e4e68097783f"
+                                },
+                                {
+                                  "id": "4f59f83a-aa16-4b93-8bf7-6e97d951d5c8",
+                                  "name": "The request body or parameters are invalid.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"endpoint_id\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-connections"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-4f59f83a-aa16-4b93-8bf7-6e97d951d5c8"
+                                },
+                                {
+                                  "id": "70c8ded9-a1dc-49d4-88c3-66c183f2f025",
+                                  "name": "Authentication credentials are missing or invalid.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"endpoint_id\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/private-endpoint-connections",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "private-endpoint-connections"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:11.000Z",
+                                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                                  "uid": "35240-70c8ded9-a1dc-49d4-88c3-66c183f2f025"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:24:11.000Z",
+                              "updatedAt": "2026-07-28T01:24:11.000Z",
+                              "uid": "35240-1ebd108a-eac8-456e-bbde-cd3f000acf24"
+                            }
+                          ],
+                          "id": "c212d197-03d9-4bac-b916-827d9744f6bd",
+                          "createdAt": "2026-07-28T01:24:11.000Z",
+                          "updatedAt": "2026-07-28T01:24:11.000Z",
+                          "uid": "35240-c212d197-03d9-4bac-b916-827d9744f6bd"
+                        }
+                      ],
+                      "id": "cdb64cb9-9627-4351-951d-268fa148c072",
+                      "createdAt": "2026-07-28T01:24:11.000Z",
+                      "updatedAt": "2026-07-28T01:24:11.000Z",
+                      "uid": "35240-cdb64cb9-9627-4351-951d-268fa148c072"
+                    }
+                  ],
+                  "id": "c32c4386-cd83-4362-aa04-a541d50599fd",
+                  "createdAt": "2026-07-28T01:24:11.000Z",
+                  "updatedAt": "2026-07-28T01:24:11.000Z",
+                  "uid": "35240-c32c4386-cd83-4362-aa04-a541d50599fd"
+                }
+              ],
+              "id": "7ad37495-a8ae-43af-bb15-171d902fb049",
+              "createdAt": "2026-07-28T01:24:11.000Z",
+              "updatedAt": "2026-07-28T01:24:11.000Z",
+              "uid": "35240-7ad37495-a8ae-43af-bb15-171d902fb049"
+            }
+          ],
+          "id": "b8150bf5-cc77-41fe-b224-690bc378c619",
+          "createdAt": "2026-07-28T01:24:11.000Z",
+          "updatedAt": "2026-07-28T01:24:11.000Z",
+          "uid": "35240-b8150bf5-cc77-41fe-b224-690bc378c619"
+        }
+      ],
+      "id": "35fdc2d5-9439-4370-93e9-08e1e30613b6",
+      "createdAt": "2026-07-28T01:24:11.000Z",
+      "updatedAt": "2026-07-28T01:24:11.000Z",
+      "uid": "35240-35fdc2d5-9439-4370-93e9-08e1e30613b6"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}

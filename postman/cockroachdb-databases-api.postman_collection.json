@@ -1,0 +1,1175 @@
+{
+  "info": {
+    "_postman_id": "45a4127c-ce8d-4cf7-a09b-0c5ee4126bbf",
+    "name": "CockroachDB Cloud APIKeys Databases API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:23:33.000Z",
+    "updatedAt": "2026-07-28T01:23:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-45a4127c-ce8d-4cf7-a09b-0c5ee4126bbf"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "clusters",
+              "item": [
+                {
+                  "name": "{cluster_id}",
+                  "item": [
+                    {
+                      "name": "databases",
+                      "item": [
+                        {
+                          "name": "{name}",
+                          "item": [
+                            {
+                              "name": "Update a database",
+                              "id": "58b1b8b1-37e4-4f06-8149-fd224d10f62c",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"new_name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "databases",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "e6816be1-b7d2-4f15-9f13-c7a70265c1e1",
+                                      "key": "cluster_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                    },
+                                    {
+                                      "id": "338852fd-d1a2-4194-9b05-18304a6e75ae",
+                                      "key": "name",
+                                      "value": "<string>",
+                                      "description": "(Required) Name of the database."
+                                    }
+                                  ]
+                                },
+                                "description": "Updates the configuration of an existing database within the specified cluster. Requires CLUSTER_ADMIN role."
+                              },
+                              "response": [
+                                {
+                                  "id": "8bc33874-b829-478a-9bd9-c196544a4503",
+                                  "name": "Database updated successfully.",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"new_name\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "databases",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "name"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"table_count\": \"<integer>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:34.000Z",
+                                  "updatedAt": "2026-07-28T01:23:34.000Z",
+                                  "uid": "35240-8bc33874-b829-478a-9bd9-c196544a4503"
+                                },
+                                {
+                                  "id": "7710d7b7-7833-48df-9270-89f1409cda4d",
+                                  "name": "The request body or parameters are invalid.",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"new_name\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "databases",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "name"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:34.000Z",
+                                  "updatedAt": "2026-07-28T01:23:34.000Z",
+                                  "uid": "35240-7710d7b7-7833-48df-9270-89f1409cda4d"
+                                },
+                                {
+                                  "id": "d1efe2ed-15be-423c-8d93-e11d9f3f8410",
+                                  "name": "Authentication credentials are missing or invalid.",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"new_name\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "databases",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "name"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:34.000Z",
+                                  "updatedAt": "2026-07-28T01:23:34.000Z",
+                                  "uid": "35240-d1efe2ed-15be-423c-8d93-e11d9f3f8410"
+                                },
+                                {
+                                  "id": "e3e7b59b-4ba2-4340-9804-71dbb09552cc",
+                                  "name": "The requested resource was not found.",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"new_name\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "databases",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "name"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:34.000Z",
+                                  "updatedAt": "2026-07-28T01:23:34.000Z",
+                                  "uid": "35240-e3e7b59b-4ba2-4340-9804-71dbb09552cc"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:23:34.000Z",
+                              "updatedAt": "2026-07-28T01:23:34.000Z",
+                              "uid": "35240-58b1b8b1-37e4-4f06-8149-fd224d10f62c"
+                            },
+                            {
+                              "name": "Delete a database",
+                              "id": "2cfc41f1-7174-497a-99be-dd85dcce19a2",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "databases",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "a6331ac6-1106-4e20-b6db-4769efd54707",
+                                      "key": "cluster_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                    },
+                                    {
+                                      "id": "35b92805-b2f9-4fc3-8f9d-169ad37f0fbb",
+                                      "key": "name",
+                                      "value": "<string>",
+                                      "description": "(Required) Name of the database."
+                                    }
+                                  ]
+                                },
+                                "description": "Deletes a database from the specified cluster by name. Requires CLUSTER_ADMIN role at organization, folder, or cluster scope."
+                              },
+                              "response": [
+                                {
+                                  "id": "a0b25813-27c4-49c5-9535-f95aa3d4f653",
+                                  "name": "Database deleted successfully.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "databases",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "name"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"table_count\": \"<integer>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:34.000Z",
+                                  "updatedAt": "2026-07-28T01:23:34.000Z",
+                                  "uid": "35240-a0b25813-27c4-49c5-9535-f95aa3d4f653"
+                                },
+                                {
+                                  "id": "3220fe1a-5629-4da8-8a6e-45877b2075ef",
+                                  "name": "Authentication credentials are missing or invalid.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "databases",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "name"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:34.000Z",
+                                  "updatedAt": "2026-07-28T01:23:34.000Z",
+                                  "uid": "35240-3220fe1a-5629-4da8-8a6e-45877b2075ef"
+                                },
+                                {
+                                  "id": "98430af2-b208-40e8-9f6d-9d004bbf9daa",
+                                  "name": "The requested resource was not found.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "databases",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "name"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:34.000Z",
+                                  "updatedAt": "2026-07-28T01:23:34.000Z",
+                                  "uid": "35240-98430af2-b208-40e8-9f6d-9d004bbf9daa"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:23:34.000Z",
+                              "updatedAt": "2026-07-28T01:23:34.000Z",
+                              "uid": "35240-2cfc41f1-7174-497a-99be-dd85dcce19a2"
+                            }
+                          ],
+                          "id": "11286ebf-ef72-4ca9-b39a-67f677890c81",
+                          "createdAt": "2026-07-28T01:23:34.000Z",
+                          "updatedAt": "2026-07-28T01:23:34.000Z",
+                          "uid": "35240-11286ebf-ef72-4ca9-b39a-67f677890c81"
+                        },
+                        {
+                          "name": "List databases",
+                          "id": "ac8c58d9-e9be-439f-87db-282fedc85665",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "databases"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page number for paginated results, starting from 1.",
+                                  "key": "pagination.page",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of results to return per page.",
+                                  "key": "pagination.limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                  "key": "pagination.as_of_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                  "key": "pagination.sort_order",
+                                  "value": "ASC"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9e95fc4b-aecc-4988-bb6f-14d2c072dcd3",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Returns a list of databases for the specified cluster. Supports pagination via page, limit, asOfTime, and sortOrder parameters."
+                          },
+                          "response": [
+                            {
+                              "id": "1ccd2fe0-4b78-4506-a737-f40c8c415466",
+                              "name": "List of databases returned successfully.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "databases"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "ASC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"databases\": [\n    {\n      \"name\": \"<string>\",\n      \"table_count\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"table_count\": \"<integer>\"\n    }\n  ],\n  \"pagination\": {\n    \"next\": \"<string>\",\n    \"last\": \"<string>\",\n    \"time\": \"<dateTime>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:23:34.000Z",
+                              "updatedAt": "2026-07-28T01:23:34.000Z",
+                              "uid": "35240-1ccd2fe0-4b78-4506-a737-f40c8c415466"
+                            },
+                            {
+                              "id": "593e0d6d-8072-4e6d-883c-ef0527a6a1e5",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "databases"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "ASC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:34.000Z",
+                              "updatedAt": "2026-07-28T01:23:34.000Z",
+                              "uid": "35240-593e0d6d-8072-4e6d-883c-ef0527a6a1e5"
+                            },
+                            {
+                              "id": "c7599d1b-7938-48d2-8b1a-2b8ba4694ef4",
+                              "name": "The requested resource was not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "databases"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "ASC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:34.000Z",
+                              "updatedAt": "2026-07-28T01:23:34.000Z",
+                              "uid": "35240-c7599d1b-7938-48d2-8b1a-2b8ba4694ef4"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:34.000Z",
+                          "updatedAt": "2026-07-28T01:23:34.000Z",
+                          "uid": "35240-ac8c58d9-e9be-439f-87db-282fedc85665"
+                        },
+                        {
+                          "name": "Create a database",
+                          "id": "6bd81a4d-537b-4257-b4a1-1b7a67516643",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "databases"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7842ca80-c099-4251-b18f-c144be1509f9",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Creates a new database within the specified cluster. Requires CLUSTER_ADMIN role at organization, folder, or cluster scope."
+                          },
+                          "response": [
+                            {
+                              "id": "e8cd93f9-c8ff-40a5-8f6d-dc773f762f37",
+                              "name": "Database created successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "databases"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"table_count\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:23:34.000Z",
+                              "updatedAt": "2026-07-28T01:23:34.000Z",
+                              "uid": "35240-e8cd93f9-c8ff-40a5-8f6d-dc773f762f37"
+                            },
+                            {
+                              "id": "4f520d1e-fb11-40f8-9a2a-41c32c321902",
+                              "name": "The request body or parameters are invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "databases"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:34.000Z",
+                              "updatedAt": "2026-07-28T01:23:34.000Z",
+                              "uid": "35240-4f520d1e-fb11-40f8-9a2a-41c32c321902"
+                            },
+                            {
+                              "id": "a9c6aa88-dadb-457b-b1b7-89c66a38fc48",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/databases",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "databases"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:34.000Z",
+                              "updatedAt": "2026-07-28T01:23:34.000Z",
+                              "uid": "35240-a9c6aa88-dadb-457b-b1b7-89c66a38fc48"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:34.000Z",
+                          "updatedAt": "2026-07-28T01:23:34.000Z",
+                          "uid": "35240-6bd81a4d-537b-4257-b4a1-1b7a67516643"
+                        }
+                      ],
+                      "id": "09ae8183-8605-4f83-a15b-438a3e3880a2",
+                      "createdAt": "2026-07-28T01:23:34.000Z",
+                      "updatedAt": "2026-07-28T01:23:34.000Z",
+                      "uid": "35240-09ae8183-8605-4f83-a15b-438a3e3880a2"
+                    }
+                  ],
+                  "id": "38d44a96-2cc0-4f20-81f2-afd73e08a585",
+                  "createdAt": "2026-07-28T01:23:34.000Z",
+                  "updatedAt": "2026-07-28T01:23:34.000Z",
+                  "uid": "35240-38d44a96-2cc0-4f20-81f2-afd73e08a585"
+                }
+              ],
+              "id": "61d18332-d730-4b9d-9f25-f692a2afc820",
+              "createdAt": "2026-07-28T01:23:34.000Z",
+              "updatedAt": "2026-07-28T01:23:34.000Z",
+              "uid": "35240-61d18332-d730-4b9d-9f25-f692a2afc820"
+            }
+          ],
+          "id": "209bb9f1-77ad-40fe-813c-f459dbf69d59",
+          "createdAt": "2026-07-28T01:23:34.000Z",
+          "updatedAt": "2026-07-28T01:23:34.000Z",
+          "uid": "35240-209bb9f1-77ad-40fe-813c-f459dbf69d59"
+        }
+      ],
+      "id": "96823356-fc77-4fab-b6a4-499446f524f6",
+      "createdAt": "2026-07-28T01:23:34.000Z",
+      "updatedAt": "2026-07-28T01:23:34.000Z",
+      "uid": "35240-96823356-fc77-4fab-b6a4-499446f524f6"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}

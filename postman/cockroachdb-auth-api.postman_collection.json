@@ -1,0 +1,365 @@
+{
+  "info": {
+    "_postman_id": "ee4e35d4-110e-4a2e-8e3d-b8999302e67a",
+    "name": "CockroachDB Cloud APIKeys Auth API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:23:28.000Z",
+    "updatedAt": "2026-07-28T01:23:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ee4e35d4-110e-4a2e-8e3d-b8999302e67a"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "login",
+              "item": [
+                {
+                  "name": "Create a session",
+                  "id": "8ec17b38-c26e-4535-ae01-c4abf30ac27b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v2/login/",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v2",
+                        "login",
+                        ""
+                      ]
+                    },
+                    "description": "Creates an authenticated API session by supplying valid SQL username and password credentials. Returns a session token in the X-Cockroach-API-Session response header. This token must be included as the X-Cockroach-API-Session header on all subsequent requests to authenticated endpoints."
+                  },
+                  "response": [
+                    {
+                      "id": "39ffebe0-6095-4fe1-93a3-f6015a185236",
+                      "name": "Session created successfully. The session token is returned in the X-Cockroach-API-Session response header.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/login/",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "login",
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Session token to use for authenticating subsequent requests.",
+                            "type": "text/plain"
+                          },
+                          "key": "X-Cockroach-API-Session",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"session\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:23:29.000Z",
+                      "updatedAt": "2026-07-28T01:23:29.000Z",
+                      "uid": "35240-39ffebe0-6095-4fe1-93a3-f6015a185236"
+                    },
+                    {
+                      "id": "57a5d56c-0578-4817-9f8e-634c7f7b5479",
+                      "name": "Authentication is required. The X-Cockroach-API-Session header is missing or the session has expired.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/login/",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "login",
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:23:29.000Z",
+                      "updatedAt": "2026-07-28T01:23:29.000Z",
+                      "uid": "35240-57a5d56c-0578-4817-9f8e-634c7f7b5479"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:23:29.000Z",
+                  "updatedAt": "2026-07-28T01:23:29.000Z",
+                  "uid": "35240-8ec17b38-c26e-4535-ae01-c4abf30ac27b"
+                }
+              ],
+              "id": "161abd8a-00fa-4855-9ca9-73ed240ae10f",
+              "createdAt": "2026-07-28T01:23:29.000Z",
+              "updatedAt": "2026-07-28T01:23:29.000Z",
+              "uid": "35240-161abd8a-00fa-4855-9ca9-73ed240ae10f"
+            },
+            {
+              "name": "logout",
+              "item": [
+                {
+                  "name": "Terminate a session",
+                  "id": "fd7e18e2-7c6d-47dd-92ef-67000fa51340",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v2/logout/",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v2",
+                        "logout",
+                        ""
+                      ]
+                    },
+                    "description": "Terminates a previously established API session, invalidating the session token. The X-Cockroach-API-Session header must be included with the session token to revoke."
+                  },
+                  "response": [
+                    {
+                      "id": "878dbc07-b12b-4b82-a9e7-6994948fd7fd",
+                      "name": "Session terminated successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/logout/",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "logout",
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"logged_out\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T01:23:29.000Z",
+                      "updatedAt": "2026-07-28T01:23:29.000Z",
+                      "uid": "35240-878dbc07-b12b-4b82-a9e7-6994948fd7fd"
+                    },
+                    {
+                      "id": "19725a84-7cf5-47cb-a37f-94be69fd87af",
+                      "name": "Authentication is required. The X-Cockroach-API-Session header is missing or the session has expired.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/logout/",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "logout",
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:23:29.000Z",
+                      "updatedAt": "2026-07-28T01:23:29.000Z",
+                      "uid": "35240-19725a84-7cf5-47cb-a37f-94be69fd87af"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:23:29.000Z",
+                  "updatedAt": "2026-07-28T01:23:29.000Z",
+                  "uid": "35240-fd7e18e2-7c6d-47dd-92ef-67000fa51340"
+                }
+              ],
+              "id": "2e0326f3-1702-440e-9fc8-aca6add707ea",
+              "createdAt": "2026-07-28T01:23:29.000Z",
+              "updatedAt": "2026-07-28T01:23:29.000Z",
+              "uid": "35240-2e0326f3-1702-440e-9fc8-aca6add707ea"
+            }
+          ],
+          "id": "59217ec3-8084-4b0b-9898-f2ffcb953ef7",
+          "createdAt": "2026-07-28T01:23:29.000Z",
+          "updatedAt": "2026-07-28T01:23:29.000Z",
+          "uid": "35240-59217ec3-8084-4b0b-9898-f2ffcb953ef7"
+        }
+      ],
+      "id": "744ee313-a99c-49f1-b695-9e84ac3af1d1",
+      "createdAt": "2026-07-28T01:23:29.000Z",
+      "updatedAt": "2026-07-28T01:23:29.000Z",
+      "uid": "35240-744ee313-a99c-49f1-b695-9e84ac3af1d1"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}

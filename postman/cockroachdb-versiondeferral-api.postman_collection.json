@@ -1,0 +1,523 @@
+{
+  "info": {
+    "_postman_id": "145b6c58-26de-4fea-b505-be57c0bc0ef1",
+    "name": "CockroachDB Cloud APIKeys VersionDeferral API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:24:32.000Z",
+    "updatedAt": "2026-07-28T01:24:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-145b6c58-26de-4fea-b505-be57c0bc0ef1"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "clusters",
+              "item": [
+                {
+                  "name": "{cluster_id}",
+                  "item": [
+                    {
+                      "name": "version-deferral",
+                      "item": [
+                        {
+                          "name": "Get version deferral",
+                          "id": "3bccfa23-9b69-4656-aeb4-185550a152e9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/version-deferral",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "version-deferral"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b1bc3239-d20a-41fc-b63b-f01ed7a6bf23",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Retrieves the version deferral policy for the specified cluster, indicating whether automatic version upgrades are deferred and for how long."
+                          },
+                          "response": [
+                            {
+                              "id": "9247b5f2-1f8b-4636-b7b8-aceba108727d",
+                              "name": "Version deferral policy retrieved successfully.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/version-deferral",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "version-deferral"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"deferral_policy\": \"FIXED_DEFERRAL\"\n}",
+                              "createdAt": "2026-07-28T01:24:32.000Z",
+                              "updatedAt": "2026-07-28T01:24:32.000Z",
+                              "uid": "35240-9247b5f2-1f8b-4636-b7b8-aceba108727d"
+                            },
+                            {
+                              "id": "40d5af8f-3825-480a-936c-7d0dbe1dc034",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/version-deferral",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "version-deferral"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:24:32.000Z",
+                              "updatedAt": "2026-07-28T01:24:32.000Z",
+                              "uid": "35240-40d5af8f-3825-480a-936c-7d0dbe1dc034"
+                            },
+                            {
+                              "id": "351d2f78-ad2d-4b43-8285-67babf7ac297",
+                              "name": "The requested resource was not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/version-deferral",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "version-deferral"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:24:32.000Z",
+                              "updatedAt": "2026-07-28T01:24:32.000Z",
+                              "uid": "35240-351d2f78-ad2d-4b43-8285-67babf7ac297"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:24:32.000Z",
+                          "updatedAt": "2026-07-28T01:24:32.000Z",
+                          "uid": "35240-3bccfa23-9b69-4656-aeb4-185550a152e9"
+                        },
+                        {
+                          "name": "Set version deferral",
+                          "id": "46e22ffe-7d9b-4149-84d3-05d83f25e8b1",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"deferral_policy\": \"FIXED_DEFERRAL\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/version-deferral",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "version-deferral"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e412d96c-b1dd-4d1d-9fe8-02bbe2899578",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Sets the version deferral policy for the specified cluster to delay automatic CockroachDB version upgrades."
+                          },
+                          "response": [
+                            {
+                              "id": "8d44b593-8e31-4c96-8042-7d0d8e33040d",
+                              "name": "Version deferral policy set successfully.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"deferral_policy\": \"FIXED_DEFERRAL\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/version-deferral",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "version-deferral"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"deferral_policy\": \"FIXED_DEFERRAL\"\n}",
+                              "createdAt": "2026-07-28T01:24:32.000Z",
+                              "updatedAt": "2026-07-28T01:24:32.000Z",
+                              "uid": "35240-8d44b593-8e31-4c96-8042-7d0d8e33040d"
+                            },
+                            {
+                              "id": "a0f4ccdc-93f6-43b6-bb95-3ec9ee0429fa",
+                              "name": "The request body or parameters are invalid.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"deferral_policy\": \"FIXED_DEFERRAL\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/version-deferral",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "version-deferral"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:24:32.000Z",
+                              "updatedAt": "2026-07-28T01:24:32.000Z",
+                              "uid": "35240-a0f4ccdc-93f6-43b6-bb95-3ec9ee0429fa"
+                            },
+                            {
+                              "id": "a7da8579-a766-4574-b2d1-ff0ed46145e8",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"deferral_policy\": \"FIXED_DEFERRAL\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/version-deferral",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "version-deferral"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:24:32.000Z",
+                              "updatedAt": "2026-07-28T01:24:32.000Z",
+                              "uid": "35240-a7da8579-a766-4574-b2d1-ff0ed46145e8"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:24:32.000Z",
+                          "updatedAt": "2026-07-28T01:24:32.000Z",
+                          "uid": "35240-46e22ffe-7d9b-4149-84d3-05d83f25e8b1"
+                        }
+                      ],
+                      "id": "a4109f4b-1cfd-4ad3-8ea9-d07b8f9b787a",
+                      "createdAt": "2026-07-28T01:24:32.000Z",
+                      "updatedAt": "2026-07-28T01:24:32.000Z",
+                      "uid": "35240-a4109f4b-1cfd-4ad3-8ea9-d07b8f9b787a"
+                    }
+                  ],
+                  "id": "ab30e0f9-1616-43c7-887c-b9625a62b8aa",
+                  "createdAt": "2026-07-28T01:24:32.000Z",
+                  "updatedAt": "2026-07-28T01:24:32.000Z",
+                  "uid": "35240-ab30e0f9-1616-43c7-887c-b9625a62b8aa"
+                }
+              ],
+              "id": "a797f37b-b899-4821-b4eb-8be483f4327c",
+              "createdAt": "2026-07-28T01:24:32.000Z",
+              "updatedAt": "2026-07-28T01:24:32.000Z",
+              "uid": "35240-a797f37b-b899-4821-b4eb-8be483f4327c"
+            }
+          ],
+          "id": "56b51a91-314c-4f2a-9e41-af184378260d",
+          "createdAt": "2026-07-28T01:24:32.000Z",
+          "updatedAt": "2026-07-28T01:24:32.000Z",
+          "uid": "35240-56b51a91-314c-4f2a-9e41-af184378260d"
+        }
+      ],
+      "id": "0e727a07-2205-496c-b408-233467bb8679",
+      "createdAt": "2026-07-28T01:24:32.000Z",
+      "updatedAt": "2026-07-28T01:24:32.000Z",
+      "uid": "35240-0e727a07-2205-496c-b408-233467bb8679"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}

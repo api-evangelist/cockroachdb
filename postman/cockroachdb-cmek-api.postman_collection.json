@@ -1,0 +1,1027 @@
+{
+  "info": {
+    "_postman_id": "98b280e4-c1ec-4a02-a108-2facab4beff8",
+    "name": "CockroachDB Cloud APIKeys CMEK API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:23:32.000Z",
+    "updatedAt": "2026-07-28T01:23:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-98b280e4-c1ec-4a02-a108-2facab4beff8"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "clusters",
+              "item": [
+                {
+                  "name": "{cluster_id}",
+                  "item": [
+                    {
+                      "name": "cmek",
+                      "item": [
+                        {
+                          "name": "Get CMEK configuration",
+                          "id": "df3201da-aec1-48c7-b71c-c37f8598f74c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "cmek"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "256c74ea-ee56-4641-a53b-f9ceae118bbf",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Retrieves the customer-managed encryption key (CMEK) configuration for the specified cluster."
+                          },
+                          "response": [
+                            {
+                              "id": "dadac38e-0090-403b-bea9-63c702143b76",
+                              "name": "CMEK configuration retrieved successfully.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cluster_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"spec\": {\n    \"region_specs\": [\n      {\n        \"region\": \"<string>\",\n        \"key\": {}\n      },\n      {\n        \"region\": \"<string>\",\n        \"key\": {}\n      }\n    ]\n  }\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-dadac38e-0090-403b-bea9-63c702143b76"
+                            },
+                            {
+                              "id": "c0872cad-2b46-42b8-af10-7ae2e51b9c1e",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-c0872cad-2b46-42b8-af10-7ae2e51b9c1e"
+                            },
+                            {
+                              "id": "4185b863-2116-40ab-99ee-75e600af5d5c",
+                              "name": "The requested resource was not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-4185b863-2116-40ab-99ee-75e600af5d5c"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:33.000Z",
+                          "updatedAt": "2026-07-28T01:23:33.000Z",
+                          "uid": "35240-df3201da-aec1-48c7-b71c-c37f8598f74c"
+                        },
+                        {
+                          "name": "Enable CMEK",
+                          "id": "7d8abeca-bd42-463e-933b-dfbd6efe5c7c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"region_specs\": [\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    },\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "cmek"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a2acf373-d90c-440f-a7df-ee87b8166e4d",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Enables customer-managed encryption keys for the specified cluster using the provided key specification."
+                          },
+                          "response": [
+                            {
+                              "id": "4ed45f35-a8b4-48a2-88fd-d495ff3726b7",
+                              "name": "CMEK enabled successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"region_specs\": [\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    },\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cluster_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"spec\": {\n    \"region_specs\": [\n      {\n        \"region\": \"<string>\",\n        \"key\": {}\n      },\n      {\n        \"region\": \"<string>\",\n        \"key\": {}\n      }\n    ]\n  }\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-4ed45f35-a8b4-48a2-88fd-d495ff3726b7"
+                            },
+                            {
+                              "id": "48062fb2-44e8-41e1-a9e7-b5632753064b",
+                              "name": "The request body or parameters are invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"region_specs\": [\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    },\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-48062fb2-44e8-41e1-a9e7-b5632753064b"
+                            },
+                            {
+                              "id": "39e500d1-c054-4100-8da2-d87bfc1510b1",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"region_specs\": [\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    },\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-39e500d1-c054-4100-8da2-d87bfc1510b1"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:33.000Z",
+                          "updatedAt": "2026-07-28T01:23:33.000Z",
+                          "uid": "35240-7d8abeca-bd42-463e-933b-dfbd6efe5c7c"
+                        },
+                        {
+                          "name": "Update CMEK specification",
+                          "id": "a2a7c780-7be7-4cb8-9ba7-ada94453daa2",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"region_specs\": [\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    },\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "cmek"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "47822961-1647-4831-a320-b40320f73856",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Replaces the CMEK key specification for the specified cluster."
+                          },
+                          "response": [
+                            {
+                              "id": "d86a55b7-4927-4b49-8856-88ceb71ebeee",
+                              "name": "CMEK specification updated successfully.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"region_specs\": [\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    },\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cluster_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"spec\": {\n    \"region_specs\": [\n      {\n        \"region\": \"<string>\",\n        \"key\": {}\n      },\n      {\n        \"region\": \"<string>\",\n        \"key\": {}\n      }\n    ]\n  }\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-d86a55b7-4927-4b49-8856-88ceb71ebeee"
+                            },
+                            {
+                              "id": "102be381-52bd-49c1-8112-15a68ae6e290",
+                              "name": "The request body or parameters are invalid.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"region_specs\": [\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    },\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-102be381-52bd-49c1-8112-15a68ae6e290"
+                            },
+                            {
+                              "id": "98c0c0fd-e51a-4cd6-8160-53b9f231badb",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"region_specs\": [\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    },\n    {\n      \"region\": \"<string>\",\n      \"key\": {}\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-98c0c0fd-e51a-4cd6-8160-53b9f231badb"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:33.000Z",
+                          "updatedAt": "2026-07-28T01:23:33.000Z",
+                          "uid": "35240-a2a7c780-7be7-4cb8-9ba7-ada94453daa2"
+                        },
+                        {
+                          "name": "Update CMEK status",
+                          "id": "e4c30f73-8747-4f5d-870a-a958325a4a20",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"status\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "cmek"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2e9ef527-8621-4ba9-8b1f-eff65730b41d",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Updates the operational status of CMEK for the specified cluster, such as rotating or revoking encryption keys."
+                          },
+                          "response": [
+                            {
+                              "id": "78a47490-b475-4bd1-8cf0-660a949a7098",
+                              "name": "CMEK status updated successfully.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cluster_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"spec\": {\n    \"region_specs\": [\n      {\n        \"region\": \"<string>\",\n        \"key\": {}\n      },\n      {\n        \"region\": \"<string>\",\n        \"key\": {}\n      }\n    ]\n  }\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-78a47490-b475-4bd1-8cf0-660a949a7098"
+                            },
+                            {
+                              "id": "46ebd4e2-7865-476f-9851-3a1d3e2da2ce",
+                              "name": "The request body or parameters are invalid.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-46ebd4e2-7865-476f-9851-3a1d3e2da2ce"
+                            },
+                            {
+                              "id": "6c56291a-a92b-4c38-830d-daf3997764dd",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/cmek",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "cmek"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:33.000Z",
+                              "updatedAt": "2026-07-28T01:23:33.000Z",
+                              "uid": "35240-6c56291a-a92b-4c38-830d-daf3997764dd"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:33.000Z",
+                          "updatedAt": "2026-07-28T01:23:33.000Z",
+                          "uid": "35240-e4c30f73-8747-4f5d-870a-a958325a4a20"
+                        }
+                      ],
+                      "id": "337ab03a-fe9f-4032-961f-0355e18be5aa",
+                      "createdAt": "2026-07-28T01:23:33.000Z",
+                      "updatedAt": "2026-07-28T01:23:33.000Z",
+                      "uid": "35240-337ab03a-fe9f-4032-961f-0355e18be5aa"
+                    }
+                  ],
+                  "id": "6faae079-cbae-4cc8-9462-321e87dcdf17",
+                  "createdAt": "2026-07-28T01:23:33.000Z",
+                  "updatedAt": "2026-07-28T01:23:33.000Z",
+                  "uid": "35240-6faae079-cbae-4cc8-9462-321e87dcdf17"
+                }
+              ],
+              "id": "147c3ef7-b942-4382-86d6-43d50ce7e5ae",
+              "createdAt": "2026-07-28T01:23:33.000Z",
+              "updatedAt": "2026-07-28T01:23:33.000Z",
+              "uid": "35240-147c3ef7-b942-4382-86d6-43d50ce7e5ae"
+            }
+          ],
+          "id": "2cdb23de-8265-4863-8434-a5628747ea5a",
+          "createdAt": "2026-07-28T01:23:33.000Z",
+          "updatedAt": "2026-07-28T01:23:33.000Z",
+          "uid": "35240-2cdb23de-8265-4863-8434-a5628747ea5a"
+        }
+      ],
+      "id": "471f4147-1c2c-42f7-a9a3-43e11fad6258",
+      "createdAt": "2026-07-28T01:23:33.000Z",
+      "updatedAt": "2026-07-28T01:23:33.000Z",
+      "uid": "35240-471f4147-1c2c-42f7-a9a3-43e11fad6258"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}

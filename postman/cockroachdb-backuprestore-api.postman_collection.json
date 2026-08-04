@@ -1,0 +1,1730 @@
+{
+  "info": {
+    "_postman_id": "42e0c3c9-c52d-4a57-b9a6-375ed3e47be1",
+    "name": "CockroachDB Cloud APIKeys BackupRestore API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:23:29.000Z",
+    "updatedAt": "2026-07-28T01:23:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-42e0c3c9-c52d-4a57-b9a6-375ed3e47be1"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "clusters",
+              "item": [
+                {
+                  "name": "{cluster_id}",
+                  "item": [
+                    {
+                      "name": "backups",
+                      "item": [
+                        {
+                          "name": "List backups",
+                          "id": "f8019e64-0ff2-47dd-8add-868e173acce7",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups?start_time=<dateTime>&end_time=<dateTime>&pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "backups"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter backups created at or after this RFC3339 timestamp.",
+                                  "key": "start_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Filter backups created before this RFC3339 timestamp.",
+                                  "key": "end_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Page number for paginated results, starting from 1.",
+                                  "key": "pagination.page",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of results to return per page.",
+                                  "key": "pagination.limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                  "key": "pagination.as_of_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                  "key": "pagination.sort_order",
+                                  "value": "ASC"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "82484239-d431-40af-a966-46e8d4dccbeb",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Returns a list of backups for the specified cluster, optionally filtered by start and end time. Supports pagination."
+                          },
+                          "response": [
+                            {
+                              "id": "8871c135-daeb-4c6d-a82c-3c3454c64ac0",
+                              "name": "List of backups returned successfully.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups?start_time=<dateTime>&end_time=<dateTime>&pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "backups"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter backups created at or after this RFC3339 timestamp.",
+                                      "key": "start_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Filter backups created before this RFC3339 timestamp.",
+                                      "key": "end_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "ASC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"pagination\": {\n    \"next\": \"<string>\",\n    \"last\": \"<string>\",\n    \"time\": \"<dateTime>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-8871c135-daeb-4c6d-a82c-3c3454c64ac0"
+                            },
+                            {
+                              "id": "ae35440f-ef8b-4c97-a204-e7688ad63bb8",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups?start_time=<dateTime>&end_time=<dateTime>&pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "backups"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter backups created at or after this RFC3339 timestamp.",
+                                      "key": "start_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Filter backups created before this RFC3339 timestamp.",
+                                      "key": "end_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "ASC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-ae35440f-ef8b-4c97-a204-e7688ad63bb8"
+                            },
+                            {
+                              "id": "898a3172-46e1-44bd-8602-da726c82ec46",
+                              "name": "The requested resource was not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups?start_time=<dateTime>&end_time=<dateTime>&pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "backups"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter backups created at or after this RFC3339 timestamp.",
+                                      "key": "start_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Filter backups created before this RFC3339 timestamp.",
+                                      "key": "end_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "ASC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-898a3172-46e1-44bd-8602-da726c82ec46"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:30.000Z",
+                          "updatedAt": "2026-07-28T01:23:30.000Z",
+                          "uid": "35240-f8019e64-0ff2-47dd-8add-868e173acce7"
+                        }
+                      ],
+                      "id": "7732226a-a63a-492b-8888-0b34b30001da",
+                      "createdAt": "2026-07-28T01:23:30.000Z",
+                      "updatedAt": "2026-07-28T01:23:30.000Z",
+                      "uid": "35240-7732226a-a63a-492b-8888-0b34b30001da"
+                    },
+                    {
+                      "name": "backups-config",
+                      "item": [
+                        {
+                          "name": "Get backup configuration",
+                          "id": "9821c596-6a75-4f9e-a83c-b86e33daade7",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups-config",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "backups-config"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "73b2af42-0593-4aea-ac95-b3c28c77946f",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Retrieves the backup configuration for the specified cluster, including retention period and backup frequency."
+                          },
+                          "response": [
+                            {
+                              "id": "ddcc908c-bde0-41c2-a301-70d2e2c87166",
+                              "name": "Backup configuration retrieved successfully.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups-config",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "backups-config"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cluster_id\": \"<string>\",\n  \"frequency_minutes\": \"<integer>\",\n  \"retention_days\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-ddcc908c-bde0-41c2-a301-70d2e2c87166"
+                            },
+                            {
+                              "id": "17def163-859e-4a88-8054-16b2e684378f",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups-config",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "backups-config"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-17def163-859e-4a88-8054-16b2e684378f"
+                            },
+                            {
+                              "id": "27cfec56-08e0-4e44-8a42-0d4fa27167e6",
+                              "name": "The requested resource was not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups-config",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "backups-config"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-27cfec56-08e0-4e44-8a42-0d4fa27167e6"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:30.000Z",
+                          "updatedAt": "2026-07-28T01:23:30.000Z",
+                          "uid": "35240-9821c596-6a75-4f9e-a83c-b86e33daade7"
+                        },
+                        {
+                          "name": "Update backup configuration",
+                          "id": "f9aa8da1-69a3-4bc3-9eac-f0e451d7c2ab",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"frequency_minutes\": \"<integer>\",\n  \"retention_days\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups-config",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "backups-config"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "181a6fb0-0589-4504-bd78-3b5ee4cb51ff",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Updates the backup configuration for the specified cluster, including retention period and backup frequency settings."
+                          },
+                          "response": [
+                            {
+                              "id": "a6026ec8-65d7-4c11-9b6d-d93c86023269",
+                              "name": "Backup configuration updated successfully.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"frequency_minutes\": \"<integer>\",\n  \"retention_days\": \"<integer>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups-config",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "backups-config"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cluster_id\": \"<string>\",\n  \"frequency_minutes\": \"<integer>\",\n  \"retention_days\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-a6026ec8-65d7-4c11-9b6d-d93c86023269"
+                            },
+                            {
+                              "id": "53e25086-ea50-465c-b570-f13bdbb7424e",
+                              "name": "The request body or parameters are invalid.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"frequency_minutes\": \"<integer>\",\n  \"retention_days\": \"<integer>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups-config",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "backups-config"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-53e25086-ea50-465c-b570-f13bdbb7424e"
+                            },
+                            {
+                              "id": "442d5fc7-3887-4f4b-9591-e83aef20f1b5",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"frequency_minutes\": \"<integer>\",\n  \"retention_days\": \"<integer>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups-config",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "backups-config"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-442d5fc7-3887-4f4b-9591-e83aef20f1b5"
+                            },
+                            {
+                              "id": "aa4f70b2-6d45-4940-a8d4-ee791e25e8a9",
+                              "name": "The requested resource was not found.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"frequency_minutes\": \"<integer>\",\n  \"retention_days\": \"<integer>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/backups-config",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "backups-config"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-aa4f70b2-6d45-4940-a8d4-ee791e25e8a9"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:30.000Z",
+                          "updatedAt": "2026-07-28T01:23:30.000Z",
+                          "uid": "35240-f9aa8da1-69a3-4bc3-9eac-f0e451d7c2ab"
+                        }
+                      ],
+                      "id": "123e2663-7e82-4f79-bd3c-41f40a130da7",
+                      "createdAt": "2026-07-28T01:23:30.000Z",
+                      "updatedAt": "2026-07-28T01:23:30.000Z",
+                      "uid": "35240-123e2663-7e82-4f79-bd3c-41f40a130da7"
+                    },
+                    {
+                      "name": "restores",
+                      "item": [
+                        {
+                          "name": "{restore_id}",
+                          "item": [
+                            {
+                              "name": "Get a restore",
+                              "id": "72bc3dc6-9901-4317-bf1a-872bb78f549e",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores/:restore_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "restores",
+                                    ":restore_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "00d70452-9514-44d2-ab91-f3837d436c3b",
+                                      "key": "cluster_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                    },
+                                    {
+                                      "id": "06e5654b-87ec-48a8-b699-c2806afff97b",
+                                      "key": "restore_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the restore operation."
+                                    }
+                                  ]
+                                },
+                                "description": "Retrieves the status and details of a specific restore operation by ID."
+                              },
+                              "response": [
+                                {
+                                  "id": "e1d04e87-2438-4552-92a0-8f3e117d353b",
+                                  "name": "Restore operation details retrieved successfully.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores/:restore_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "restores",
+                                        ":restore_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "restore_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"cluster_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:30.000Z",
+                                  "updatedAt": "2026-07-28T01:23:30.000Z",
+                                  "uid": "35240-e1d04e87-2438-4552-92a0-8f3e117d353b"
+                                },
+                                {
+                                  "id": "278fb266-f0de-4d30-9bb6-6e4713aab2c7",
+                                  "name": "Authentication credentials are missing or invalid.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores/:restore_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "restores",
+                                        ":restore_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "restore_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:30.000Z",
+                                  "updatedAt": "2026-07-28T01:23:30.000Z",
+                                  "uid": "35240-278fb266-f0de-4d30-9bb6-6e4713aab2c7"
+                                },
+                                {
+                                  "id": "82ec5453-049e-4b95-bc67-a5cd3ca1d610",
+                                  "name": "The requested resource was not found.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores/:restore_id",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "restores",
+                                        ":restore_id"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "restore_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:30.000Z",
+                                  "updatedAt": "2026-07-28T01:23:30.000Z",
+                                  "uid": "35240-82ec5453-049e-4b95-bc67-a5cd3ca1d610"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-72bc3dc6-9901-4317-bf1a-872bb78f549e"
+                            }
+                          ],
+                          "id": "0f2b2610-c463-4451-8552-be744c3d45ea",
+                          "createdAt": "2026-07-28T01:23:30.000Z",
+                          "updatedAt": "2026-07-28T01:23:30.000Z",
+                          "uid": "35240-0f2b2610-c463-4451-8552-be744c3d45ea"
+                        },
+                        {
+                          "name": "List restores",
+                          "id": "9adedc13-a00a-4126-afaf-a55919a6533b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores?start_time=<dateTime>&end_time=<dateTime>&pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "restores"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter restores initiated at or after this RFC3339 timestamp.",
+                                  "key": "start_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Filter restores initiated before this RFC3339 timestamp.",
+                                  "key": "end_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Page number for paginated results, starting from 1.",
+                                  "key": "pagination.page",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of results to return per page.",
+                                  "key": "pagination.limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                  "key": "pagination.as_of_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                  "key": "pagination.sort_order",
+                                  "value": "ASC"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "50c1d5e3-c6b0-4868-8dc0-71613e0267c9",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Returns a list of restore operations for the specified cluster. Supports pagination and time-based filtering."
+                          },
+                          "response": [
+                            {
+                              "id": "dc754221-8150-4271-9924-3eb81961b4dd",
+                              "name": "List of restore operations returned successfully.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores?start_time=<dateTime>&end_time=<dateTime>&pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "restores"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter restores initiated at or after this RFC3339 timestamp.",
+                                      "key": "start_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Filter restores initiated before this RFC3339 timestamp.",
+                                      "key": "end_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "ASC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"restores\": [\n    {\n      \"id\": \"<string>\",\n      \"cluster_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"cluster_id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ],\n  \"pagination\": {\n    \"next\": \"<string>\",\n    \"last\": \"<string>\",\n    \"time\": \"<dateTime>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-dc754221-8150-4271-9924-3eb81961b4dd"
+                            },
+                            {
+                              "id": "ef4344bc-b329-4a64-a385-09cd21810d62",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores?start_time=<dateTime>&end_time=<dateTime>&pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "restores"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter restores initiated at or after this RFC3339 timestamp.",
+                                      "key": "start_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Filter restores initiated before this RFC3339 timestamp.",
+                                      "key": "end_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "ASC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-ef4344bc-b329-4a64-a385-09cd21810d62"
+                            },
+                            {
+                              "id": "1458d03e-bf10-4937-a138-48ab751e5991",
+                              "name": "The requested resource was not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores?start_time=<dateTime>&end_time=<dateTime>&pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "restores"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter restores initiated at or after this RFC3339 timestamp.",
+                                      "key": "start_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Filter restores initiated before this RFC3339 timestamp.",
+                                      "key": "end_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "ASC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-1458d03e-bf10-4937-a138-48ab751e5991"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:30.000Z",
+                          "updatedAt": "2026-07-28T01:23:30.000Z",
+                          "uid": "35240-9adedc13-a00a-4126-afaf-a55919a6533b"
+                        },
+                        {
+                          "name": "Create a restore",
+                          "id": "a3b151ba-b801-4c71-ace2-dcf1df0b5e90",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"backup_id\": \"<string>\",\n  \"target\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "restores"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e296f709-e845-4598-be6a-9f6f8a1ab412",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Initiates a restore operation to restore a cluster from a backup. The destination_cluster_id identifies the target cluster to restore into."
+                          },
+                          "response": [
+                            {
+                              "id": "a7f4ee4d-704a-45fd-bbc4-650035df5e54",
+                              "name": "Restore operation initiated successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"backup_id\": \"<string>\",\n  \"target\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "restores"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"cluster_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-a7f4ee4d-704a-45fd-bbc4-650035df5e54"
+                            },
+                            {
+                              "id": "a7c69d96-1ddc-4c2c-8b6b-8d263a53bc76",
+                              "name": "The request body or parameters are invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"backup_id\": \"<string>\",\n  \"target\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "restores"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-a7c69d96-1ddc-4c2c-8b6b-8d263a53bc76"
+                            },
+                            {
+                              "id": "6dcef288-000e-4b89-8c32-10f1555e129e",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"backup_id\": \"<string>\",\n  \"target\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/restores",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "restores"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:30.000Z",
+                              "updatedAt": "2026-07-28T01:23:30.000Z",
+                              "uid": "35240-6dcef288-000e-4b89-8c32-10f1555e129e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:30.000Z",
+                          "updatedAt": "2026-07-28T01:23:30.000Z",
+                          "uid": "35240-a3b151ba-b801-4c71-ace2-dcf1df0b5e90"
+                        }
+                      ],
+                      "id": "79a29f82-65ea-46d6-b586-8cb6be53c1e0",
+                      "createdAt": "2026-07-28T01:23:30.000Z",
+                      "updatedAt": "2026-07-28T01:23:30.000Z",
+                      "uid": "35240-79a29f82-65ea-46d6-b586-8cb6be53c1e0"
+                    }
+                  ],
+                  "id": "f2d522dd-e959-470a-b204-024f5ef20e64",
+                  "createdAt": "2026-07-28T01:23:30.000Z",
+                  "updatedAt": "2026-07-28T01:23:30.000Z",
+                  "uid": "35240-f2d522dd-e959-470a-b204-024f5ef20e64"
+                }
+              ],
+              "id": "fceef92c-887c-46e3-afef-dc941c902dc7",
+              "createdAt": "2026-07-28T01:23:30.000Z",
+              "updatedAt": "2026-07-28T01:23:30.000Z",
+              "uid": "35240-fceef92c-887c-46e3-afef-dc941c902dc7"
+            }
+          ],
+          "id": "102d4d6e-c23c-44c1-826a-cb79c13fc999",
+          "createdAt": "2026-07-28T01:23:30.000Z",
+          "updatedAt": "2026-07-28T01:23:30.000Z",
+          "uid": "35240-102d4d6e-c23c-44c1-826a-cb79c13fc999"
+        }
+      ],
+      "id": "78984b9f-7638-4121-bc9e-32491472445d",
+      "createdAt": "2026-07-28T01:23:30.000Z",
+      "updatedAt": "2026-07-28T01:23:30.000Z",
+      "uid": "35240-78984b9f-7638-4121-bc9e-32491472445d"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}

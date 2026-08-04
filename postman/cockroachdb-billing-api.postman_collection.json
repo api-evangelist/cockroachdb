@@ -1,0 +1,400 @@
+{
+  "info": {
+    "_postman_id": "f0675c0a-fce0-4851-a3a5-626e97825537",
+    "name": "CockroachDB Cloud APIKeys Billing API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:23:30.000Z",
+    "updatedAt": "2026-07-28T01:23:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f0675c0a-fce0-4851-a3a5-626e97825537"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "invoices",
+              "item": [
+                {
+                  "name": "{invoice_id}",
+                  "item": [
+                    {
+                      "name": "Get an invoice",
+                      "id": "b5731d19-18c4-4e7b-81b7-a0aba964fe40",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/invoices/:invoice_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "invoices",
+                            ":invoice_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "bca9e300-ccf4-406a-94f5-56940b5ef749",
+                              "key": "invoice_id",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the invoice to retrieve."
+                            }
+                          ]
+                        },
+                        "description": "Retrieves a specific invoice by its unique ID including line items and totals for the billing period."
+                      },
+                      "response": [
+                        {
+                          "id": "fc41c053-a23a-4830-aca5-53b7fe984fdc",
+                          "name": "Invoice retrieved successfully.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/invoices/:invoice_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "invoices",
+                                ":invoice_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "invoice_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"period_start\": \"<dateTime>\",\n  \"period_end\": \"<dateTime>\",\n  \"total_amount\": \"<number>\"\n}",
+                          "createdAt": "2026-07-28T01:23:31.000Z",
+                          "updatedAt": "2026-07-28T01:23:31.000Z",
+                          "uid": "35240-fc41c053-a23a-4830-aca5-53b7fe984fdc"
+                        },
+                        {
+                          "id": "b021d8cf-d5bc-4764-ad12-115624d7dd89",
+                          "name": "Authentication credentials are missing or invalid.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/invoices/:invoice_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "invoices",
+                                ":invoice_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "invoice_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:23:31.000Z",
+                          "updatedAt": "2026-07-28T01:23:31.000Z",
+                          "uid": "35240-b021d8cf-d5bc-4764-ad12-115624d7dd89"
+                        },
+                        {
+                          "id": "e4a62f6f-bcbc-44ed-8d2b-aca6b9f146cc",
+                          "name": "The requested resource was not found.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/invoices/:invoice_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "invoices",
+                                ":invoice_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "invoice_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:23:31.000Z",
+                          "updatedAt": "2026-07-28T01:23:31.000Z",
+                          "uid": "35240-e4a62f6f-bcbc-44ed-8d2b-aca6b9f146cc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:23:31.000Z",
+                      "updatedAt": "2026-07-28T01:23:31.000Z",
+                      "uid": "35240-b5731d19-18c4-4e7b-81b7-a0aba964fe40"
+                    }
+                  ],
+                  "id": "5d4debca-0e26-4591-a573-2ea09bd59a05",
+                  "createdAt": "2026-07-28T01:23:31.000Z",
+                  "updatedAt": "2026-07-28T01:23:31.000Z",
+                  "uid": "35240-5d4debca-0e26-4591-a573-2ea09bd59a05"
+                },
+                {
+                  "name": "List invoices",
+                  "id": "299f2f97-9e0c-4c05-8cfa-4d85230d8dad",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/invoices?status=Draft",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "invoices"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter invoices by status. Accepted values are Finalized and Draft. If not specified, both types are returned.",
+                          "key": "status",
+                          "value": "Draft"
+                        }
+                      ]
+                    },
+                    "description": "Returns a list of invoices for the organization. Optionally filter by invoice status to retrieve only Finalized or Draft invoices."
+                  },
+                  "response": [
+                    {
+                      "id": "3da585dc-ee1c-4e69-a840-f1950eadc06f",
+                      "name": "List of invoices returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/invoices?status=Draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "invoices"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter invoices by status. Accepted values are Finalized and Draft. If not specified, both types are returned.",
+                              "key": "status",
+                              "value": "Draft"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"invoices\": [\n    {\n      \"id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"period_start\": \"<dateTime>\",\n      \"period_end\": \"<dateTime>\",\n      \"total_amount\": \"<number>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"status\": \"<string>\",\n      \"period_start\": \"<dateTime>\",\n      \"period_end\": \"<dateTime>\",\n      \"total_amount\": \"<number>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:23:31.000Z",
+                      "updatedAt": "2026-07-28T01:23:31.000Z",
+                      "uid": "35240-3da585dc-ee1c-4e69-a840-f1950eadc06f"
+                    },
+                    {
+                      "id": "88195a1a-19e1-4a2f-a7ed-6610dc183258",
+                      "name": "Authentication credentials are missing or invalid.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/invoices?status=Draft",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "invoices"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter invoices by status. Accepted values are Finalized and Draft. If not specified, both types are returned.",
+                              "key": "status",
+                              "value": "Draft"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:23:31.000Z",
+                      "updatedAt": "2026-07-28T01:23:31.000Z",
+                      "uid": "35240-88195a1a-19e1-4a2f-a7ed-6610dc183258"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:23:31.000Z",
+                  "updatedAt": "2026-07-28T01:23:31.000Z",
+                  "uid": "35240-299f2f97-9e0c-4c05-8cfa-4d85230d8dad"
+                }
+              ],
+              "id": "84a68020-6d72-40db-b066-aab09e6c10af",
+              "createdAt": "2026-07-28T01:23:31.000Z",
+              "updatedAt": "2026-07-28T01:23:31.000Z",
+              "uid": "35240-84a68020-6d72-40db-b066-aab09e6c10af"
+            }
+          ],
+          "id": "d6eaf183-00d4-4b09-808f-163996478c89",
+          "createdAt": "2026-07-28T01:23:31.000Z",
+          "updatedAt": "2026-07-28T01:23:31.000Z",
+          "uid": "35240-d6eaf183-00d4-4b09-808f-163996478c89"
+        }
+      ],
+      "id": "291a9b29-0efc-441e-b294-da796127d217",
+      "createdAt": "2026-07-28T01:23:31.000Z",
+      "updatedAt": "2026-07-28T01:23:31.000Z",
+      "uid": "35240-291a9b29-0efc-441e-b294-da796127d217"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}

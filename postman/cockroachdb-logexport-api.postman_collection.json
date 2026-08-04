@@ -1,0 +1,719 @@
+{
+  "info": {
+    "_postman_id": "a0154137-dabf-4be9-a752-fa3af2ab6d7e",
+    "name": "CockroachDB Cloud APIKeys LogExport API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:23:41.000Z",
+    "updatedAt": "2026-07-28T01:23:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a0154137-dabf-4be9-a752-fa3af2ab6d7e"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "clusters",
+              "item": [
+                {
+                  "name": "{cluster_id}",
+                  "item": [
+                    {
+                      "name": "logexport",
+                      "item": [
+                        {
+                          "name": "Get log export configuration",
+                          "id": "08af1390-47dd-4877-aba8-cf7d7ff690fa",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "logexport"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1474d16e-420e-4d6d-b680-6422a41bc17e",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Retrieves the current log export configuration for the specified cluster, including destination, group settings, and enabled status."
+                          },
+                          "response": [
+                            {
+                              "id": "928a7424-4a4f-42ad-9f24-438cbdf163dd",
+                              "name": "Log export configuration retrieved successfully.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "logexport"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cluster_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"spec\": {}\n}",
+                              "createdAt": "2026-07-28T01:23:41.000Z",
+                              "updatedAt": "2026-07-28T01:23:41.000Z",
+                              "uid": "35240-928a7424-4a4f-42ad-9f24-438cbdf163dd"
+                            },
+                            {
+                              "id": "2c3e8169-903d-4d30-bbe1-bf59532079b9",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "logexport"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:41.000Z",
+                              "updatedAt": "2026-07-28T01:23:41.000Z",
+                              "uid": "35240-2c3e8169-903d-4d30-bbe1-bf59532079b9"
+                            },
+                            {
+                              "id": "51627f29-8b2d-47a8-b8b5-bbfc8596b9dd",
+                              "name": "The requested resource was not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "logexport"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:41.000Z",
+                              "updatedAt": "2026-07-28T01:23:41.000Z",
+                              "uid": "35240-51627f29-8b2d-47a8-b8b5-bbfc8596b9dd"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:41.000Z",
+                          "updatedAt": "2026-07-28T01:23:41.000Z",
+                          "uid": "35240-08af1390-47dd-4877-aba8-cf7d7ff690fa"
+                        },
+                        {
+                          "name": "Enable log export",
+                          "id": "7a7c661e-2f19-4d91-a0f0-5024f3558343",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"type\": \"GCP_CLOUD_LOGGING\",\n  \"log_name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "logexport"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "db5205f0-7cb0-4f66-b2cf-8e43ebfb5a2c",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Configures and enables log export for the specified cluster to an external destination such as AWS CloudWatch or GCP Cloud Logging."
+                          },
+                          "response": [
+                            {
+                              "id": "7d776b0e-69aa-4b8c-8e01-3928be3e1e4a",
+                              "name": "Log export enabled successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"type\": \"GCP_CLOUD_LOGGING\",\n  \"log_name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "logexport"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cluster_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"spec\": {}\n}",
+                              "createdAt": "2026-07-28T01:23:41.000Z",
+                              "updatedAt": "2026-07-28T01:23:41.000Z",
+                              "uid": "35240-7d776b0e-69aa-4b8c-8e01-3928be3e1e4a"
+                            },
+                            {
+                              "id": "cbb8b2e1-71be-4033-8b9f-b186eedcf7f2",
+                              "name": "The request body or parameters are invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"type\": \"GCP_CLOUD_LOGGING\",\n  \"log_name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "logexport"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:41.000Z",
+                              "updatedAt": "2026-07-28T01:23:41.000Z",
+                              "uid": "35240-cbb8b2e1-71be-4033-8b9f-b186eedcf7f2"
+                            },
+                            {
+                              "id": "6246efb0-f450-42f6-b995-4bd03cf1cfa1",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"type\": \"GCP_CLOUD_LOGGING\",\n  \"log_name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "logexport"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:41.000Z",
+                              "updatedAt": "2026-07-28T01:23:41.000Z",
+                              "uid": "35240-6246efb0-f450-42f6-b995-4bd03cf1cfa1"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:41.000Z",
+                          "updatedAt": "2026-07-28T01:23:41.000Z",
+                          "uid": "35240-7a7c661e-2f19-4d91-a0f0-5024f3558343"
+                        },
+                        {
+                          "name": "Disable log export",
+                          "id": "8cecfb35-6a0c-448e-a70c-2a2f9f1a3008",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "logexport"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "492a15f7-7ff3-4fe1-bc8a-250ac9f5a250",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Disables and removes the log export configuration for the specified cluster."
+                          },
+                          "response": [
+                            {
+                              "id": "9addd61c-e0eb-4c16-935f-53491e0d8dd2",
+                              "name": "Log export disabled successfully.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "logexport"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"cluster_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"spec\": {}\n}",
+                              "createdAt": "2026-07-28T01:23:41.000Z",
+                              "updatedAt": "2026-07-28T01:23:41.000Z",
+                              "uid": "35240-9addd61c-e0eb-4c16-935f-53491e0d8dd2"
+                            },
+                            {
+                              "id": "884d53f6-6f1f-45e6-aa91-2352c092b112",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "logexport"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:41.000Z",
+                              "updatedAt": "2026-07-28T01:23:41.000Z",
+                              "uid": "35240-884d53f6-6f1f-45e6-aa91-2352c092b112"
+                            },
+                            {
+                              "id": "db068f99-e6b8-470b-a7f0-46e33d42d4e2",
+                              "name": "The requested resource was not found.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/logexport",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "logexport"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:23:41.000Z",
+                              "updatedAt": "2026-07-28T01:23:41.000Z",
+                              "uid": "35240-db068f99-e6b8-470b-a7f0-46e33d42d4e2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:23:41.000Z",
+                          "updatedAt": "2026-07-28T01:23:41.000Z",
+                          "uid": "35240-8cecfb35-6a0c-448e-a70c-2a2f9f1a3008"
+                        }
+                      ],
+                      "id": "c682b213-9aea-4944-a316-0533fe6ab67f",
+                      "createdAt": "2026-07-28T01:23:41.000Z",
+                      "updatedAt": "2026-07-28T01:23:41.000Z",
+                      "uid": "35240-c682b213-9aea-4944-a316-0533fe6ab67f"
+                    }
+                  ],
+                  "id": "a7172d02-b507-4854-9f15-24279ef35d07",
+                  "createdAt": "2026-07-28T01:23:41.000Z",
+                  "updatedAt": "2026-07-28T01:23:41.000Z",
+                  "uid": "35240-a7172d02-b507-4854-9f15-24279ef35d07"
+                }
+              ],
+              "id": "eb10951f-d9fc-4a50-9217-f4060978d1f6",
+              "createdAt": "2026-07-28T01:23:41.000Z",
+              "updatedAt": "2026-07-28T01:23:41.000Z",
+              "uid": "35240-eb10951f-d9fc-4a50-9217-f4060978d1f6"
+            }
+          ],
+          "id": "64dae290-4ebf-402d-bdf1-2ec52dc301b1",
+          "createdAt": "2026-07-28T01:23:41.000Z",
+          "updatedAt": "2026-07-28T01:23:41.000Z",
+          "uid": "35240-64dae290-4ebf-402d-bdf1-2ec52dc301b1"
+        }
+      ],
+      "id": "8779acfe-f5e5-4c9d-86a7-7e93ba6ff201",
+      "createdAt": "2026-07-28T01:23:41.000Z",
+      "updatedAt": "2026-07-28T01:23:41.000Z",
+      "uid": "35240-8779acfe-f5e5-4c9d-86a7-7e93ba6ff201"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}

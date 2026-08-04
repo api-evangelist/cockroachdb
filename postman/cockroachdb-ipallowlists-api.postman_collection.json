@@ -1,0 +1,1252 @@
+{
+  "info": {
+    "_postman_id": "9f44e86f-fa19-4e43-8a00-212b3e8265b8",
+    "name": "CockroachDB Cloud APIKeys IPAllowlists API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:23:37.000Z",
+    "updatedAt": "2026-07-28T01:23:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9f44e86f-fa19-4e43-8a00-212b3e8265b8"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "clusters",
+              "item": [
+                {
+                  "name": "{cluster_id}",
+                  "item": [
+                    {
+                      "name": "networking",
+                      "item": [
+                        {
+                          "name": "allowlist",
+                          "item": [
+                            {
+                              "name": "{cidr_ip}",
+                              "item": [
+                                {
+                                  "name": "{cidr_mask}",
+                                  "item": [
+                                    {
+                                      "name": "Update IP allowlist entry",
+                                      "id": "5dff76ba-9b16-481d-b5ca-1fcd95570f97",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist/:cidr_ip/:cidr_mask",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "clusters",
+                                            ":cluster_id",
+                                            "networking",
+                                            "allowlist",
+                                            ":cidr_ip",
+                                            ":cidr_mask"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "cc7bb8b2-a416-489e-897a-1034661e75e6",
+                                              "key": "cluster_id",
+                                              "value": "<string>",
+                                              "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                            },
+                                            {
+                                              "id": "195a65d6-4fcd-4aff-897c-0563548ddc53",
+                                              "key": "cidr_ip",
+                                              "value": "<string>",
+                                              "description": "(Required) IPv4 address part of the CIDR range."
+                                            },
+                                            {
+                                              "id": "6f4aa60d-fd4c-4972-94af-84293c4d5eee",
+                                              "key": "cidr_mask",
+                                              "value": "<integer>",
+                                              "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Updates the properties of an existing IP allowlist entry identified by CIDR IP and mask for the specified cluster."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "4852eba2-297f-4b4a-b9c2-98fed8d895c3",
+                                          "name": "Allowlist entry updated successfully.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist/:cidr_ip/:cidr_mask",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "clusters",
+                                                ":cluster_id",
+                                                "networking",
+                                                "allowlist",
+                                                ":cidr_ip",
+                                                ":cidr_mask"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "cluster_id"
+                                                },
+                                                {
+                                                  "key": "cidr_ip"
+                                                },
+                                                {
+                                                  "key": "cidr_mask"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                          "createdAt": "2026-07-28T01:23:37.000Z",
+                                          "updatedAt": "2026-07-28T01:23:37.000Z",
+                                          "uid": "35240-4852eba2-297f-4b4a-b9c2-98fed8d895c3"
+                                        },
+                                        {
+                                          "id": "257915e2-9b17-4344-ae19-c8989aeab0e5",
+                                          "name": "The request body or parameters are invalid.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist/:cidr_ip/:cidr_mask",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "clusters",
+                                                ":cluster_id",
+                                                "networking",
+                                                "allowlist",
+                                                ":cidr_ip",
+                                                ":cidr_mask"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "cluster_id"
+                                                },
+                                                {
+                                                  "key": "cidr_ip"
+                                                },
+                                                {
+                                                  "key": "cidr_mask"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Bad Request",
+                                          "code": 400,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T01:23:37.000Z",
+                                          "updatedAt": "2026-07-28T01:23:37.000Z",
+                                          "uid": "35240-257915e2-9b17-4344-ae19-c8989aeab0e5"
+                                        },
+                                        {
+                                          "id": "e64c23ae-9507-4267-b39f-cd788f80ac1e",
+                                          "name": "Authentication credentials are missing or invalid.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist/:cidr_ip/:cidr_mask",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "clusters",
+                                                ":cluster_id",
+                                                "networking",
+                                                "allowlist",
+                                                ":cidr_ip",
+                                                ":cidr_mask"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "cluster_id"
+                                                },
+                                                {
+                                                  "key": "cidr_ip"
+                                                },
+                                                {
+                                                  "key": "cidr_mask"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Unauthorized",
+                                          "code": 401,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T01:23:37.000Z",
+                                          "updatedAt": "2026-07-28T01:23:37.000Z",
+                                          "uid": "35240-e64c23ae-9507-4267-b39f-cd788f80ac1e"
+                                        },
+                                        {
+                                          "id": "5caa75ca-6eb6-4218-adea-5517604ba0b8",
+                                          "name": "The requested resource was not found.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist/:cidr_ip/:cidr_mask",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "clusters",
+                                                ":cluster_id",
+                                                "networking",
+                                                "allowlist",
+                                                ":cidr_ip",
+                                                ":cidr_mask"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "cluster_id"
+                                                },
+                                                {
+                                                  "key": "cidr_ip"
+                                                },
+                                                {
+                                                  "key": "cidr_mask"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Not Found",
+                                          "code": 404,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T01:23:37.000Z",
+                                          "updatedAt": "2026-07-28T01:23:37.000Z",
+                                          "uid": "35240-5caa75ca-6eb6-4218-adea-5517604ba0b8"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:23:37.000Z",
+                                      "updatedAt": "2026-07-28T01:23:37.000Z",
+                                      "uid": "35240-5dff76ba-9b16-481d-b5ca-1fcd95570f97"
+                                    },
+                                    {
+                                      "name": "Delete IP allowlist entry",
+                                      "id": "31a578ca-d225-4810-8755-9506c2569b65",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist/:cidr_ip/:cidr_mask",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "clusters",
+                                            ":cluster_id",
+                                            "networking",
+                                            "allowlist",
+                                            ":cidr_ip",
+                                            ":cidr_mask"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "70149853-e31c-4cbe-933c-6a32a60362e0",
+                                              "key": "cluster_id",
+                                              "value": "<string>",
+                                              "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                            },
+                                            {
+                                              "id": "36d6c645-ae4d-41fe-938c-798d2b819313",
+                                              "key": "cidr_ip",
+                                              "value": "<string>",
+                                              "description": "(Required) IPv4 address part of the CIDR range."
+                                            },
+                                            {
+                                              "id": "840a1fbf-4b9d-4fce-8d7f-e21d909519b0",
+                                              "key": "cidr_mask",
+                                              "value": "<integer>",
+                                              "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Removes an IP allowlist entry from the cluster identified by CIDR IP address and mask."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "5418cb47-a500-462e-9643-0b8fd29e9e0d",
+                                          "name": "Allowlist entry deleted successfully.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist/:cidr_ip/:cidr_mask",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "clusters",
+                                                ":cluster_id",
+                                                "networking",
+                                                "allowlist",
+                                                ":cidr_ip",
+                                                ":cidr_mask"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "cluster_id"
+                                                },
+                                                {
+                                                  "key": "cidr_ip"
+                                                },
+                                                {
+                                                  "key": "cidr_mask"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                          "createdAt": "2026-07-28T01:23:37.000Z",
+                                          "updatedAt": "2026-07-28T01:23:37.000Z",
+                                          "uid": "35240-5418cb47-a500-462e-9643-0b8fd29e9e0d"
+                                        },
+                                        {
+                                          "id": "db0ab4d8-836c-429c-9536-07fe7ba3e11d",
+                                          "name": "Authentication credentials are missing or invalid.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist/:cidr_ip/:cidr_mask",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "clusters",
+                                                ":cluster_id",
+                                                "networking",
+                                                "allowlist",
+                                                ":cidr_ip",
+                                                ":cidr_mask"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "cluster_id"
+                                                },
+                                                {
+                                                  "key": "cidr_ip"
+                                                },
+                                                {
+                                                  "key": "cidr_mask"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Unauthorized",
+                                          "code": 401,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T01:23:37.000Z",
+                                          "updatedAt": "2026-07-28T01:23:37.000Z",
+                                          "uid": "35240-db0ab4d8-836c-429c-9536-07fe7ba3e11d"
+                                        },
+                                        {
+                                          "id": "d73a11f5-95da-401e-9661-3a35595f52f9",
+                                          "name": "The requested resource was not found.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist/:cidr_ip/:cidr_mask",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "api",
+                                                "v1",
+                                                "clusters",
+                                                ":cluster_id",
+                                                "networking",
+                                                "allowlist",
+                                                ":cidr_ip",
+                                                ":cidr_mask"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "cluster_id"
+                                                },
+                                                {
+                                                  "key": "cidr_ip"
+                                                },
+                                                {
+                                                  "key": "cidr_mask"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Not Found",
+                                          "code": 404,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T01:23:37.000Z",
+                                          "updatedAt": "2026-07-28T01:23:37.000Z",
+                                          "uid": "35240-d73a11f5-95da-401e-9661-3a35595f52f9"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:23:37.000Z",
+                                      "updatedAt": "2026-07-28T01:23:37.000Z",
+                                      "uid": "35240-31a578ca-d225-4810-8755-9506c2569b65"
+                                    }
+                                  ],
+                                  "id": "b3a3fbf3-6fbb-4427-a7a4-3c77585c2bf1",
+                                  "createdAt": "2026-07-28T01:23:37.000Z",
+                                  "updatedAt": "2026-07-28T01:23:37.000Z",
+                                  "uid": "35240-b3a3fbf3-6fbb-4427-a7a4-3c77585c2bf1"
+                                }
+                              ],
+                              "id": "2aa466dd-4cf9-4bc9-bbdb-59fe3c232dde",
+                              "createdAt": "2026-07-28T01:23:37.000Z",
+                              "updatedAt": "2026-07-28T01:23:37.000Z",
+                              "uid": "35240-2aa466dd-4cf9-4bc9-bbdb-59fe3c232dde"
+                            },
+                            {
+                              "name": "List IP allowlist entries",
+                              "id": "70104929-eb97-4250-b9e1-033b87ee9254",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "networking",
+                                    "allowlist"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "ASC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "5475934b-fea2-411b-9ff2-7ed925acbc83",
+                                      "key": "cluster_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a list of IP allowlist entries for the specified cluster. Supports pagination."
+                              },
+                              "response": [
+                                {
+                                  "id": "f6bda66c-8a1b-410c-87d7-1cd9c6fa9846",
+                                  "name": "List of allowlist entries returned successfully.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "allowlist"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Page number for paginated results, starting from 1.",
+                                          "key": "pagination.page",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Maximum number of results to return per page.",
+                                          "key": "pagination.limit",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                          "key": "pagination.as_of_time",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                          "key": "pagination.sort_order",
+                                          "value": "ASC"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"allowlist\": [\n    {\n      \"cidr_ip\": \"<string>\",\n      \"cidr_mask\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"ui\": \"<boolean>\",\n      \"sql\": \"<boolean>\"\n    },\n    {\n      \"cidr_ip\": \"<string>\",\n      \"cidr_mask\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"ui\": \"<boolean>\",\n      \"sql\": \"<boolean>\"\n    }\n  ],\n  \"pagination\": {\n    \"next\": \"<string>\",\n    \"last\": \"<string>\",\n    \"time\": \"<dateTime>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:23:37.000Z",
+                                  "updatedAt": "2026-07-28T01:23:37.000Z",
+                                  "uid": "35240-f6bda66c-8a1b-410c-87d7-1cd9c6fa9846"
+                                },
+                                {
+                                  "id": "81794db6-2411-4f68-874c-0e616df6409f",
+                                  "name": "Authentication credentials are missing or invalid.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "allowlist"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Page number for paginated results, starting from 1.",
+                                          "key": "pagination.page",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Maximum number of results to return per page.",
+                                          "key": "pagination.limit",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                          "key": "pagination.as_of_time",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                          "key": "pagination.sort_order",
+                                          "value": "ASC"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:37.000Z",
+                                  "updatedAt": "2026-07-28T01:23:37.000Z",
+                                  "uid": "35240-81794db6-2411-4f68-874c-0e616df6409f"
+                                },
+                                {
+                                  "id": "eb2de7a6-a132-4c9f-84c4-1b35a4024ee7",
+                                  "name": "The requested resource was not found.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=ASC",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "allowlist"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Page number for paginated results, starting from 1.",
+                                          "key": "pagination.page",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Maximum number of results to return per page.",
+                                          "key": "pagination.limit",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                          "key": "pagination.as_of_time",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                          "key": "pagination.sort_order",
+                                          "value": "ASC"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:37.000Z",
+                                  "updatedAt": "2026-07-28T01:23:37.000Z",
+                                  "uid": "35240-eb2de7a6-a132-4c9f-84c4-1b35a4024ee7"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:23:37.000Z",
+                              "updatedAt": "2026-07-28T01:23:37.000Z",
+                              "uid": "35240-70104929-eb97-4250-b9e1-033b87ee9254"
+                            },
+                            {
+                              "name": "Add IP allowlist entry",
+                              "id": "5c153ec9-ed92-4893-bb73-6d96f6a063c2",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "networking",
+                                    "allowlist"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "1f5e7f4b-3e32-492f-a3a3-fc4eb5e527fb",
+                                      "key": "cluster_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                    }
+                                  ]
+                                },
+                                "description": "Adds a new CIDR-based IP allowlist entry to the specified cluster to authorize inbound connections from a network range."
+                              },
+                              "response": [
+                                {
+                                  "id": "ca7c4d03-4e7d-4c5e-9e30-34368dac3841",
+                                  "name": "Allowlist entry added successfully.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "allowlist"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:37.000Z",
+                                  "updatedAt": "2026-07-28T01:23:37.000Z",
+                                  "uid": "35240-ca7c4d03-4e7d-4c5e-9e30-34368dac3841"
+                                },
+                                {
+                                  "id": "ba2b1e0f-b6ec-4d28-acaa-689ecb53fcbf",
+                                  "name": "The request body or parameters are invalid.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "allowlist"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:37.000Z",
+                                  "updatedAt": "2026-07-28T01:23:37.000Z",
+                                  "uid": "35240-ba2b1e0f-b6ec-4d28-acaa-689ecb53fcbf"
+                                },
+                                {
+                                  "id": "3235b973-ba8a-41df-97ac-801b01f8a515",
+                                  "name": "Authentication credentials are missing or invalid.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/networking/allowlist",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "networking",
+                                        "allowlist"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:23:37.000Z",
+                                  "updatedAt": "2026-07-28T01:23:37.000Z",
+                                  "uid": "35240-3235b973-ba8a-41df-97ac-801b01f8a515"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:23:37.000Z",
+                              "updatedAt": "2026-07-28T01:23:37.000Z",
+                              "uid": "35240-5c153ec9-ed92-4893-bb73-6d96f6a063c2"
+                            }
+                          ],
+                          "id": "597bcbbe-e5ff-423a-b966-f079b13dd1c7",
+                          "createdAt": "2026-07-28T01:23:37.000Z",
+                          "updatedAt": "2026-07-28T01:23:37.000Z",
+                          "uid": "35240-597bcbbe-e5ff-423a-b966-f079b13dd1c7"
+                        }
+                      ],
+                      "id": "83dd891b-bf20-441b-830e-4704358936fd",
+                      "createdAt": "2026-07-28T01:23:37.000Z",
+                      "updatedAt": "2026-07-28T01:23:37.000Z",
+                      "uid": "35240-83dd891b-bf20-441b-830e-4704358936fd"
+                    }
+                  ],
+                  "id": "81b70df0-9510-40da-adb8-490a9bcde2b4",
+                  "createdAt": "2026-07-28T01:23:37.000Z",
+                  "updatedAt": "2026-07-28T01:23:37.000Z",
+                  "uid": "35240-81b70df0-9510-40da-adb8-490a9bcde2b4"
+                }
+              ],
+              "id": "485f5679-b318-47dc-9df9-7d67685525a0",
+              "createdAt": "2026-07-28T01:23:37.000Z",
+              "updatedAt": "2026-07-28T01:23:37.000Z",
+              "uid": "35240-485f5679-b318-47dc-9df9-7d67685525a0"
+            }
+          ],
+          "id": "cc672829-e3f0-4e3e-af12-5aa54c55069d",
+          "createdAt": "2026-07-28T01:23:37.000Z",
+          "updatedAt": "2026-07-28T01:23:37.000Z",
+          "uid": "35240-cc672829-e3f0-4e3e-af12-5aa54c55069d"
+        }
+      ],
+      "id": "e3372723-e31b-4685-9245-20ee4ec5cb98",
+      "createdAt": "2026-07-28T01:23:37.000Z",
+      "updatedAt": "2026-07-28T01:23:37.000Z",
+      "uid": "35240-e3372723-e31b-4685-9245-20ee4ec5cb98"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}

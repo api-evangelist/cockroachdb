@@ -1,0 +1,202 @@
+{
+  "info": {
+    "_postman_id": "ee3c621c-5205-44e0-9722-4bdd31bb7db2",
+    "name": "CockroachDB Cloud APIKeys Health API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:23:36.000Z",
+    "updatedAt": "2026-07-28T01:23:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ee3c621c-5205-44e0-9722-4bdd31bb7db2"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "health",
+              "item": [
+                {
+                  "name": "Check node health",
+                  "id": "7becd6bb-8d1c-4225-a220-9bc297209eb9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v2/health/?ready=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v2",
+                        "health",
+                        ""
+                      ],
+                      "query": [
+                        {
+                          "description": "If true, checks whether the node is fully ready to accept SQL connections in addition to being live.",
+                          "key": "ready",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "description": "Reports the health of the CockroachDB node. When the optional ready parameter is set to true, the endpoint also verifies that the node is fully operational and ready to accept SQL connections. Returns HTTP 200 if healthy, or HTTP 500 if not ready. This endpoint does not require authentication."
+                  },
+                  "response": [
+                    {
+                      "id": "6f92377d-5076-4ee6-9b6c-c55e313fd29b",
+                      "name": "Node is healthy and, if ready was requested, fully operational.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/health/?ready=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "health",
+                            ""
+                          ],
+                          "query": [
+                            {
+                              "description": "If true, checks whether the node is fully ready to accept SQL connections in addition to being live.",
+                              "key": "ready",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"node_id\": \"<integer>\",\n  \"ready\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T01:23:36.000Z",
+                      "updatedAt": "2026-07-28T01:23:36.000Z",
+                      "uid": "35240-6f92377d-5076-4ee6-9b6c-c55e313fd29b"
+                    },
+                    {
+                      "id": "5163a4f1-abd0-4d80-a8c3-9e69ed795a90",
+                      "name": "Node is not ready to accept SQL connections.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v2/health/?ready=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v2",
+                            "health",
+                            ""
+                          ],
+                          "query": [
+                            {
+                              "description": "If true, checks whether the node is fully ready to accept SQL connections in addition to being live.",
+                              "key": "ready",
+                              "value": "<boolean>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"node_id\": \"<integer>\",\n  \"ready\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T01:23:36.000Z",
+                      "updatedAt": "2026-07-28T01:23:36.000Z",
+                      "uid": "35240-5163a4f1-abd0-4d80-a8c3-9e69ed795a90"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:23:36.000Z",
+                  "updatedAt": "2026-07-28T01:23:36.000Z",
+                  "uid": "35240-7becd6bb-8d1c-4225-a220-9bc297209eb9"
+                }
+              ],
+              "id": "dc6c27cb-6fae-4483-b01f-f96442d682ed",
+              "createdAt": "2026-07-28T01:23:36.000Z",
+              "updatedAt": "2026-07-28T01:23:36.000Z",
+              "uid": "35240-dc6c27cb-6fae-4483-b01f-f96442d682ed"
+            }
+          ],
+          "id": "1c9d1f6f-fe96-46d6-9e97-1e1432ba44b5",
+          "createdAt": "2026-07-28T01:23:36.000Z",
+          "updatedAt": "2026-07-28T01:23:36.000Z",
+          "uid": "35240-1c9d1f6f-fe96-46d6-9e97-1e1432ba44b5"
+        }
+      ],
+      "id": "e6829f37-2a87-4fcc-8295-1c8f02d78d28",
+      "createdAt": "2026-07-28T01:23:36.000Z",
+      "updatedAt": "2026-07-28T01:23:36.000Z",
+      "uid": "35240-e6829f37-2a87-4fcc-8295-1c8f02d78d28"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}

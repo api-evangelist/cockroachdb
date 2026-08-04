@@ -1,0 +1,1189 @@
+{
+  "info": {
+    "_postman_id": "6bce852f-9ed3-4c51-985c-63a483f22280",
+    "name": "CockroachDB Cloud APIKeys SQLUsers API",
+    "description": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:24:31.000Z",
+    "updatedAt": "2026-07-28T01:24:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6bce852f-9ed3-4c51-985c-63a483f22280"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "clusters",
+              "item": [
+                {
+                  "name": "{cluster_id}",
+                  "item": [
+                    {
+                      "name": "sql-users",
+                      "item": [
+                        {
+                          "name": "{name}",
+                          "item": [
+                            {
+                              "name": "password",
+                              "item": [
+                                {
+                                  "name": "Update SQL user password",
+                                  "id": "052c11bd-d574-4afd-9220-99409949c13f",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"password\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users/:name/password",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "sql-users",
+                                        ":name",
+                                        "password"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "09402cbe-477c-4514-a310-cda1a4663dfd",
+                                          "key": "cluster_id",
+                                          "value": "<string>",
+                                          "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                        },
+                                        {
+                                          "id": "a5835da0-fd10-4157-977f-f29286e5c02b",
+                                          "key": "name",
+                                          "value": "<string>",
+                                          "description": "(Required) Username of the SQL user."
+                                        }
+                                      ]
+                                    },
+                                    "description": "Updates the password for the specified SQL user on the given cluster. Requires CLUSTER_ADMIN role at organization, folder, or cluster scope."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "77b90e7f-3f21-4aa3-9abb-a7f8f153f58e",
+                                      "name": "SQL user password updated successfully.",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"password\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users/:name/password",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "clusters",
+                                            ":cluster_id",
+                                            "sql-users",
+                                            ":name",
+                                            "password"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cluster_id"
+                                            },
+                                            {
+                                              "key": "name"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"name\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:24:31.000Z",
+                                      "updatedAt": "2026-07-28T01:24:31.000Z",
+                                      "uid": "35240-77b90e7f-3f21-4aa3-9abb-a7f8f153f58e"
+                                    },
+                                    {
+                                      "id": "0c4dfc18-3596-49e2-a40d-f077eda92dec",
+                                      "name": "The request body or parameters are invalid.",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"password\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users/:name/password",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "clusters",
+                                            ":cluster_id",
+                                            "sql-users",
+                                            ":name",
+                                            "password"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cluster_id"
+                                            },
+                                            {
+                                              "key": "name"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Bad Request",
+                                      "code": 400,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:24:31.000Z",
+                                      "updatedAt": "2026-07-28T01:24:31.000Z",
+                                      "uid": "35240-0c4dfc18-3596-49e2-a40d-f077eda92dec"
+                                    },
+                                    {
+                                      "id": "241ea65f-e8f1-429c-ba60-d8ec00e189bb",
+                                      "name": "Authentication credentials are missing or invalid.",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"password\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users/:name/password",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "clusters",
+                                            ":cluster_id",
+                                            "sql-users",
+                                            ":name",
+                                            "password"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cluster_id"
+                                            },
+                                            {
+                                              "key": "name"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:24:31.000Z",
+                                      "updatedAt": "2026-07-28T01:24:31.000Z",
+                                      "uid": "35240-241ea65f-e8f1-429c-ba60-d8ec00e189bb"
+                                    },
+                                    {
+                                      "id": "f3c2b7e7-7155-4314-8e79-01185e7f3fcc",
+                                      "name": "The requested resource was not found.",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"password\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users/:name/password",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "api",
+                                            "v1",
+                                            "clusters",
+                                            ":cluster_id",
+                                            "sql-users",
+                                            ":name",
+                                            "password"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cluster_id"
+                                            },
+                                            {
+                                              "key": "name"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:24:31.000Z",
+                                      "updatedAt": "2026-07-28T01:24:31.000Z",
+                                      "uid": "35240-f3c2b7e7-7155-4314-8e79-01185e7f3fcc"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:24:31.000Z",
+                                  "updatedAt": "2026-07-28T01:24:31.000Z",
+                                  "uid": "35240-052c11bd-d574-4afd-9220-99409949c13f"
+                                }
+                              ],
+                              "id": "8e71398e-85b8-4808-975c-5868a50e6155",
+                              "createdAt": "2026-07-28T01:24:31.000Z",
+                              "updatedAt": "2026-07-28T01:24:31.000Z",
+                              "uid": "35240-8e71398e-85b8-4808-975c-5868a50e6155"
+                            },
+                            {
+                              "name": "Delete a SQL user",
+                              "id": "89cb2f1b-9c07-4a01-a5c3-d60fa465e3c2",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "sql-users",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ec2379d6-4ae5-4334-8d50-597c84001ff8",
+                                      "key": "cluster_id",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                    },
+                                    {
+                                      "id": "9f6b5fa9-a996-4f01-8f77-faf4919bdef1",
+                                      "key": "name",
+                                      "value": "<string>",
+                                      "description": "(Required) Username of the SQL user."
+                                    }
+                                  ]
+                                },
+                                "description": "Deletes a SQL user from the specified cluster by username. Requires CLUSTER_ADMIN role."
+                              },
+                              "response": [
+                                {
+                                  "id": "68dd4dce-31a0-42d5-9e0e-a94b301b949d",
+                                  "name": "SQL user deleted successfully.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "sql-users",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "name"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:31.000Z",
+                                  "updatedAt": "2026-07-28T01:24:31.000Z",
+                                  "uid": "35240-68dd4dce-31a0-42d5-9e0e-a94b301b949d"
+                                },
+                                {
+                                  "id": "d2ee4965-e24b-44d8-be6a-a4e3c69aed73",
+                                  "name": "Authentication credentials are missing or invalid.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "sql-users",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "name"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:31.000Z",
+                                  "updatedAt": "2026-07-28T01:24:31.000Z",
+                                  "uid": "35240-d2ee4965-e24b-44d8-be6a-a4e3c69aed73"
+                                },
+                                {
+                                  "id": "8ff62856-d881-4fac-84f6-e885e1bd349d",
+                                  "name": "The requested resource was not found.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users/:name",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "clusters",
+                                        ":cluster_id",
+                                        "sql-users",
+                                        ":name"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cluster_id"
+                                        },
+                                        {
+                                          "key": "name"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:24:31.000Z",
+                                  "updatedAt": "2026-07-28T01:24:31.000Z",
+                                  "uid": "35240-8ff62856-d881-4fac-84f6-e885e1bd349d"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:24:31.000Z",
+                              "updatedAt": "2026-07-28T01:24:31.000Z",
+                              "uid": "35240-89cb2f1b-9c07-4a01-a5c3-d60fa465e3c2"
+                            }
+                          ],
+                          "id": "871ebb96-2e5c-4334-bea3-8ac50198efb7",
+                          "createdAt": "2026-07-28T01:24:31.000Z",
+                          "updatedAt": "2026-07-28T01:24:31.000Z",
+                          "uid": "35240-871ebb96-2e5c-4334-bea3-8ac50198efb7"
+                        },
+                        {
+                          "name": "List SQL users",
+                          "id": "172215f6-3407-442e-aecc-c2bd8d3109f3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=DESC",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "sql-users"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page number for paginated results, starting from 1.",
+                                  "key": "pagination.page",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of results to return per page.",
+                                  "key": "pagination.limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                  "key": "pagination.as_of_time",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                  "key": "pagination.sort_order",
+                                  "value": "DESC"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b926c353-5a8e-4bb1-acc7-4ca5147cfddf",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Returns a list of SQL users for the specified cluster. Accessible to users with CLUSTER_ADMIN, CLUSTER_OPERATOR_WRITER, or CLUSTER_DEVELOPER roles."
+                          },
+                          "response": [
+                            {
+                              "id": "7f612328-70e9-4d09-9f77-2a15323cd9b3",
+                              "name": "List of SQL users returned successfully.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=DESC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "sql-users"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "DESC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"users\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"pagination\": {\n    \"next\": \"<string>\",\n    \"last\": \"<string>\",\n    \"time\": \"<dateTime>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:24:31.000Z",
+                              "updatedAt": "2026-07-28T01:24:31.000Z",
+                              "uid": "35240-7f612328-70e9-4d09-9f77-2a15323cd9b3"
+                            },
+                            {
+                              "id": "ddfcacab-310a-4acd-8460-fbf71022e0a6",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=DESC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "sql-users"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "DESC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:24:31.000Z",
+                              "updatedAt": "2026-07-28T01:24:31.000Z",
+                              "uid": "35240-ddfcacab-310a-4acd-8460-fbf71022e0a6"
+                            },
+                            {
+                              "id": "90246e23-2083-4740-a197-b132e4dcb7bb",
+                              "name": "The requested resource was not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users?pagination.page=<string>&pagination.limit=<integer>&pagination.as_of_time=<dateTime>&pagination.sort_order=DESC",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "sql-users"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Page number for paginated results, starting from 1.",
+                                      "key": "pagination.page",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Maximum number of results to return per page.",
+                                      "key": "pagination.limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).",
+                                      "key": "pagination.as_of_time",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "Sort direction for paginated results. Accepted values are ASC and DESC.",
+                                      "key": "pagination.sort_order",
+                                      "value": "DESC"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:24:31.000Z",
+                              "updatedAt": "2026-07-28T01:24:31.000Z",
+                              "uid": "35240-90246e23-2083-4740-a197-b132e4dcb7bb"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:24:31.000Z",
+                          "updatedAt": "2026-07-28T01:24:31.000Z",
+                          "uid": "35240-172215f6-3407-442e-aecc-c2bd8d3109f3"
+                        },
+                        {
+                          "name": "Create a SQL user",
+                          "id": "712a699a-b4e8-4c31-9ee7-b6d2cbca9330",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "clusters",
+                                ":cluster_id",
+                                "sql-users"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fce78b99-e3f4-47f6-ba03-8f016bafa210",
+                                  "key": "cluster_id",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                                }
+                              ]
+                            },
+                            "description": "Creates a new SQL user for the specified cluster. Requires CLUSTER_ADMIN role at organization, folder, or cluster scope."
+                          },
+                          "response": [
+                            {
+                              "id": "223f5f45-b180-4f5e-9c92-568e10bfbffe",
+                              "name": "SQL user created successfully.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "sql-users"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:24:31.000Z",
+                              "updatedAt": "2026-07-28T01:24:31.000Z",
+                              "uid": "35240-223f5f45-b180-4f5e-9c92-568e10bfbffe"
+                            },
+                            {
+                              "id": "36965476-c863-4098-a63f-0cc3dd680343",
+                              "name": "The request body or parameters are invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "sql-users"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:24:31.000Z",
+                              "updatedAt": "2026-07-28T01:24:31.000Z",
+                              "uid": "35240-36965476-c863-4098-a63f-0cc3dd680343"
+                            },
+                            {
+                              "id": "7cda29d3-20a7-4030-8fa1-d8ccc4660132",
+                              "name": "Authentication credentials are missing or invalid.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/clusters/:cluster_id/sql-users",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "clusters",
+                                    ":cluster_id",
+                                    "sql-users"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cluster_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:24:31.000Z",
+                              "updatedAt": "2026-07-28T01:24:31.000Z",
+                              "uid": "35240-7cda29d3-20a7-4030-8fa1-d8ccc4660132"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:24:31.000Z",
+                          "updatedAt": "2026-07-28T01:24:31.000Z",
+                          "uid": "35240-712a699a-b4e8-4c31-9ee7-b6d2cbca9330"
+                        }
+                      ],
+                      "id": "907db27f-5861-47f4-a56c-4a09d29faf5f",
+                      "createdAt": "2026-07-28T01:24:31.000Z",
+                      "updatedAt": "2026-07-28T01:24:31.000Z",
+                      "uid": "35240-907db27f-5861-47f4-a56c-4a09d29faf5f"
+                    }
+                  ],
+                  "id": "d6608271-978c-416f-b628-246cf422eb97",
+                  "createdAt": "2026-07-28T01:24:31.000Z",
+                  "updatedAt": "2026-07-28T01:24:31.000Z",
+                  "uid": "35240-d6608271-978c-416f-b628-246cf422eb97"
+                }
+              ],
+              "id": "c0578130-14bf-4825-9228-f776b1649234",
+              "createdAt": "2026-07-28T01:24:31.000Z",
+              "updatedAt": "2026-07-28T01:24:31.000Z",
+              "uid": "35240-c0578130-14bf-4825-9228-f776b1649234"
+            }
+          ],
+          "id": "e630d9c1-a3d6-4b66-9424-b866d47e9f38",
+          "createdAt": "2026-07-28T01:24:31.000Z",
+          "updatedAt": "2026-07-28T01:24:31.000Z",
+          "uid": "35240-e630d9c1-a3d6-4b66-9424-b866d47e9f38"
+        }
+      ],
+      "id": "6bb2a485-940f-4fe1-bd75-3f5e3f0b9051",
+      "createdAt": "2026-07-28T01:24:31.000Z",
+      "updatedAt": "2026-07-28T01:24:31.000Z",
+      "uid": "35240-6bb2a485-940f-4fe1-bd75-3f5e3f0b9051"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cockroachlabs.cloud"
+    }
+  ]
+}
