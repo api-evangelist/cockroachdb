@@ -1,0 +1,1263 @@
+{
+  "item": [
+    {
+      "id": "957b625f-7a1e-4dd8-9ba4-0ff12f22e394",
+      "name": "IPAllowlists",
+      "description": {
+        "content": "Configure IP allowlist entries to control network access to a cluster.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8c7e972-af4a-4e28-942f-f90f231b8b27",
+          "name": "List IP allowlist entries",
+          "request": {
+            "name": "List IP allowlist entries",
+            "description": {
+              "content": "Returns a list of IP allowlist entries for the specified cluster. Supports pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":cluster_id",
+                "networking",
+                "allowlist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pagination.page",
+                  "value": "<string>",
+                  "description": "Page number for paginated results, starting from 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.as_of_time",
+                  "value": "<dateTime>",
+                  "description": "RFC3339 timestamp to return results as they were at a specific point in time (time-travel query)."
+                },
+                {
+                  "disabled": false,
+                  "key": "pagination.sort_order",
+                  "value": "<string>",
+                  "description": "Sort direction for paginated results. Accepted values are ASC and DESC."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "cluster_id",
+                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab7631d7-4509-4021-84f4-288607dde4a1",
+              "name": "List of allowlist entries returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination.page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagination.as_of_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "pagination.sort_order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allowlist\": [\n    {\n      \"cidr_ip\": \"string\",\n      \"cidr_mask\": 4,\n      \"name\": \"string\",\n      \"ui\": true,\n      \"sql\": true\n    },\n    {\n      \"cidr_ip\": \"string\",\n      \"cidr_mask\": 29,\n      \"name\": \"string\",\n      \"ui\": false,\n      \"sql\": false\n    }\n  ],\n  \"pagination\": {\n    \"next\": \"string\",\n    \"last\": \"string\",\n    \"time\": \"1950-05-23T00:09:50.883Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bfa6fe62-a874-4ba0-b9af-02e721161c13",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination.page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagination.as_of_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "pagination.sort_order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1120,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c687f323-c19a-43a9-8eef-f3f69923171d",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pagination.page",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pagination.limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pagination.as_of_time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "pagination.sort_order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1120,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd9f6fed-4241-4158-a835-f54dfb8dbe5f",
+          "name": "Add IP allowlist entry",
+          "request": {
+            "name": "Add IP allowlist entry",
+            "description": {
+              "content": "Adds a new CIDR-based IP allowlist entry to the specified cluster to authorize inbound connections from a network range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":cluster_id",
+                "networking",
+                "allowlist"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "cluster_id",
+                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c725c98-2b14-40bd-82b1-122f295ea6c2",
+              "name": "Allowlist entry added successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cidr_ip\": \"string\",\n  \"cidr_mask\": 2,\n  \"name\": \"string\",\n  \"ui\": true,\n  \"sql\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f6f3111-7ee4-464e-8000-9ff1b07dd5d8",
+              "name": "The request body or parameters are invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 1120,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ad7b746-9d12-48cf-8040-3e9cbf076fc5",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6574,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48eea2a9-c9b4-4173-9e3c-cffa3f1b42ff",
+          "name": "Update IP allowlist entry",
+          "request": {
+            "name": "Update IP allowlist entry",
+            "description": {
+              "content": "Updates the properties of an existing IP allowlist entry identified by CIDR IP and mask for the specified cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":cluster_id",
+                "networking",
+                "allowlist",
+                ":cidr_ip",
+                ":cidr_mask"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "cluster_id",
+                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "cidr_ip",
+                  "description": "(Required) IPv4 address part of the CIDR range."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cidr_mask",
+                  "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd2fc2a2-ea43-4169-b846-32e4f8ad9cf0",
+              "name": "Allowlist entry updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist",
+                    ":cidr_ip",
+                    ":cidr_mask"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cidr_ip",
+                      "description": "(Required) IPv4 address part of the CIDR range."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cidr_mask",
+                      "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cidr_ip\": \"string\",\n  \"cidr_mask\": 2,\n  \"name\": \"string\",\n  \"ui\": true,\n  \"sql\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a235b9b-7f53-4b80-ae3f-1bd64bae4626",
+              "name": "The request body or parameters are invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist",
+                    ":cidr_ip",
+                    ":cidr_mask"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cidr_ip",
+                      "description": "(Required) IPv4 address part of the CIDR range."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cidr_mask",
+                      "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6574,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a36d5243-718b-45a0-95c5-1b2ef7d76f1e",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist",
+                    ":cidr_ip",
+                    ":cidr_mask"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cidr_ip",
+                      "description": "(Required) IPv4 address part of the CIDR range."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cidr_mask",
+                      "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6574,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d039013-5eb6-4651-affa-273da3beb611",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist",
+                    ":cidr_ip",
+                    ":cidr_mask"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cidr_ip",
+                      "description": "(Required) IPv4 address part of the CIDR range."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cidr_mask",
+                      "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"cidr_ip\": \"<string>\",\n  \"cidr_mask\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"ui\": \"<boolean>\",\n  \"sql\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6574,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0a0371f-9aa8-4894-a571-3f14d1fc61d7",
+          "name": "Delete IP allowlist entry",
+          "request": {
+            "name": "Delete IP allowlist entry",
+            "description": {
+              "content": "Removes an IP allowlist entry from the cluster identified by CIDR IP address and mask.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "clusters",
+                ":cluster_id",
+                "networking",
+                "allowlist",
+                ":cidr_ip",
+                ":cidr_mask"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "cluster_id",
+                  "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "cidr_ip",
+                  "description": "(Required) IPv4 address part of the CIDR range."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cidr_mask",
+                  "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7671b40c-4d2d-402c-a91d-870e101a13d5",
+              "name": "Allowlist entry deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist",
+                    ":cidr_ip",
+                    ":cidr_mask"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cidr_ip",
+                      "description": "(Required) IPv4 address part of the CIDR range."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cidr_mask",
+                      "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cidr_ip\": \"string\",\n  \"cidr_mask\": 2,\n  \"name\": \"string\",\n  \"ui\": true,\n  \"sql\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "111bc7a7-36de-4f0d-8875-1df39b4f1289",
+              "name": "Authentication credentials are missing or invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist",
+                    ":cidr_ip",
+                    ":cidr_mask"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cidr_ip",
+                      "description": "(Required) IPv4 address part of the CIDR range."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cidr_mask",
+                      "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6574,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f3a400d-df17-4b1e-a202-960881430f85",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "clusters",
+                    ":cluster_id",
+                    "networking",
+                    "allowlist",
+                    ":cidr_ip",
+                    ":cidr_mask"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cluster_id",
+                      "description": "(Required) Unique identifier of the CockroachDB Cloud cluster."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cidr_ip",
+                      "description": "(Required) IPv4 address part of the CIDR range."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cidr_mask",
+                      "description": "(Required) Prefix length of the CIDR range (e.g. 24 for /24)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 6574,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cockroachlabs.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7434a2d4-00fc-4b4a-a0ad-78de3075c531",
+    "name": "CockroachDB Cloud APIKeys IPAllowlists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.\n\nContact Support:\n Name: Cockroach Labs Support",
+      "type": "text/plain"
+    }
+  }
+}
