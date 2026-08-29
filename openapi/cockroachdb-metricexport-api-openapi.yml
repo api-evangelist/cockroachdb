@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: CockroachDB Cloud APIKeys MetricExport API
+  title: CockroachDB Cloud Metric Export API
   description: The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.
   version: '2024-09-16'
   contact:
@@ -201,26 +201,34 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    BadRequest:
-      description: The request body or parameters are invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication credentials are missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      description: Standard error response returned by the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP status code of the error.
+        message:
+          type: string
+          description: Human-readable description of the error.
+        details:
+          type: array
+          description: Additional detail objects providing error context.
+          items:
+            type: object
+    EnableDatadogMetricExportRequest:
+      type: object
+      description: Request body for enabling Datadog metric export.
+      required:
+      - api_key
+      properties:
+        api_key:
+          type: string
+          description: Datadog API key for authentication.
+        site:
+          type: string
+          description: Datadog site endpoint (e.g. US1, EU1).
     DatadogMetricExportInfo:
       type: object
       description: Datadog metric export configuration for a cluster.
@@ -244,18 +252,6 @@ components:
         status:
           type: string
           description: Current status of Prometheus metric export.
-    EnableDatadogMetricExportRequest:
-      type: object
-      description: Request body for enabling Datadog metric export.
-      required:
-      - api_key
-      properties:
-        api_key:
-          type: string
-          description: Datadog API key for authentication.
-        site:
-          type: string
-          description: Datadog site endpoint (e.g. US1, EU1).
     CloudWatchMetricExportInfo:
       type: object
       description: AWS CloudWatch metric export configuration for a cluster.
@@ -269,21 +265,6 @@ components:
         role_arn:
           type: string
           description: AWS IAM role ARN used for CloudWatch metric export.
-    Error:
-      type: object
-      description: Standard error response returned by the API.
-      properties:
-        code:
-          type: integer
-          description: HTTP status code of the error.
-        message:
-          type: string
-          description: Human-readable description of the error.
-        details:
-          type: array
-          description: Additional detail objects providing error context.
-          items:
-            type: object
     EnableCloudWatchMetricExportRequest:
       type: object
       description: Request body for enabling AWS CloudWatch metric export.
@@ -304,6 +285,25 @@ components:
       description: Unique identifier of the CockroachDB Cloud cluster.
       schema:
         type: string
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: The request body or parameters are invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http
