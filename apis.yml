@@ -332,7 +332,7 @@ apis:
   humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
   baseURL: https://cockroachlabs.cloud
   tags:
-  - MaintenanceWindows
+  - Maintenance Windows
   tags_raw:
   - MaintenanceWindows
   properties:
@@ -411,7 +411,7 @@ apis:
   humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
   baseURL: https://cockroachlabs.cloud
   tags:
-  - PrivateEndpoints
+  - Private Endpoints
   tags_raw:
   - PrivateEndpoints
   properties:
@@ -453,7 +453,7 @@ apis:
   humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
   baseURL: https://cockroachlabs.cloud
   tags:
-  - RoleManagement
+  - Role Management
   tags_raw:
   - RoleManagement
   properties:
@@ -492,7 +492,7 @@ apis:
   humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
   baseURL: https://cockroachlabs.cloud
   tags:
-  - ServiceAccounts
+  - Service Accounts
   tags_raw:
   - ServiceAccounts
   properties:
