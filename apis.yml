@@ -28,23 +28,24 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: paid
-  onboarding: self-serve
+  onboarding: unknown
   trial: false
   try_now: false
   public: false
-  label: Paid · Self-serve signup
-  confidence: high
+  label: Paid
+  confidence: medium
   source:
   - plans
   - authentication
-  generated: '2026-07-22'
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cockroachdb.png
 access: 3rd-Party
 kind: company
 created: '2024-11-24'
 modified: '2026-05-19'
-position: Consumer
+position: Consuming
 x-overview: >-
   CockroachDB is a distributed, PostgreSQL-compatible SQL database built by Cockroach Labs. It scales horizontally,
   survives disk, machine, rack, and data-center failures with localized fallout, and provides ACID transactions across
@@ -564,6 +565,9 @@ apis:
   - type: APIReference
     url: https://www.cockroachlabs.com/docs/api/cluster/v2
 common:
+  - type: CapabilityMap
+    url: capabilities/cockroachdb-capability-edges.yml
+    name: CockroachDB Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/cockroachdb/overview
   - type: AgenticAccess
