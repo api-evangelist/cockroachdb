@@ -54,46 +54,6 @@ x-overview: >-
   of cloud-hosted clusters, and the per-node CockroachDB Cluster API for cluster health, monitoring, and operational
   status.
 apis:
-- aid: cockroachdb:cockroachdb-apikeys-api
-  name: CockroachDB APIKeys API
-  description: >-
-    Manage API keys for programmatic access, including creation, retrieval, listing, updating, and deletion.
-  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  baseURL: https://cockroachlabs.cloud
-  tags:
-  - APIKeys
-  properties:
-  - type: OpenAPI
-    url: openapi/cockroachdb-apikeys-api-openapi.yml
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cloud/v1
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/stable/cluster-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cluster/v2
-- aid: cockroachdb:cockroachdb-auditlogs-api
-  name: CockroachDB AuditLogs API
-  description: >-
-    Retrieve audit log events for the organization to support compliance and security investigations.
-  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  baseURL: https://cockroachlabs.cloud
-  tags:
-  - Audit Logs
-  tags_raw:
-  - AuditLogs
-  properties:
-  - type: OpenAPI
-    url: openapi/cockroachdb-auditlogs-api-openapi.yml
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cloud/v1
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/stable/cluster-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cluster/v2
 - aid: cockroachdb:cockroachdb-auth-api
   name: CockroachDB Auth API
   description: >-
@@ -108,25 +68,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cockroachdb-auth-api-openapi.yml
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cloud/v1
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/stable/cluster-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cluster/v2
-- aid: cockroachdb:cockroachdb-backuprestore-api
-  name: CockroachDB BackupRestore API
-  description: >-
-    Manage cluster backups, backup configurations, and restore operations for CockroachDB clusters.
-  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  baseURL: https://cockroachlabs.cloud
-  tags:
-  - BackupRestore
-  properties:
-  - type: OpenAPI
-    url: openapi/cockroachdb-backuprestore-api-openapi.yml
   - type: Documentation
     url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
   - type: APIReference
@@ -327,26 +268,6 @@ apis:
     url: https://www.cockroachlabs.com/docs/stable/cluster-api
   - type: APIReference
     url: https://www.cockroachlabs.com/docs/api/cluster/v2
-- aid: cockroachdb:cockroachdb-maintenancewindows-api
-  name: CockroachDB MaintenanceWindows API
-  description: Configure maintenance windows and blackout periods for cluster upgrade scheduling.
-  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  baseURL: https://cockroachlabs.cloud
-  tags:
-  - Maintenance Windows
-  tags_raw:
-  - MaintenanceWindows
-  properties:
-  - type: OpenAPI
-    url: openapi/cockroachdb-maintenancewindows-api-openapi.yml
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cloud/v1
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/stable/cluster-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cluster/v2
 - aid: cockroachdb:cockroachdb-metricexport-api
   name: CockroachDB MetricExport API
   description: Configure metric export integrations including AWS CloudWatch, Datadog, and Prometheus.
@@ -405,27 +326,6 @@ apis:
     url: https://www.cockroachlabs.com/docs/stable/cluster-api
   - type: APIReference
     url: https://www.cockroachlabs.com/docs/api/cluster/v2
-- aid: cockroachdb:cockroachdb-privateendpoints-api
-  name: CockroachDB PrivateEndpoints API
-  description: >-
-    Manage private endpoint services and connections for secure VPC-level access to clusters.
-  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  baseURL: https://cockroachlabs.cloud
-  tags:
-  - Private Endpoints
-  tags_raw:
-  - PrivateEndpoints
-  properties:
-  - type: OpenAPI
-    url: openapi/cockroachdb-privateendpoints-api-openapi.yml
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cloud/v1
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/stable/cluster-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cluster/v2
 - aid: cockroachdb:cockroachdb-ranges-api
   name: CockroachDB Ranges API
   description: >-
@@ -446,28 +346,6 @@ apis:
     url: https://www.cockroachlabs.com/docs/stable/cluster-api
   - type: APIReference
     url: https://www.cockroachlabs.com/docs/api/cluster/v2
-- aid: cockroachdb:cockroachdb-rolemanagement-api
-  name: CockroachDB RoleManagement API
-  description: >-
-    Manage role-based access control, including assigning and removing roles for users across organization,
-    folder, and cluster scopes.
-  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  baseURL: https://cockroachlabs.cloud
-  tags:
-  - Role Management
-  tags_raw:
-  - RoleManagement
-  properties:
-  - type: OpenAPI
-    url: openapi/cockroachdb-rolemanagement-api-openapi.yml
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cloud/v1
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/stable/cluster-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cluster/v2
 - aid: cockroachdb:cockroachdb-rules-api
   name: CockroachDB Rules API
   description: Retrieve alerting rules templates for use with Prometheus-compatible alerting systems.
@@ -478,27 +356,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cockroachdb-rules-api-openapi.yml
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cloud/v1
-  - type: Documentation
-    url: https://www.cockroachlabs.com/docs/stable/cluster-api
-  - type: APIReference
-    url: https://www.cockroachlabs.com/docs/api/cluster/v2
-- aid: cockroachdb:cockroachdb-serviceaccounts-api
-  name: CockroachDB ServiceAccounts API
-  description: >-
-    Manage service accounts used for machine-to-machine authentication within the organization.
-  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
-  baseURL: https://cockroachlabs.cloud
-  tags:
-  - Service Accounts
-  tags_raw:
-  - ServiceAccounts
-  properties:
-  - type: OpenAPI
-    url: openapi/cockroachdb-serviceaccounts-api-openapi.yml
   - type: Documentation
     url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
   - type: APIReference
@@ -556,6 +413,139 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cockroachdb-versiondeferral-api-openapi.yml
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cloud/v1
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/stable/cluster-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cluster/v2
+- aid: cockroachdb:cockroachdb-api-keys-api
+  name: CockroachDB API Keys API
+  description: >-
+    Manage API keys for programmatic access, including creation, retrieval, listing, updating, and deletion.
+  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  baseURL: https://cockroachlabs.cloud
+  tags:
+  - API Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/cockroachdb-api-keys-api-openapi.yml
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cloud/v1
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/stable/cluster-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cluster/v2
+- aid: cockroachdb:cockroachdb-audit-logs-api
+  name: CockroachDB Audit Logs API
+  description: >-
+    Retrieve audit log events for the organization to support compliance and security investigations.
+  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  baseURL: https://cockroachlabs.cloud
+  tags:
+  - Audit Logs
+  properties:
+  - type: OpenAPI
+    url: openapi/cockroachdb-audit-logs-api-openapi.yml
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cloud/v1
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/stable/cluster-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cluster/v2
+- aid: cockroachdb:cockroachdb-backup-restore-api
+  name: CockroachDB Backup Restore API
+  description: >-
+    Manage cluster backups, backup configurations, and restore operations for CockroachDB clusters.
+  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  baseURL: https://cockroachlabs.cloud
+  tags:
+  - Backup Restore
+  properties:
+  - type: OpenAPI
+    url: openapi/cockroachdb-backup-restore-api-openapi.yml
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cloud/v1
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/stable/cluster-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cluster/v2
+- aid: cockroachdb:cockroachdb-maintenance-windows-api
+  name: CockroachDB Maintenance Windows API
+  description: Configure maintenance windows and blackout periods for cluster upgrade scheduling.
+  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  baseURL: https://cockroachlabs.cloud
+  tags:
+  - Maintenance Windows
+  properties:
+  - type: OpenAPI
+    url: openapi/cockroachdb-maintenance-windows-api-openapi.yml
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cloud/v1
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/stable/cluster-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cluster/v2
+- aid: cockroachdb:cockroachdb-private-endpoints-api
+  name: CockroachDB Private Endpoints API
+  description: >-
+    Manage private endpoint services and connections for secure VPC-level access to clusters.
+  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  baseURL: https://cockroachlabs.cloud
+  tags:
+  - Private Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/cockroachdb-private-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cloud/v1
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/stable/cluster-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cluster/v2
+- aid: cockroachdb:cockroachdb-role-management-api
+  name: CockroachDB Role Management API
+  description: >-
+    Manage role-based access control, including assigning and removing roles for users across organization,
+    folder, and cluster scopes.
+  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  baseURL: https://cockroachlabs.cloud
+  tags:
+  - Role Management
+  properties:
+  - type: OpenAPI
+    url: openapi/cockroachdb-role-management-api-openapi.yml
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cloud/v1
+  - type: Documentation
+    url: https://www.cockroachlabs.com/docs/stable/cluster-api
+  - type: APIReference
+    url: https://www.cockroachlabs.com/docs/api/cluster/v2
+- aid: cockroachdb:cockroachdb-service-accounts-api
+  name: CockroachDB Service Accounts API
+  description: >-
+    Manage service accounts used for machine-to-machine authentication within the organization.
+  humanURL: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
+  baseURL: https://cockroachlabs.cloud
+  tags:
+  - Service Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/cockroachdb-service-accounts-api-openapi.yml
   - type: Documentation
     url: https://www.cockroachlabs.com/docs/cockroachcloud/cloud-api
   - type: APIReference
