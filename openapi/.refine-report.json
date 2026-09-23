@@ -32,19 +32,23 @@
     "cockroachdb-rules-api-openapi.yml",
     "cockroachdb-sessions-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 7 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "cockroachdb-cloud-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "cockroachdb-cluster-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+    "cockroachdb-cluster-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: cockroachdb-api-keys-api-openapi.yml, cockroachdb-audit-logs-api-openapi.yml, cockroachdb-backup-restore-api-openapi.yml, cockroachdb-maintenance-windows-api-openapi.yml, cockroachdb-private-endpoints-api-openapi.yml \u2026",
+    "apis.yml register: written (+7 apis, 26 total)"
   ],
   "skipped": [
-    "cockroachdb-apikeys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cockroachdb-auditlogs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cockroachdb-api-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cockroachdb-audit-logs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cockroachdb-backuprestore-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cockroachdb-backup-restore-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-billing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-clusters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-cmek-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -55,15 +59,15 @@
     "cockroachdb-ipallowlists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-jwtissuers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-logexport-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cockroachdb-maintenancewindows-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cockroachdb-maintenance-windows-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-metricexport-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-nodes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cockroachdb-privateendpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cockroachdb-private-endpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-ranges-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cockroachdb-rolemanagement-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cockroachdb-role-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-rules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "cockroachdb-serviceaccounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cockroachdb-service-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-sqlusers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "cockroachdb-versiondeferral-api-openapi.yml: previously refined output, superseded by openapi/_original/"

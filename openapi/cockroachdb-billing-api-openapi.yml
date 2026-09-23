@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: CockroachDB Cloud Billing API
-  description: The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.
+  description: The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization.
   version: '2024-09-16'
   contact:
     name: Cockroach Labs Support
@@ -68,15 +68,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ListInvoicesResponse:
-      type: object
-      description: List of invoices for the organization.
-      properties:
-        invoices:
-          type: array
-          description: Array of invoice objects.
-          items:
-            $ref: '#/components/schemas/Invoice'
     Error:
       type: object
       description: Standard error response returned by the API.
@@ -113,6 +104,15 @@ components:
         total_amount:
           type: number
           description: Total invoice amount in US cents.
+    ListInvoicesResponse:
+      type: object
+      description: List of invoices for the organization.
+      properties:
+        invoices:
+          type: array
+          description: Array of invoice objects.
+          items:
+            $ref: '#/components/schemas/Invoice'
   responses:
     NotFound:
       description: The requested resource was not found.

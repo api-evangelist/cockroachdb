@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: CockroachDB Cloud API Keys API
-  description: The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.
+  description: The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization.
   version: '2024-09-16'
   contact:
     name: Cockroach Labs Support
@@ -13,7 +13,7 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: APIKeys
+- name: API Keys
   description: Manage API keys for programmatic access, including creation, retrieval, listing, updating, and deletion.
 paths:
   /api/v1/api-keys:
@@ -22,7 +22,7 @@ paths:
       summary: List API keys
       description: Returns a list of API keys in the organization, optionally filtered by service account ID. Accessible to users with ORG_ADMIN or CLUSTER_ADMIN roles.
       tags:
-      - APIKeys
+      - API Keys
       parameters:
       - name: service_account_id
         in: query
@@ -47,7 +47,7 @@ paths:
       summary: Create an API key
       description: Creates a new API key associated with a service account. Requires ORG_ADMIN role. The secret is only returned in the response to this create request and cannot be retrieved again.
       tags:
-      - APIKeys
+      - API Keys
       requestBody:
         required: true
         content:
@@ -71,7 +71,7 @@ paths:
       summary: Get an API key
       description: Retrieves details of a specific API key by ID. Accessible to users with ORG_ADMIN or CLUSTER_ADMIN roles.
       tags:
-      - APIKeys
+      - API Keys
       parameters:
       - $ref: '#/components/parameters/resourceId'
       responses:
@@ -90,7 +90,7 @@ paths:
       summary: Update an API key
       description: Updates the metadata of an existing API key. Requires ORG_ADMIN role.
       tags:
-      - APIKeys
+      - API Keys
       parameters:
       - $ref: '#/components/parameters/resourceId'
       requestBody:
@@ -117,7 +117,7 @@ paths:
       summary: Delete an API key
       description: Permanently deletes an API key by ID, revoking all access using that key. Requires ORG_ADMIN role.
       tags:
-      - APIKeys
+      - API Keys
       parameters:
       - $ref: '#/components/parameters/resourceId'
       responses:
@@ -133,19 +133,23 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    CreateApiKeyRequest:
+    ApiKey:
       type: object
-      description: Request body for creating a new API key.
-      required:
-      - name
-      - service_account_id
+      description: Represents an API key used for authenticating requests to the CockroachDB Cloud API.
       properties:
+        id:
+          type: string
+          description: Unique identifier of the API key.
         name:
           type: string
-          description: Name for the new API key.
+          description: Human-readable name of the API key.
         service_account_id:
           type: string
-          description: ID of the service account to associate the key with.
+          description: Service account associated with this API key.
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the API key was created.
     Error:
       type: object
       description: Standard error response returned by the API.
@@ -179,23 +183,15 @@ components:
         name:
           type: string
           description: New name for the API key.
-    ApiKey:
+    CreateApiKeyResponse:
       type: object
-      description: Represents an API key used for authenticating requests to the CockroachDB Cloud API.
+      description: Response from creating an API key. Contains the key secret which is only returned once and cannot be retrieved again.
       properties:
-        id:
+        api_key:
+          $ref: '#/components/schemas/ApiKey'
+        secret:
           type: string
-          description: Unique identifier of the API key.
-        name:
-          type: string
-          description: Human-readable name of the API key.
-        service_account_id:
-          type: string
-          description: Service account associated with this API key.
-        created_at:
-          type: string
-          format: date-time
-          description: Timestamp when the API key was created.
+          description: The secret value of the API key. Only returned on creation and not retrievable afterward.
     PaginationResponse:
       type: object
       description: Pagination metadata included in list responses.
@@ -210,16 +206,55 @@ components:
           type: string
           format: date-time
           description: Server time at which the paginated query was executed.
-    CreateApiKeyResponse:
+    CreateApiKeyRequest:
       type: object
-      description: Response from creating an API key. Contains the key secret which is only returned once and cannot be retrieved again.
+      description: Request body for creating a new API key.
+      required:
+      - name
+      - service_account_id
       properties:
-        api_key:
-          $ref: '#/components/schemas/ApiKey'
-        secret:
+        name:
           type: string
-          description: The secret value of the API key. Only returned on creation and not retrievable afterward.
+          description: Name for the new API key.
+        service_account_id:
+          type: string
+          description: ID of the service account to associate the key with.
+  responses:
+    BadRequest:
+      description: The request body or parameters are invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
+    paginationLimit:
+      name: pagination.limit
+      in: query
+      description: Maximum number of results to return per page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
+    paginationAsOfTime:
+      name: pagination.as_of_time
+      in: query
+      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
+      schema:
+        type: string
+        format: date-time
     paginationPage:
       name: pagination.page
       in: query
@@ -233,15 +268,6 @@ components:
       description: Unique identifier of the resource.
       schema:
         type: string
-    paginationLimit:
-      name: pagination.limit
-      in: query
-      description: Maximum number of results to return per page.
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 500
     paginationSortOrder:
       name: pagination.sort_order
       in: query
@@ -251,32 +277,6 @@ components:
         enum:
         - ASC
         - DESC
-    paginationAsOfTime:
-      name: pagination.as_of_time
-      in: query
-      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
-      schema:
-        type: string
-        format: date-time
-  responses:
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication credentials are missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: The request body or parameters are invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http

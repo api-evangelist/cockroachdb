@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: CockroachDB Cloud Backup Restore API
-  description: The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.
+  description: The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization.
   version: '2024-09-16'
   contact:
     name: Cockroach Labs Support
@@ -13,7 +13,7 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- name: BackupRestore
+- name: Backup Restore
   description: Manage cluster backups, backup configurations, and restore operations for CockroachDB clusters.
 paths:
   /api/v1/clusters/{cluster_id}/backups:
@@ -22,7 +22,7 @@ paths:
       summary: List backups
       description: Returns a list of backups for the specified cluster, optionally filtered by start and end time. Supports pagination.
       tags:
-      - BackupRestore
+      - Backup Restore
       parameters:
       - $ref: '#/components/parameters/clusterId'
       - name: start_time
@@ -58,7 +58,7 @@ paths:
       summary: Get backup configuration
       description: Retrieves the backup configuration for the specified cluster, including retention period and backup frequency.
       tags:
-      - BackupRestore
+      - Backup Restore
       parameters:
       - $ref: '#/components/parameters/clusterId'
       responses:
@@ -77,7 +77,7 @@ paths:
       summary: Update backup configuration
       description: Updates the backup configuration for the specified cluster, including retention period and backup frequency settings.
       tags:
-      - BackupRestore
+      - Backup Restore
       parameters:
       - $ref: '#/components/parameters/clusterId'
       requestBody:
@@ -105,7 +105,7 @@ paths:
       summary: List restores
       description: Returns a list of restore operations for the specified cluster. Supports pagination and time-based filtering.
       tags:
-      - BackupRestore
+      - Backup Restore
       parameters:
       - $ref: '#/components/parameters/clusterId'
       - name: start_time
@@ -140,7 +140,7 @@ paths:
       summary: Create a restore
       description: Initiates a restore operation to restore a cluster from a backup. The destination_cluster_id identifies the target cluster to restore into.
       tags:
-      - BackupRestore
+      - Backup Restore
       parameters:
       - $ref: '#/components/parameters/clusterId'
       requestBody:
@@ -166,7 +166,7 @@ paths:
       summary: Get a restore
       description: Retrieves the status and details of a specific restore operation by ID.
       tags:
-      - BackupRestore
+      - Backup Restore
       parameters:
       - $ref: '#/components/parameters/clusterId'
       - name: restore_id
@@ -188,28 +188,19 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ListBackupsResponse:
+    BackupConfiguration:
       type: object
-      description: Paginated list of cluster backups.
+      description: Backup configuration settings for a CockroachDB cluster.
       properties:
-        backups:
-          type: array
-          description: Array of backup objects.
-          items:
-            type: object
-        pagination:
-          $ref: '#/components/schemas/PaginationResponse'
-    ListRestoresResponse:
-      type: object
-      description: Paginated list of restore operations.
-      properties:
-        restores:
-          type: array
-          description: Array of restore operation objects.
-          items:
-            $ref: '#/components/schemas/Restore'
-        pagination:
-          $ref: '#/components/schemas/PaginationResponse'
+        cluster_id:
+          type: string
+          description: Cluster ID the configuration applies to.
+        frequency_minutes:
+          type: integer
+          description: How often backups are taken, in minutes.
+        retention_days:
+          type: integer
+          description: Number of days backups are retained.
     Error:
       type: object
       description: Standard error response returned by the API.
@@ -225,6 +216,29 @@ components:
           description: Additional detail objects providing error context.
           items:
             type: object
+    CreateRestoreRequest:
+      type: object
+      description: Request body for initiating a cluster restore.
+      required:
+      - backup_id
+      properties:
+        backup_id:
+          type: string
+          description: ID of the backup to restore from.
+        target:
+          type: object
+          description: Optional target specification for the restore.
+    ListRestoresResponse:
+      type: object
+      description: Paginated list of restore operations.
+      properties:
+        restores:
+          type: array
+          description: Array of restore operation objects.
+          items:
+            $ref: '#/components/schemas/Restore'
+        pagination:
+          $ref: '#/components/schemas/PaginationResponse'
     UpdateBackupConfigurationSpec:
       type: object
       description: Specification for updating backup configuration.
@@ -235,19 +249,6 @@ components:
         retention_days:
           type: integer
           description: New retention period in days.
-    BackupConfiguration:
-      type: object
-      description: Backup configuration settings for a CockroachDB cluster.
-      properties:
-        cluster_id:
-          type: string
-          description: Cluster ID the configuration applies to.
-        frequency_minutes:
-          type: integer
-          description: How often backups are taken, in minutes.
-        retention_days:
-          type: integer
-          description: Number of days backups are retained.
     Restore:
       type: object
       description: Represents a restore operation on a CockroachDB cluster.
@@ -279,19 +280,53 @@ components:
           type: string
           format: date-time
           description: Server time at which the paginated query was executed.
-    CreateRestoreRequest:
+    ListBackupsResponse:
       type: object
-      description: Request body for initiating a cluster restore.
-      required:
-      - backup_id
+      description: Paginated list of cluster backups.
       properties:
-        backup_id:
-          type: string
-          description: ID of the backup to restore from.
-        target:
-          type: object
-          description: Optional target specification for the restore.
+        backups:
+          type: array
+          description: Array of backup objects.
+          items:
+            type: object
+        pagination:
+          $ref: '#/components/schemas/PaginationResponse'
+  responses:
+    BadRequest:
+      description: The request body or parameters are invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
+    paginationLimit:
+      name: pagination.limit
+      in: query
+      description: Maximum number of results to return per page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
+    paginationAsOfTime:
+      name: pagination.as_of_time
+      in: query
+      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
+      schema:
+        type: string
+        format: date-time
     paginationPage:
       name: pagination.page
       in: query
@@ -305,15 +340,6 @@ components:
       description: Unique identifier of the CockroachDB Cloud cluster.
       schema:
         type: string
-    paginationLimit:
-      name: pagination.limit
-      in: query
-      description: Maximum number of results to return per page.
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 500
     paginationSortOrder:
       name: pagination.sort_order
       in: query
@@ -323,32 +349,6 @@ components:
         enum:
         - ASC
         - DESC
-    paginationAsOfTime:
-      name: pagination.as_of_time
-      in: query
-      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
-      schema:
-        type: string
-        format: date-time
-  responses:
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication credentials are missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: The request body or parameters are invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http

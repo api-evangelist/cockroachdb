@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
   title: CockroachDB Cloud Metric Export API
-  description: The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization. It enables developers and operators to create, configure, scale, and delete CockroachDB Serverless and Dedicated clusters without using the web console. The API supports cluster provisioning, node management, network authorization, customer-managed encryption keys, backup and restore, log and metric export, role management, and folder organization. Authentication is handled via bearer tokens, and the API is rate-limited to 10 requests per second per user.
+  description: The CockroachDB Cloud API is a REST interface that provides programmatic access to manage the lifecycle of clusters within a CockroachDB Cloud organization.
   version: '2024-09-16'
   contact:
     name: Cockroach Labs Support
@@ -242,16 +242,18 @@ components:
         site:
           type: string
           description: Datadog site to export metrics to.
-    PrometheusMetricExportInfo:
+    EnableCloudWatchMetricExportRequest:
       type: object
-      description: Prometheus metric export configuration for a cluster.
+      description: Request body for enabling AWS CloudWatch metric export.
+      required:
+      - role_arn
       properties:
-        cluster_id:
+        role_arn:
           type: string
-          description: ID of the cluster this configuration applies to.
-        status:
+          description: AWS IAM role ARN to assume for CloudWatch metric publishing.
+        target_region:
           type: string
-          description: Current status of Prometheus metric export.
+          description: AWS region where metrics should be exported.
     CloudWatchMetricExportInfo:
       type: object
       description: AWS CloudWatch metric export configuration for a cluster.
@@ -265,27 +267,23 @@ components:
         role_arn:
           type: string
           description: AWS IAM role ARN used for CloudWatch metric export.
-    EnableCloudWatchMetricExportRequest:
+    PrometheusMetricExportInfo:
       type: object
-      description: Request body for enabling AWS CloudWatch metric export.
-      required:
-      - role_arn
+      description: Prometheus metric export configuration for a cluster.
       properties:
-        role_arn:
+        cluster_id:
           type: string
-          description: AWS IAM role ARN to assume for CloudWatch metric publishing.
-        target_region:
+          description: ID of the cluster this configuration applies to.
+        status:
           type: string
-          description: AWS region where metrics should be exported.
-  parameters:
-    clusterId:
-      name: cluster_id
-      in: path
-      required: true
-      description: Unique identifier of the CockroachDB Cloud cluster.
-      schema:
-        type: string
+          description: Current status of Prometheus metric export.
   responses:
+    BadRequest:
+      description: The request body or parameters are invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     NotFound:
       description: The requested resource was not found.
       content:
@@ -298,12 +296,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: The request body or parameters are invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  parameters:
+    clusterId:
+      name: cluster_id
+      in: path
+      required: true
+      description: Unique identifier of the CockroachDB Cloud cluster.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
