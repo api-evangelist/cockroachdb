@@ -12,21 +12,18 @@ artifacts:
   authentication/cockroachdb-authentication.yml:
     method: derived
     evidence: declared in the artifact
-  capabilities/cockroachdb-capability-edges.yml:
+  collections/cockroachdb-apikeys-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
-  collections/cockroachdb-apikeys-api.opencollection.json:
-    method: derived
-    evidence: openapi/cockroachdb-apikeys-api
   collections/cockroachdb-apikeys-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-apikeys-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-auditlogs-api.opencollection.json:
-    method: derived
-    evidence: openapi/cockroachdb-auditlogs-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-auditlogs-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-auditlogs-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-auth-api.opencollection.json:
     method: derived
     evidence: openapi/cockroachdb-auth-api
@@ -34,11 +31,11 @@ artifacts:
     method: derived
     evidence: openapi/cockroachdb-auth-api
   collections/cockroachdb-backuprestore-api.opencollection.json:
-    method: derived
-    evidence: openapi/cockroachdb-backuprestore-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-backuprestore-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-backuprestore-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-billing-api.opencollection.json:
     method: derived
     evidence: openapi/cockroachdb-billing-api
@@ -112,11 +109,11 @@ artifacts:
     method: derived
     evidence: openapi/cockroachdb-logexport-api
   collections/cockroachdb-maintenancewindows-api.opencollection.json:
-    method: derived
-    evidence: openapi/cockroachdb-maintenancewindows-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-maintenancewindows-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-maintenancewindows-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-metricexport-api.opencollection.json:
     method: derived
     evidence: openapi/cockroachdb-metricexport-api
@@ -136,11 +133,11 @@ artifacts:
     method: derived
     evidence: openapi/cockroachdb-organizations-api
   collections/cockroachdb-privateendpoints-api.opencollection.json:
-    method: derived
-    evidence: openapi/cockroachdb-privateendpoints-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-privateendpoints-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-privateendpoints-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-ranges-api.opencollection.json:
     method: derived
     evidence: openapi/cockroachdb-ranges-api
@@ -148,11 +145,11 @@ artifacts:
     method: derived
     evidence: openapi/cockroachdb-ranges-api
   collections/cockroachdb-rolemanagement-api.opencollection.json:
-    method: derived
-    evidence: openapi/cockroachdb-rolemanagement-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-rolemanagement-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-rolemanagement-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-rules-api.opencollection.json:
     method: derived
     evidence: openapi/cockroachdb-rules-api
@@ -160,11 +157,11 @@ artifacts:
     method: derived
     evidence: openapi/cockroachdb-rules-api
   collections/cockroachdb-serviceaccounts-api.opencollection.json:
-    method: derived
-    evidence: openapi/cockroachdb-serviceaccounts-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-serviceaccounts-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-serviceaccounts-api
+    method: unknown
+    evidence: no authorship recorded
   collections/cockroachdb-sessions-api.opencollection.json:
     method: derived
     evidence: openapi/cockroachdb-sessions-api
@@ -186,6 +183,9 @@ artifacts:
   finops/cockroachdb-finops.yml:
     method: generated
     evidence: declared in the artifact
+  front-door-ai/2026-09-17.yml:
+    method: unknown
+    evidence: no authorship recorded
   json-ld/cockroachdb-context.jsonld:
     method: unknown
     evidence: no authorship recorded
@@ -480,55 +480,7 @@ artifacts:
   json-structure/cockroachdb-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-06T210741.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-07T135032.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T093022.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T111628.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-11T211707.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-12T193225.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-17T064519.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T080027.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T082702.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T114122.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T165047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T191845.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T205517.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-21T110057.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T064859.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T171257.yml:
+  kin/checks-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-25T125852.yml:
@@ -615,22 +567,141 @@ artifacts:
   kin/score-2026-09-05T072335.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T144739.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T195450.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T211839.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T011047.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T211804.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T224210.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T200636.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T213054.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T214843.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T232836.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T204815.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T222408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T062655.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T080032.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T204651.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T221936.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-13T214537.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T064754.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T210656.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T225847.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T211329.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T230249.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T210549.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T225339.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T211151.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T233623.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T205255.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T231945.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T165737.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T193153.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T205903.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T232958.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T211425.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T233935.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-22T213221.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-23T000603.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T064009.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T090406.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T161608.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   openapi/_original/cockroachdb-cloud-api-openapi.yml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/cockroachdb-cluster-api-openapi.yml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
-  openapi/cockroachdb-apikeys-api-openapi.yml:
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
+  openapi/cockroachdb-api-keys-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/cockroachdb-auditlogs-api-openapi.yml:
+  openapi/cockroachdb-audit-logs-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/cockroachdb-auth-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/cockroachdb-backuprestore-api-openapi.yml:
+  openapi/cockroachdb-backup-restore-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/cockroachdb-billing-api-openapi.yml:
@@ -663,7 +734,7 @@ artifacts:
   openapi/cockroachdb-logexport-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/cockroachdb-maintenancewindows-api-openapi.yml:
+  openapi/cockroachdb-maintenance-windows-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/cockroachdb-metricexport-api-openapi.yml:
@@ -675,19 +746,19 @@ artifacts:
   openapi/cockroachdb-organizations-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/cockroachdb-privateendpoints-api-openapi.yml:
+  openapi/cockroachdb-private-endpoints-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/cockroachdb-ranges-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/cockroachdb-rolemanagement-api-openapi.yml:
+  openapi/cockroachdb-role-management-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/cockroachdb-rules-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/cockroachdb-serviceaccounts-api-openapi.yml:
+  openapi/cockroachdb-service-accounts-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/cockroachdb-sessions-api-openapi.yml:
@@ -703,17 +774,17 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   postman/cockroachdb-apikeys-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-apikeys-api
+    method: unknown
+    evidence: no authorship recorded
   postman/cockroachdb-auditlogs-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-auditlogs-api
+    method: unknown
+    evidence: no authorship recorded
   postman/cockroachdb-auth-api.postman_collection.json:
     method: derived
     evidence: openapi/cockroachdb-auth-api
   postman/cockroachdb-backuprestore-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-backuprestore-api
+    method: unknown
+    evidence: no authorship recorded
   postman/cockroachdb-billing-api.postman_collection.json:
     method: derived
     evidence: openapi/cockroachdb-billing-api
@@ -745,8 +816,8 @@ artifacts:
     method: derived
     evidence: openapi/cockroachdb-logexport-api
   postman/cockroachdb-maintenancewindows-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-maintenancewindows-api
+    method: unknown
+    evidence: no authorship recorded
   postman/cockroachdb-metricexport-api.postman_collection.json:
     method: derived
     evidence: openapi/cockroachdb-metricexport-api
@@ -757,20 +828,20 @@ artifacts:
     method: derived
     evidence: openapi/cockroachdb-organizations-api
   postman/cockroachdb-privateendpoints-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-privateendpoints-api
+    method: unknown
+    evidence: no authorship recorded
   postman/cockroachdb-ranges-api.postman_collection.json:
     method: derived
     evidence: openapi/cockroachdb-ranges-api
   postman/cockroachdb-rolemanagement-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-rolemanagement-api
+    method: unknown
+    evidence: no authorship recorded
   postman/cockroachdb-rules-api.postman_collection.json:
     method: derived
     evidence: openapi/cockroachdb-rules-api
   postman/cockroachdb-serviceaccounts-api.postman_collection.json:
-    method: derived
-    evidence: openapi/cockroachdb-serviceaccounts-api
+    method: unknown
+    evidence: no authorship recorded
   postman/cockroachdb-sessions-api.postman_collection.json:
     method: derived
     evidence: openapi/cockroachdb-sessions-api
