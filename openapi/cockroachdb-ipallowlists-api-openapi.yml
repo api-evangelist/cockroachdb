@@ -118,6 +118,17 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    ListAllowlistEntriesResponse:
+      type: object
+      description: Paginated list of IP allowlist entries for a cluster.
+      properties:
+        allowlist:
+          type: array
+          description: Array of allowlist entry objects.
+          items:
+            $ref: '#/components/schemas/AllowlistEntry'
+        pagination:
+          $ref: '#/components/schemas/PaginationResponse'
     Error:
       type: object
       description: Standard error response returned by the API.
@@ -171,17 +182,61 @@ components:
           type: string
           format: date-time
           description: Server time at which the paginated query was executed.
-    ListAllowlistEntriesResponse:
-      type: object
-      description: Paginated list of IP allowlist entries for a cluster.
-      properties:
-        allowlist:
-          type: array
-          description: Array of allowlist entry objects.
-          items:
-            $ref: '#/components/schemas/AllowlistEntry'
-        pagination:
-          $ref: '#/components/schemas/PaginationResponse'
+  parameters:
+    paginationLimit:
+      name: pagination.limit
+      in: query
+      description: Maximum number of results to return per page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
+    cidrIp:
+      name: cidr_ip
+      in: path
+      required: true
+      description: IPv4 address part of the CIDR range.
+      schema:
+        type: string
+    paginationAsOfTime:
+      name: pagination.as_of_time
+      in: query
+      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
+      schema:
+        type: string
+        format: date-time
+    cidrMask:
+      name: cidr_mask
+      in: path
+      required: true
+      description: Prefix length of the CIDR range (e.g. 24 for /24).
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 32
+    paginationSortOrder:
+      name: pagination.sort_order
+      in: query
+      description: Sort direction for paginated results. Accepted values are ASC and DESC.
+      schema:
+        type: string
+        enum:
+        - ASC
+        - DESC
+    paginationPage:
+      name: pagination.page
+      in: query
+      description: Page number for paginated results, starting from 1.
+      schema:
+        type: string
+    clusterId:
+      name: cluster_id
+      in: path
+      required: true
+      description: Unique identifier of the CockroachDB Cloud cluster.
+      schema:
+        type: string
   responses:
     BadRequest:
       description: The request body or parameters are invalid.
@@ -201,61 +256,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    paginationLimit:
-      name: pagination.limit
-      in: query
-      description: Maximum number of results to return per page.
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 500
-    paginationAsOfTime:
-      name: pagination.as_of_time
-      in: query
-      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
-      schema:
-        type: string
-        format: date-time
-    cidrIp:
-      name: cidr_ip
-      in: path
-      required: true
-      description: IPv4 address part of the CIDR range.
-      schema:
-        type: string
-    cidrMask:
-      name: cidr_mask
-      in: path
-      required: true
-      description: Prefix length of the CIDR range (e.g. 24 for /24).
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 32
-    paginationPage:
-      name: pagination.page
-      in: query
-      description: Page number for paginated results, starting from 1.
-      schema:
-        type: string
-    clusterId:
-      name: cluster_id
-      in: path
-      required: true
-      description: Unique identifier of the CockroachDB Cloud cluster.
-      schema:
-        type: string
-    paginationSortOrder:
-      name: pagination.sort_order
-      in: query
-      description: Sort direction for paginated results. Accepted values are ASC and DESC.
-      schema:
-        type: string
-        enum:
-        - ASC
-        - DESC
   securitySchemes:
     bearerAuth:
       type: http

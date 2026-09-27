@@ -46,6 +46,49 @@ components:
         error:
           type: string
           description: Human-readable description of the error.
+    BuildInfo:
+      type: object
+      description: Build and version metadata for the CockroachDB binary on a node.
+      properties:
+        go_version:
+          type: string
+          description: Go runtime version used to build CockroachDB.
+        tag:
+          type: string
+          description: Git tag of the CockroachDB release.
+        time:
+          type: string
+          description: Build timestamp.
+        revision:
+          type: string
+          description: Git revision hash of the build.
+        cgo_compiler:
+          type: string
+          description: CGO compiler version used in the build.
+        platform:
+          type: string
+          description: Target platform for the build (e.g. linux amd64).
+        distribution:
+          type: string
+          description: CockroachDB distribution type (e.g. CCL or OSS).
+        type:
+          type: string
+          description: Build type (e.g. release or development).
+        channel:
+          type: string
+          description: Release channel the binary belongs to.
+    ListNodesResponse:
+      type: object
+      description: List of nodes in the CockroachDB cluster with pagination metadata.
+      properties:
+        nodes:
+          type: array
+          description: Array of node status objects.
+          items:
+            $ref: '#/components/schemas/NodeStatus'
+        next:
+          type: integer
+          description: Offset value to use to retrieve the next page of results. Absent when there are no more results.
     NodeStatus:
       type: object
       description: Status and metadata for a single node in the CockroachDB cluster, including address, build details, locality, store information, and activity metrics.
@@ -85,18 +128,6 @@ components:
         activity:
           type: object
           description: Per-node activity metrics including bytes sent and received.
-    ListNodesResponse:
-      type: object
-      description: List of nodes in the CockroachDB cluster with pagination metadata.
-      properties:
-        nodes:
-          type: array
-          description: Array of node status objects.
-          items:
-            $ref: '#/components/schemas/NodeStatus'
-        next:
-          type: integer
-          description: Offset value to use to retrieve the next page of results. Absent when there are no more results.
     NodeDescriptor:
       type: object
       description: Identifies and locates a specific node within the CockroachDB cluster.
@@ -153,38 +184,28 @@ components:
         address_field:
           type: string
           description: Host and port of the node (e.g. 10.0.0.1:26257).
-    BuildInfo:
-      type: object
-      description: Build and version metadata for the CockroachDB binary on a node.
-      properties:
-        go_version:
-          type: string
-          description: Go runtime version used to build CockroachDB.
-        tag:
-          type: string
-          description: Git tag of the CockroachDB release.
-        time:
-          type: string
-          description: Build timestamp.
-        revision:
-          type: string
-          description: Git revision hash of the build.
-        cgo_compiler:
-          type: string
-          description: CGO compiler version used in the build.
-        platform:
-          type: string
-          description: Target platform for the build (e.g. linux amd64).
-        distribution:
-          type: string
-          description: CockroachDB distribution type (e.g. CCL or OSS).
-        type:
-          type: string
-          description: Build type (e.g. release or development).
-        channel:
-          type: string
-          description: Release channel the binary belongs to.
+  responses:
+    Forbidden:
+      description: The authenticated user does not have admin privileges required to access this endpoint.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Authentication is required. The X-Cockroach-API-Session header is missing or the session has expired.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip before returning data. Used for offset-based pagination.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
     limit:
       name: limit
       in: query
@@ -194,27 +215,6 @@ components:
         format: int32
         minimum: 1
         maximum: 1000
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip before returning data. Used for offset-based pagination.
-      schema:
-        type: integer
-        format: int32
-        minimum: 0
-  responses:
-    Unauthorized:
-      description: Authentication is required. The X-Cockroach-API-Session header is missing or the session has expired.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: The authenticated user does not have admin privileges required to access this endpoint.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     sessionAuth:
       type: apiKey

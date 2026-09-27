@@ -97,19 +97,6 @@ components:
           description: Additional detail objects providing error context.
           items:
             type: object
-    LogExportClusterInfo:
-      type: object
-      description: Log export configuration and status for a cluster.
-      properties:
-        cluster_id:
-          type: string
-          description: ID of the cluster this log export configuration applies to.
-        status:
-          type: string
-          description: Current status of the log export configuration.
-        spec:
-          type: object
-          description: Log export specification including destination and groups.
     EnableLogExportRequest:
       type: object
       description: Request body for enabling log export.
@@ -130,6 +117,19 @@ components:
           description: Channel groups to export.
           items:
             type: object
+    LogExportClusterInfo:
+      type: object
+      description: Log export configuration and status for a cluster.
+      properties:
+        cluster_id:
+          type: string
+          description: ID of the cluster this log export configuration applies to.
+        status:
+          type: string
+          description: Current status of the log export configuration.
+        spec:
+          type: object
+          description: Log export specification including destination and groups.
   responses:
     BadRequest:
       description: The request body or parameters are invalid.

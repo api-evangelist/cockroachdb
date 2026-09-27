@@ -140,6 +140,52 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    paginationLimit:
+      name: pagination.limit
+      in: query
+      description: Maximum number of results to return per page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
+    paginationAsOfTime:
+      name: pagination.as_of_time
+      in: query
+      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
+      schema:
+        type: string
+        format: date-time
+    paginationSortOrder:
+      name: pagination.sort_order
+      in: query
+      description: Sort direction for paginated results. Accepted values are ASC and DESC.
+      schema:
+        type: string
+        enum:
+        - ASC
+        - DESC
+    paginationPage:
+      name: pagination.page
+      in: query
+      description: Page number for paginated results, starting from 1.
+      schema:
+        type: string
+    clusterId:
+      name: cluster_id
+      in: path
+      required: true
+      description: Unique identifier of the CockroachDB Cloud cluster.
+      schema:
+        type: string
+    ruleId:
+      name: rule_id
+      in: path
+      required: true
+      description: Unique identifier of the egress rule.
+      schema:
+        type: string
   schemas:
     Error:
       type: object
@@ -192,6 +238,17 @@ components:
           description: Updated list of destination ports.
           items:
             type: integer
+    ListEgressRulesResponse:
+      type: object
+      description: Paginated list of egress rules for a cluster.
+      properties:
+        rules:
+          type: array
+          description: Array of egress rule objects.
+          items:
+            $ref: '#/components/schemas/EgressRule'
+        pagination:
+          $ref: '#/components/schemas/PaginationResponse'
     AddEgressRuleRequest:
       type: object
       description: Request body for adding an egress rule.
@@ -213,17 +270,6 @@ components:
         type:
           type: string
           description: Rule type. Accepted values are FQDN and CIDR.
-    ListEgressRulesResponse:
-      type: object
-      description: Paginated list of egress rules for a cluster.
-      properties:
-        rules:
-          type: array
-          description: Array of egress rule objects.
-          items:
-            $ref: '#/components/schemas/EgressRule'
-        pagination:
-          $ref: '#/components/schemas/PaginationResponse'
     PaginationResponse:
       type: object
       description: Pagination metadata included in list responses.
@@ -257,52 +303,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    paginationLimit:
-      name: pagination.limit
-      in: query
-      description: Maximum number of results to return per page.
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 500
-    paginationAsOfTime:
-      name: pagination.as_of_time
-      in: query
-      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
-      schema:
-        type: string
-        format: date-time
-    paginationPage:
-      name: pagination.page
-      in: query
-      description: Page number for paginated results, starting from 1.
-      schema:
-        type: string
-    ruleId:
-      name: rule_id
-      in: path
-      required: true
-      description: Unique identifier of the egress rule.
-      schema:
-        type: string
-    clusterId:
-      name: cluster_id
-      in: path
-      required: true
-      description: Unique identifier of the CockroachDB Cloud cluster.
-      schema:
-        type: string
-    paginationSortOrder:
-      name: pagination.sort_order
-      in: query
-      description: Sort direction for paginated results. Accepted values are ASC and DESC.
-      schema:
-        type: string
-        enum:
-        - ASC
-        - DESC
   securitySchemes:
     bearerAuth:
       type: http

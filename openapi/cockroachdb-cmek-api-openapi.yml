@@ -137,18 +137,6 @@ components:
         status:
           type: string
           description: New CMEK status. Accepted values include REVOKE and ROTATE.
-    CMEKClusterInfo:
-      type: object
-      description: Customer-managed encryption key configuration for a cluster.
-      properties:
-        cluster_id:
-          type: string
-          description: ID of the cluster this CMEK configuration applies to.
-        status:
-          type: string
-          description: Current CMEK operational status.
-        spec:
-          $ref: '#/components/schemas/CMEKClusterSpecification'
     CMEKClusterSpecification:
       type: object
       description: Specification defining the customer-managed encryption key configuration for a CockroachDB cluster.
@@ -167,6 +155,18 @@ components:
               key:
                 type: object
                 description: Key specification including type and URI.
+    CMEKClusterInfo:
+      type: object
+      description: Customer-managed encryption key configuration for a cluster.
+      properties:
+        cluster_id:
+          type: string
+          description: ID of the cluster this CMEK configuration applies to.
+        status:
+          type: string
+          description: Current CMEK operational status.
+        spec:
+          $ref: '#/components/schemas/CMEKClusterSpecification'
   responses:
     BadRequest:
       description: The request body or parameters are invalid.

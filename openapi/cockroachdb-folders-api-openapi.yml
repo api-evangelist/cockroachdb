@@ -156,6 +156,45 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    paginationLimit:
+      name: pagination.limit
+      in: query
+      description: Maximum number of results to return per page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
+    paginationAsOfTime:
+      name: pagination.as_of_time
+      in: query
+      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
+      schema:
+        type: string
+        format: date-time
+    paginationSortOrder:
+      name: pagination.sort_order
+      in: query
+      description: Sort direction for paginated results. Accepted values are ASC and DESC.
+      schema:
+        type: string
+        enum:
+        - ASC
+        - DESC
+    paginationPage:
+      name: pagination.page
+      in: query
+      description: Page number for paginated results, starting from 1.
+      schema:
+        type: string
+    folderId:
+      name: folder_id
+      in: path
+      required: true
+      description: Unique identifier of the folder.
+      schema:
+        type: string
   schemas:
     Error:
       type: object
@@ -188,16 +227,26 @@ components:
         path:
           type: string
           description: Full path to the folder.
-    UpdateFolderSpecification:
+    ListFolderContentsResponse:
       type: object
-      description: Specification for updating a folder.
+      description: Contents of a folder including clusters and sub-folders.
       properties:
-        name:
-          type: string
-          description: New name for the folder.
-        parent_id:
-          type: string
-          description: New parent folder ID to move the folder to.
+        resources:
+          type: array
+          description: Array of resource objects (clusters or folders).
+          items:
+            type: object
+    ListFoldersResponse:
+      type: object
+      description: Paginated list of folders.
+      properties:
+        folders:
+          type: array
+          description: Array of folder objects.
+          items:
+            $ref: '#/components/schemas/Folder'
+        pagination:
+          $ref: '#/components/schemas/PaginationResponse'
     CreateFolderRequest:
       type: object
       description: Request body for creating a new folder.
@@ -210,15 +259,16 @@ components:
         parent_id:
           type: string
           description: Parent folder ID to nest this folder under.
-    ListFolderContentsResponse:
+    UpdateFolderSpecification:
       type: object
-      description: Contents of a folder including clusters and sub-folders.
+      description: Specification for updating a folder.
       properties:
-        resources:
-          type: array
-          description: Array of resource objects (clusters or folders).
-          items:
-            type: object
+        name:
+          type: string
+          description: New name for the folder.
+        parent_id:
+          type: string
+          description: New parent folder ID to move the folder to.
     PaginationResponse:
       type: object
       description: Pagination metadata included in list responses.
@@ -233,17 +283,6 @@ components:
           type: string
           format: date-time
           description: Server time at which the paginated query was executed.
-    ListFoldersResponse:
-      type: object
-      description: Paginated list of folders.
-      properties:
-        folders:
-          type: array
-          description: Array of folder objects.
-          items:
-            $ref: '#/components/schemas/Folder'
-        pagination:
-          $ref: '#/components/schemas/PaginationResponse'
   responses:
     BadRequest:
       description: The request body or parameters are invalid.
@@ -263,45 +302,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    paginationLimit:
-      name: pagination.limit
-      in: query
-      description: Maximum number of results to return per page.
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 500
-    paginationAsOfTime:
-      name: pagination.as_of_time
-      in: query
-      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
-      schema:
-        type: string
-        format: date-time
-    paginationPage:
-      name: pagination.page
-      in: query
-      description: Page number for paginated results, starting from 1.
-      schema:
-        type: string
-    paginationSortOrder:
-      name: pagination.sort_order
-      in: query
-      description: Sort direction for paginated results. Accepted values are ASC and DESC.
-      schema:
-        type: string
-        enum:
-        - ASC
-        - DESC
-    folderId:
-      name: folder_id
-      in: path
-      required: true
-      description: Unique identifier of the folder.
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http
