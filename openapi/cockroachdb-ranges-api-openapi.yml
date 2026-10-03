@@ -108,30 +108,6 @@ components:
         error:
           type: string
           description: Human-readable description of the error.
-    ListHotRangesResponse:
-      type: object
-      description: Hot ranges across the cluster or filtered to a specific node.
-      properties:
-        ranges:
-          type: array
-          description: Array of hot range objects sorted by activity level.
-          items:
-            $ref: '#/components/schemas/HotRange'
-        next:
-          type: integer
-          description: Pagination cursor for the next page of hot range results.
-    ListNodeRangesResponse:
-      type: object
-      description: Range information for a specific node with pagination metadata.
-      properties:
-        ranges:
-          type: array
-          description: Array of range information objects for the node.
-          items:
-            $ref: '#/components/schemas/RangeInfo'
-        next:
-          type: integer
-          description: Offset for retrieving the next page of results.
     HotRange:
       type: object
       description: A range identified as hot due to elevated query activity, including the range descriptor and per-second query throughput.
@@ -228,9 +204,33 @@ components:
           description: Map of node ID to the range information reported by that node's replica.
           additionalProperties:
             $ref: '#/components/schemas/RangeInfo'
+    ListHotRangesResponse:
+      type: object
+      description: Hot ranges across the cluster or filtered to a specific node.
+      properties:
+        ranges:
+          type: array
+          description: Array of hot range objects sorted by activity level.
+          items:
+            $ref: '#/components/schemas/HotRange'
+        next:
+          type: integer
+          description: Pagination cursor for the next page of hot range results.
+    ListNodeRangesResponse:
+      type: object
+      description: Range information for a specific node with pagination metadata.
+      properties:
+        ranges:
+          type: array
+          description: Array of range information objects for the node.
+          items:
+            $ref: '#/components/schemas/RangeInfo'
+        next:
+          type: integer
+          description: Offset for retrieving the next page of results.
   responses:
-    Forbidden:
-      description: The authenticated user does not have admin privileges required to access this endpoint.
+    Unauthorized:
+      description: Authentication is required. The X-Cockroach-API-Session header is missing or the session has expired.
       content:
         application/json:
           schema:
@@ -241,13 +241,29 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication is required. The X-Cockroach-API-Session header is missing or the session has expired.
+    Forbidden:
+      description: The authenticated user does not have admin privileges required to access this endpoint.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
   parameters:
+    nodeId:
+      name: node_id
+      in: path
+      required: true
+      description: Numeric identifier of the CockroachDB node.
+      schema:
+        type: integer
+        format: int32
+    rangeId:
+      name: range_id
+      in: path
+      required: true
+      description: Numeric identifier of the range.
+      schema:
+        type: integer
+        format: int64
     offset:
       name: offset
       in: query
@@ -265,22 +281,6 @@ components:
         format: int32
         minimum: 1
         maximum: 1000
-    rangeId:
-      name: range_id
-      in: path
-      required: true
-      description: Numeric identifier of the range.
-      schema:
-        type: integer
-        format: int64
-    nodeId:
-      name: node_id
-      in: path
-      required: true
-      description: Numeric identifier of the CockroachDB node.
-      schema:
-        type: integer
-        format: int32
   securitySchemes:
     sessionAuth:
       type: apiKey

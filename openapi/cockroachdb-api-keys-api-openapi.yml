@@ -133,13 +133,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    UpdateApiKeySpecification:
-      type: object
-      description: Specification for updating an API key's metadata.
-      properties:
-        name:
-          type: string
-          description: New name for the API key.
     Error:
       type: object
       description: Standard error response returned by the API.
@@ -172,19 +165,27 @@ components:
           type: string
           format: date-time
           description: Timestamp when the API key was created.
-    CreateApiKeyRequest:
+    PaginationResponse:
       type: object
-      description: Request body for creating a new API key.
-      required:
-      - name
-      - service_account_id
+      description: Pagination metadata included in list responses.
+      properties:
+        next:
+          type: string
+          description: Token or cursor for retrieving the next page of results.
+        last:
+          type: string
+          description: Token or cursor for the last page of results.
+        time:
+          type: string
+          format: date-time
+          description: Server time at which the paginated query was executed.
+    UpdateApiKeySpecification:
+      type: object
+      description: Specification for updating an API key's metadata.
       properties:
         name:
           type: string
-          description: Name for the new API key.
-        service_account_id:
-          type: string
-          description: ID of the service account to associate the key with.
+          description: New name for the API key.
     ListApiKeysResponse:
       type: object
       description: Paginated list of API keys.
@@ -205,37 +206,20 @@ components:
         secret:
           type: string
           description: The secret value of the API key. Only returned on creation and not retrievable afterward.
-    PaginationResponse:
+    CreateApiKeyRequest:
       type: object
-      description: Pagination metadata included in list responses.
+      description: Request body for creating a new API key.
+      required:
+      - name
+      - service_account_id
       properties:
-        next:
+        name:
           type: string
-          description: Token or cursor for retrieving the next page of results.
-        last:
+          description: Name for the new API key.
+        service_account_id:
           type: string
-          description: Token or cursor for the last page of results.
-        time:
-          type: string
-          format: date-time
-          description: Server time at which the paginated query was executed.
+          description: ID of the service account to associate the key with.
   parameters:
-    paginationLimit:
-      name: pagination.limit
-      in: query
-      description: Maximum number of results to return per page.
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 500
-    paginationAsOfTime:
-      name: pagination.as_of_time
-      in: query
-      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
-      schema:
-        type: string
-        format: date-time
     paginationSortOrder:
       name: pagination.sort_order
       in: query
@@ -245,6 +229,13 @@ components:
         enum:
         - ASC
         - DESC
+    paginationAsOfTime:
+      name: pagination.as_of_time
+      in: query
+      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
+      schema:
+        type: string
+        format: date-time
     resourceId:
       name: id
       in: path
@@ -258,9 +249,18 @@ components:
       description: Page number for paginated results, starting from 1.
       schema:
         type: string
+    paginationLimit:
+      name: pagination.limit
+      in: query
+      description: Maximum number of results to return per page.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
   responses:
-    BadRequest:
-      description: The request body or parameters are invalid.
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
       content:
         application/json:
           schema:
@@ -271,8 +271,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication credentials are missing or invalid.
+    BadRequest:
+      description: The request body or parameters are invalid.
       content:
         application/json:
           schema:

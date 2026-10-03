@@ -57,15 +57,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    ListAuditLogsResponse:
-      type: object
-      description: Audit log events returned from the API.
-      properties:
-        entries:
-          type: array
-          description: Array of audit log entry objects.
-          items:
-            type: object
     Error:
       type: object
       description: Standard error response returned by the API.
@@ -79,6 +70,15 @@ components:
         details:
           type: array
           description: Additional detail objects providing error context.
+          items:
+            type: object
+    ListAuditLogsResponse:
+      type: object
+      description: Audit log events returned from the API.
+      properties:
+        entries:
+          type: array
+          description: Array of audit log entry objects.
           items:
             type: object
   responses:

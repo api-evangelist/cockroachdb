@@ -128,15 +128,18 @@ components:
           description: Additional detail objects providing error context.
           items:
             type: object
-    UpdateCMEKStatusRequest:
+    CMEKClusterInfo:
       type: object
-      description: Request body for updating CMEK operational status.
-      required:
-      - status
+      description: Customer-managed encryption key configuration for a cluster.
       properties:
+        cluster_id:
+          type: string
+          description: ID of the cluster this CMEK configuration applies to.
         status:
           type: string
-          description: New CMEK status. Accepted values include REVOKE and ROTATE.
+          description: Current CMEK operational status.
+        spec:
+          $ref: '#/components/schemas/CMEKClusterSpecification'
     CMEKClusterSpecification:
       type: object
       description: Specification defining the customer-managed encryption key configuration for a CockroachDB cluster.
@@ -155,21 +158,18 @@ components:
               key:
                 type: object
                 description: Key specification including type and URI.
-    CMEKClusterInfo:
+    UpdateCMEKStatusRequest:
       type: object
-      description: Customer-managed encryption key configuration for a cluster.
+      description: Request body for updating CMEK operational status.
+      required:
+      - status
       properties:
-        cluster_id:
-          type: string
-          description: ID of the cluster this CMEK configuration applies to.
         status:
           type: string
-          description: Current CMEK operational status.
-        spec:
-          $ref: '#/components/schemas/CMEKClusterSpecification'
+          description: New CMEK status. Accepted values include REVOKE and ROTATE.
   responses:
-    BadRequest:
-      description: The request body or parameters are invalid.
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
       content:
         application/json:
           schema:
@@ -180,8 +180,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication credentials are missing or invalid.
+    BadRequest:
+      description: The request body or parameters are invalid.
       content:
         application/json:
           schema:

@@ -117,17 +117,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ListSQLUsersResponse:
-      type: object
-      description: Paginated list of SQL users for a cluster.
-      properties:
-        users:
-          type: array
-          description: Array of SQL user objects.
-          items:
-            $ref: '#/components/schemas/SQLUser'
-        pagination:
-          $ref: '#/components/schemas/PaginationResponse'
     Error:
       type: object
       description: Standard error response returned by the API.
@@ -150,20 +139,17 @@ components:
         name:
           type: string
           description: Username of the SQL user.
-    CreateSQLUserRequest:
+    ListSQLUsersResponse:
       type: object
-      description: Request body for creating a new SQL user.
-      required:
-      - name
-      - password
+      description: Paginated list of SQL users for a cluster.
       properties:
-        name:
-          type: string
-          description: Username for the new SQL user.
-        password:
-          type: string
-          description: Initial password for the SQL user.
-          format: password
+        users:
+          type: array
+          description: Array of SQL user objects.
+          items:
+            $ref: '#/components/schemas/SQLUser'
+        pagination:
+          $ref: '#/components/schemas/PaginationResponse'
     UpdateSQLUserPasswordRequest:
       type: object
       description: Request body for updating a SQL user's password.
@@ -188,16 +174,28 @@ components:
           type: string
           format: date-time
           description: Server time at which the paginated query was executed.
+    CreateSQLUserRequest:
+      type: object
+      description: Request body for creating a new SQL user.
+      required:
+      - name
+      - password
+      properties:
+        name:
+          type: string
+          description: Username for the new SQL user.
+        password:
+          type: string
+          description: Initial password for the SQL user.
+          format: password
   parameters:
-    paginationLimit:
-      name: pagination.limit
-      in: query
-      description: Maximum number of results to return per page.
+    sqlUserName:
+      name: name
+      in: path
+      required: true
+      description: Username of the SQL user.
       schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 500
+        type: string
     paginationAsOfTime:
       name: pagination.as_of_time
       in: query
@@ -205,6 +203,13 @@ components:
       schema:
         type: string
         format: date-time
+    clusterId:
+      name: cluster_id
+      in: path
+      required: true
+      description: Unique identifier of the CockroachDB Cloud cluster.
+      schema:
+        type: string
     paginationSortOrder:
       name: pagination.sort_order
       in: query
@@ -220,23 +225,18 @@ components:
       description: Page number for paginated results, starting from 1.
       schema:
         type: string
-    sqlUserName:
-      name: name
-      in: path
-      required: true
-      description: Username of the SQL user.
+    paginationLimit:
+      name: pagination.limit
+      in: query
+      description: Maximum number of results to return per page.
       schema:
-        type: string
-    clusterId:
-      name: cluster_id
-      in: path
-      required: true
-      description: Unique identifier of the CockroachDB Cloud cluster.
-      schema:
-        type: string
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
   responses:
-    BadRequest:
-      description: The request body or parameters are invalid.
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
       content:
         application/json:
           schema:
@@ -247,8 +247,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication credentials are missing or invalid.
+    BadRequest:
+      description: The request body or parameters are invalid.
       content:
         application/json:
           schema:

@@ -116,16 +116,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Database:
-      type: object
-      description: Represents a database within a CockroachDB cluster.
-      properties:
-        name:
-          type: string
-          description: Name of the database.
-        table_count:
-          type: integer
-          description: Number of tables in the database.
     Error:
       type: object
       description: Standard error response returned by the API.
@@ -141,13 +131,6 @@ components:
           description: Additional detail objects providing error context.
           items:
             type: object
-    UpdateDatabaseRequest:
-      type: object
-      description: Request body for updating an existing database.
-      properties:
-        new_name:
-          type: string
-          description: New name for the database.
     ListDatabasesResponse:
       type: object
       description: Paginated list of databases in a cluster.
@@ -159,15 +142,16 @@ components:
             $ref: '#/components/schemas/Database'
         pagination:
           $ref: '#/components/schemas/PaginationResponse'
-    CreateDatabaseRequest:
+    Database:
       type: object
-      description: Request body for creating a new database.
-      required:
-      - name
+      description: Represents a database within a CockroachDB cluster.
       properties:
         name:
           type: string
-          description: Name for the new database.
+          description: Name of the database.
+        table_count:
+          type: integer
+          description: Number of tables in the database.
     PaginationResponse:
       type: object
       description: Pagination metadata included in list responses.
@@ -182,23 +166,23 @@ components:
           type: string
           format: date-time
           description: Server time at which the paginated query was executed.
+    UpdateDatabaseRequest:
+      type: object
+      description: Request body for updating an existing database.
+      properties:
+        new_name:
+          type: string
+          description: New name for the database.
+    CreateDatabaseRequest:
+      type: object
+      description: Request body for creating a new database.
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: Name for the new database.
   parameters:
-    paginationLimit:
-      name: pagination.limit
-      in: query
-      description: Maximum number of results to return per page.
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 500
-    paginationAsOfTime:
-      name: pagination.as_of_time
-      in: query
-      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
-      schema:
-        type: string
-        format: date-time
     paginationSortOrder:
       name: pagination.sort_order
       in: query
@@ -208,6 +192,20 @@ components:
         enum:
         - ASC
         - DESC
+    paginationAsOfTime:
+      name: pagination.as_of_time
+      in: query
+      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
+      schema:
+        type: string
+        format: date-time
+    clusterId:
+      name: cluster_id
+      in: path
+      required: true
+      description: Unique identifier of the CockroachDB Cloud cluster.
+      schema:
+        type: string
     databaseName:
       name: name
       in: path
@@ -221,16 +219,18 @@ components:
       description: Page number for paginated results, starting from 1.
       schema:
         type: string
-    clusterId:
-      name: cluster_id
-      in: path
-      required: true
-      description: Unique identifier of the CockroachDB Cloud cluster.
+    paginationLimit:
+      name: pagination.limit
+      in: query
+      description: Maximum number of results to return per page.
       schema:
-        type: string
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
   responses:
-    BadRequest:
-      description: The request body or parameters are invalid.
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
       content:
         application/json:
           schema:
@@ -241,8 +241,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication credentials are missing or invalid.
+    BadRequest:
+      description: The request body or parameters are invalid.
       content:
         application/json:
           schema:

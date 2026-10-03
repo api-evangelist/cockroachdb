@@ -112,8 +112,8 @@ components:
           minimum: 0
           maximum: 23
   responses:
-    BadRequest:
-      description: The request body or parameters are invalid.
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
       content:
         application/json:
           schema:
@@ -124,8 +124,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Authentication credentials are missing or invalid.
+    BadRequest:
+      description: The request body or parameters are invalid.
       content:
         application/json:
           schema:
