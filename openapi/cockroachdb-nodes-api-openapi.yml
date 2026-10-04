@@ -39,78 +39,6 @@ paths:
           $ref: '#/components/responses/Forbidden'
 components:
   schemas:
-    Address:
-      type: object
-      description: Network address of a CockroachDB node.
-      properties:
-        network_field:
-          type: string
-          description: Network protocol (e.g. tcp).
-        address_field:
-          type: string
-          description: Host and port of the node (e.g. 10.0.0.1:26257).
-    Error:
-      type: object
-      description: Standard error response returned by the Cluster API.
-      properties:
-        error:
-          type: string
-          description: Human-readable description of the error.
-    Locality:
-      type: object
-      description: Geographic or topological locality tiers assigned to the node, used for zone configuration and replica placement.
-      properties:
-        tiers:
-          type: array
-          description: Ordered list of locality tiers from most general to most specific.
-          items:
-            type: object
-            properties:
-              key:
-                type: string
-                description: Locality tier key (e.g. region, zone, rack).
-              value:
-                type: string
-                description: Locality tier value (e.g. us-east-1, us-east-1a).
-    NodeStatus:
-      type: object
-      description: Status and metadata for a single node in the CockroachDB cluster, including address, build details, locality, store information, and activity metrics.
-      properties:
-        desc:
-          $ref: '#/components/schemas/NodeDescriptor'
-        build_info:
-          $ref: '#/components/schemas/BuildInfo'
-        started_at:
-          type: integer
-          format: int64
-          description: Unix nanosecond timestamp when the node process started.
-        updated_at:
-          type: integer
-          format: int64
-          description: Unix nanosecond timestamp of the most recent status update.
-        metrics:
-          type: object
-          description: Map of metric name to value for this node, covering CPU, memory, disk, network, and SQL throughput metrics.
-          additionalProperties:
-            type: number
-        store_statuses:
-          type: array
-          description: Status objects for each store (disk) on this node.
-          items:
-            type: object
-        args:
-          type: array
-          description: Command-line arguments the node process was started with.
-          items:
-            type: string
-        env:
-          type: array
-          description: Environment variables set in the node process.
-          items:
-            type: string
-        activity:
-          type: object
-          description: Per-node activity metrics including bytes sent and received.
     NodeDescriptor:
       type: object
       description: Identifies and locates a specific node within the CockroachDB cluster.
@@ -184,6 +112,96 @@ components:
         channel:
           type: string
           description: Release channel the binary belongs to.
+    Address:
+      type: object
+      description: Network address of a CockroachDB node.
+      properties:
+        network_field:
+          type: string
+          description: Network protocol (e.g. tcp).
+        address_field:
+          type: string
+          description: Host and port of the node (e.g. 10.0.0.1:26257).
+    Error:
+      type: object
+      description: Standard error response returned by the Cluster API.
+      properties:
+        error:
+          type: string
+          description: Human-readable description of the error.
+    NodeStatus:
+      type: object
+      description: Status and metadata for a single node in the CockroachDB cluster, including address, build details, locality, store information, and activity metrics.
+      properties:
+        desc:
+          $ref: '#/components/schemas/NodeDescriptor'
+        build_info:
+          $ref: '#/components/schemas/BuildInfo'
+        started_at:
+          type: integer
+          format: int64
+          description: Unix nanosecond timestamp when the node process started.
+        updated_at:
+          type: integer
+          format: int64
+          description: Unix nanosecond timestamp of the most recent status update.
+        metrics:
+          type: object
+          description: Map of metric name to value for this node, covering CPU, memory, disk, network, and SQL throughput metrics.
+          additionalProperties:
+            type: number
+        store_statuses:
+          type: array
+          description: Status objects for each store (disk) on this node.
+          items:
+            type: object
+        args:
+          type: array
+          description: Command-line arguments the node process was started with.
+          items:
+            type: string
+        env:
+          type: array
+          description: Environment variables set in the node process.
+          items:
+            type: string
+        activity:
+          type: object
+          description: Per-node activity metrics including bytes sent and received.
+    Locality:
+      type: object
+      description: Geographic or topological locality tiers assigned to the node, used for zone configuration and replica placement.
+      properties:
+        tiers:
+          type: array
+          description: Ordered list of locality tiers from most general to most specific.
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+                description: Locality tier key (e.g. region, zone, rack).
+              value:
+                type: string
+                description: Locality tier value (e.g. us-east-1, us-east-1a).
+  parameters:
+    limit:
+      name: limit
+      in: query
+      description: Maximum number of results to return in a single response.
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 1000
+    offset:
+      name: offset
+      in: query
+      description: Number of results to skip before returning data. Used for offset-based pagination.
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
   responses:
     Unauthorized:
       description: Authentication is required. The X-Cockroach-API-Session header is missing or the session has expired.
@@ -197,24 +215,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    offset:
-      name: offset
-      in: query
-      description: Number of results to skip before returning data. Used for offset-based pagination.
-      schema:
-        type: integer
-        format: int32
-        minimum: 0
-    limit:
-      name: limit
-      in: query
-      description: Maximum number of results to return in a single response.
-      schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 1000
   securitySchemes:
     sessionAuth:
       type: apiKey

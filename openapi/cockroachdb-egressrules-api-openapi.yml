@@ -140,22 +140,37 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: The request body or parameters are invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Error:
+    ListEgressRulesResponse:
       type: object
-      description: Standard error response returned by the API.
+      description: Paginated list of egress rules for a cluster.
       properties:
-        code:
-          type: integer
-          description: HTTP status code of the error.
-        message:
-          type: string
-          description: Human-readable description of the error.
-        details:
+        rules:
           type: array
-          description: Additional detail objects providing error context.
+          description: Array of egress rule objects.
           items:
-            type: object
+            $ref: '#/components/schemas/EgressRule'
+        pagination:
+          $ref: '#/components/schemas/PaginationResponse'
     EditEgressRuleRequest:
       type: object
       description: Request body for updating an egress rule.
@@ -171,6 +186,20 @@ components:
           description: Updated list of destination ports.
           items:
             type: integer
+    PaginationResponse:
+      type: object
+      description: Pagination metadata included in list responses.
+      properties:
+        next:
+          type: string
+          description: Token or cursor for retrieving the next page of results.
+        last:
+          type: string
+          description: Token or cursor for the last page of results.
+        time:
+          type: string
+          format: date-time
+          description: Server time at which the paginated query was executed.
     AddEgressRuleRequest:
       type: object
       description: Request body for adding an egress rule.
@@ -192,20 +221,21 @@ components:
         type:
           type: string
           description: Rule type. Accepted values are FQDN and CIDR.
-    PaginationResponse:
+    Error:
       type: object
-      description: Pagination metadata included in list responses.
+      description: Standard error response returned by the API.
       properties:
-        next:
+        code:
+          type: integer
+          description: HTTP status code of the error.
+        message:
           type: string
-          description: Token or cursor for retrieving the next page of results.
-        last:
-          type: string
-          description: Token or cursor for the last page of results.
-        time:
-          type: string
-          format: date-time
-          description: Server time at which the paginated query was executed.
+          description: Human-readable description of the error.
+        details:
+          type: array
+          description: Additional detail objects providing error context.
+          items:
+            type: object
     EgressRule:
       type: object
       description: Represents an egress traffic rule controlling outbound connections from a CockroachDB cluster.
@@ -227,34 +257,16 @@ components:
         type:
           type: string
           description: Type of egress rule (FQDN or CIDR).
-    ListEgressRulesResponse:
-      type: object
-      description: Paginated list of egress rules for a cluster.
-      properties:
-        rules:
-          type: array
-          description: Array of egress rule objects.
-          items:
-            $ref: '#/components/schemas/EgressRule'
-        pagination:
-          $ref: '#/components/schemas/PaginationResponse'
   parameters:
-    paginationSortOrder:
-      name: pagination.sort_order
+    paginationLimit:
+      name: pagination.limit
       in: query
-      description: Sort direction for paginated results. Accepted values are ASC and DESC.
+      description: Maximum number of results to return per page.
       schema:
-        type: string
-        enum:
-        - ASC
-        - DESC
-    paginationAsOfTime:
-      name: pagination.as_of_time
-      in: query
-      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
-      schema:
-        type: string
-        format: date-time
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 500
     clusterId:
       name: cluster_id
       in: path
@@ -269,40 +281,28 @@ components:
       description: Unique identifier of the egress rule.
       schema:
         type: string
+    paginationAsOfTime:
+      name: pagination.as_of_time
+      in: query
+      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
+      schema:
+        type: string
+        format: date-time
     paginationPage:
       name: pagination.page
       in: query
       description: Page number for paginated results, starting from 1.
       schema:
         type: string
-    paginationLimit:
-      name: pagination.limit
+    paginationSortOrder:
+      name: pagination.sort_order
       in: query
-      description: Maximum number of results to return per page.
+      description: Sort direction for paginated results. Accepted values are ASC and DESC.
       schema:
-        type: integer
-        format: int32
-        minimum: 1
-        maximum: 500
-  responses:
-    Unauthorized:
-      description: Authentication credentials are missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: The request body or parameters are invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+        type: string
+        enum:
+        - ASC
+        - DESC
   securitySchemes:
     bearerAuth:
       type: http

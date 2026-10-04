@@ -112,61 +112,6 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  schemas:
-    Error:
-      type: object
-      description: Standard error response returned by the API.
-      properties:
-        code:
-          type: integer
-          description: HTTP status code of the error.
-        message:
-          type: string
-          description: Human-readable description of the error.
-        details:
-          type: array
-          description: Additional detail objects providing error context.
-          items:
-            type: object
-    CMEKClusterInfo:
-      type: object
-      description: Customer-managed encryption key configuration for a cluster.
-      properties:
-        cluster_id:
-          type: string
-          description: ID of the cluster this CMEK configuration applies to.
-        status:
-          type: string
-          description: Current CMEK operational status.
-        spec:
-          $ref: '#/components/schemas/CMEKClusterSpecification'
-    CMEKClusterSpecification:
-      type: object
-      description: Specification defining the customer-managed encryption key configuration for a CockroachDB cluster.
-      required:
-      - region_specs
-      properties:
-        region_specs:
-          type: array
-          description: Per-region CMEK key specifications.
-          items:
-            type: object
-            properties:
-              region:
-                type: string
-                description: Cloud region the key applies to.
-              key:
-                type: object
-                description: Key specification including type and URI.
-    UpdateCMEKStatusRequest:
-      type: object
-      description: Request body for updating CMEK operational status.
-      required:
-      - status
-      properties:
-        status:
-          type: string
-          description: New CMEK status. Accepted values include REVOKE and ROTATE.
   responses:
     Unauthorized:
       description: Authentication credentials are missing or invalid.
@@ -186,6 +131,61 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  schemas:
+    UpdateCMEKStatusRequest:
+      type: object
+      description: Request body for updating CMEK operational status.
+      required:
+      - status
+      properties:
+        status:
+          type: string
+          description: New CMEK status. Accepted values include REVOKE and ROTATE.
+    CMEKClusterInfo:
+      type: object
+      description: Customer-managed encryption key configuration for a cluster.
+      properties:
+        cluster_id:
+          type: string
+          description: ID of the cluster this CMEK configuration applies to.
+        status:
+          type: string
+          description: Current CMEK operational status.
+        spec:
+          $ref: '#/components/schemas/CMEKClusterSpecification'
+    Error:
+      type: object
+      description: Standard error response returned by the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP status code of the error.
+        message:
+          type: string
+          description: Human-readable description of the error.
+        details:
+          type: array
+          description: Additional detail objects providing error context.
+          items:
+            type: object
+    CMEKClusterSpecification:
+      type: object
+      description: Specification defining the customer-managed encryption key configuration for a CockroachDB cluster.
+      required:
+      - region_specs
+      properties:
+        region_specs:
+          type: array
+          description: Per-region CMEK key specifications.
+          items:
+            type: object
+            properties:
+              region:
+                type: string
+                description: Cloud region the key applies to.
+              key:
+                type: object
+                description: Key specification including type and URI.
   parameters:
     clusterId:
       name: cluster_id

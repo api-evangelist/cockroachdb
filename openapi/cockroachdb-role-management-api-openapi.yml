@@ -152,7 +152,71 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    Unauthorized:
+      description: Authentication credentials are missing or invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: The request body or parameters are invalid.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    SetRolesForUserRequest:
+      type: object
+      description: Request body for setting all roles for a user.
+      required:
+      - roles
+      properties:
+        roles:
+          type: array
+          description: Complete set of role grants to assign to the user.
+          items:
+            type: object
+    PaginationResponse:
+      type: object
+      description: Pagination metadata included in list responses.
+      properties:
+        next:
+          type: string
+          description: Token or cursor for retrieving the next page of results.
+        last:
+          type: string
+          description: Token or cursor for the last page of results.
+        time:
+          type: string
+          format: date-time
+          description: Server time at which the paginated query was executed.
+    GetAllRolesForUserResponse:
+      type: object
+      description: All role grants assigned to a specific user.
+      properties:
+        roles:
+          type: array
+          description: Array of role grant objects.
+          items:
+            type: object
+    ListRoleGrantsResponse:
+      type: object
+      description: Paginated list of role grants in the organization.
+      properties:
+        grants:
+          type: array
+          description: Array of role grant objects.
+          items:
+            type: object
+        pagination:
+          $ref: '#/components/schemas/PaginationResponse'
     Error:
       type: object
       description: Standard error response returned by the API.
@@ -177,88 +241,7 @@ components:
           description: Array of user account objects.
           items:
             type: object
-    PaginationResponse:
-      type: object
-      description: Pagination metadata included in list responses.
-      properties:
-        next:
-          type: string
-          description: Token or cursor for retrieving the next page of results.
-        last:
-          type: string
-          description: Token or cursor for the last page of results.
-        time:
-          type: string
-          format: date-time
-          description: Server time at which the paginated query was executed.
-    ListRoleGrantsResponse:
-      type: object
-      description: Paginated list of role grants in the organization.
-      properties:
-        grants:
-          type: array
-          description: Array of role grant objects.
-          items:
-            type: object
-        pagination:
-          $ref: '#/components/schemas/PaginationResponse'
-    SetRolesForUserRequest:
-      type: object
-      description: Request body for setting all roles for a user.
-      required:
-      - roles
-      properties:
-        roles:
-          type: array
-          description: Complete set of role grants to assign to the user.
-          items:
-            type: object
-    GetAllRolesForUserResponse:
-      type: object
-      description: All role grants assigned to a specific user.
-      properties:
-        roles:
-          type: array
-          description: Array of role grant objects.
-          items:
-            type: object
   parameters:
-    paginationSortOrder:
-      name: pagination.sort_order
-      in: query
-      description: Sort direction for paginated results. Accepted values are ASC and DESC.
-      schema:
-        type: string
-        enum:
-        - ASC
-        - DESC
-    paginationAsOfTime:
-      name: pagination.as_of_time
-      in: query
-      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
-      schema:
-        type: string
-        format: date-time
-    resourceId:
-      name: id
-      in: path
-      required: true
-      description: Unique identifier of the resource.
-      schema:
-        type: string
-    roleName:
-      name: role_name
-      in: path
-      required: true
-      description: Name of the role to grant or revoke.
-      schema:
-        type: string
-    paginationPage:
-      name: pagination.page
-      in: query
-      description: Page number for paginated results, starting from 1.
-      schema:
-        type: string
     resourceType:
       name: resource_type
       in: path
@@ -277,6 +260,20 @@ components:
       description: Unique identifier of the user.
       schema:
         type: string
+    resourceId:
+      name: id
+      in: path
+      required: true
+      description: Unique identifier of the resource.
+      schema:
+        type: string
+    roleName:
+      name: role_name
+      in: path
+      required: true
+      description: Name of the role to grant or revoke.
+      schema:
+        type: string
     paginationLimit:
       name: pagination.limit
       in: query
@@ -286,25 +283,28 @@ components:
         format: int32
         minimum: 1
         maximum: 500
-  responses:
-    Unauthorized:
-      description: Authentication credentials are missing or invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: The request body or parameters are invalid.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    paginationAsOfTime:
+      name: pagination.as_of_time
+      in: query
+      description: RFC3339 timestamp to return results as they were at a specific point in time (time-travel query).
+      schema:
+        type: string
+        format: date-time
+    paginationPage:
+      name: pagination.page
+      in: query
+      description: Page number for paginated results, starting from 1.
+      schema:
+        type: string
+    paginationSortOrder:
+      name: pagination.sort_order
+      in: query
+      description: Sort direction for paginated results. Accepted values are ASC and DESC.
+      schema:
+        type: string
+        enum:
+        - ASC
+        - DESC
   securitySchemes:
     bearerAuth:
       type: http

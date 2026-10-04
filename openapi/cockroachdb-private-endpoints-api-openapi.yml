@@ -122,68 +122,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  schemas:
-    Error:
-      type: object
-      description: Standard error response returned by the API.
-      properties:
-        code:
-          type: integer
-          description: HTTP status code of the error.
-        message:
-          type: string
-          description: Human-readable description of the error.
-        details:
-          type: array
-          description: Additional detail objects providing error context.
-          items:
-            type: object
-    PrivateEndpointConnection:
-      type: object
-      description: Represents a private endpoint connection for VPC-level access to a CockroachDB cluster.
-      properties:
-        id:
-          type: string
-          description: Unique identifier of the private endpoint connection.
-        cloud_provider:
-          type: string
-          description: Cloud provider where the endpoint is hosted.
-        status:
-          type: string
-          description: Status of the private endpoint connection.
-        endpoint_id:
-          type: string
-          description: Cloud provider endpoint identifier.
-        region_name:
-          type: string
-          description: Cloud region of the endpoint.
-    AddPrivateEndpointConnectionRequest:
-      type: object
-      description: Request body for adding a private endpoint connection.
-      required:
-      - endpoint_id
-      properties:
-        endpoint_id:
-          type: string
-          description: Cloud provider endpoint identifier to connect.
-    ListPrivateEndpointServicesResponse:
-      type: object
-      description: List of private endpoint services for a cluster.
-      properties:
-        services:
-          type: array
-          description: Array of private endpoint service objects.
-          items:
-            type: object
-    ListPrivateEndpointConnectionsResponse:
-      type: object
-      description: List of private endpoint connections for a cluster.
-      properties:
-        connections:
-          type: array
-          description: Array of private endpoint connection objects.
-          items:
-            $ref: '#/components/schemas/PrivateEndpointConnection'
   responses:
     Unauthorized:
       description: Authentication credentials are missing or invalid.
@@ -218,6 +156,68 @@ components:
       description: Unique identifier of the private endpoint connection.
       schema:
         type: string
+  schemas:
+    ListPrivateEndpointServicesResponse:
+      type: object
+      description: List of private endpoint services for a cluster.
+      properties:
+        services:
+          type: array
+          description: Array of private endpoint service objects.
+          items:
+            type: object
+    AddPrivateEndpointConnectionRequest:
+      type: object
+      description: Request body for adding a private endpoint connection.
+      required:
+      - endpoint_id
+      properties:
+        endpoint_id:
+          type: string
+          description: Cloud provider endpoint identifier to connect.
+    Error:
+      type: object
+      description: Standard error response returned by the API.
+      properties:
+        code:
+          type: integer
+          description: HTTP status code of the error.
+        message:
+          type: string
+          description: Human-readable description of the error.
+        details:
+          type: array
+          description: Additional detail objects providing error context.
+          items:
+            type: object
+    ListPrivateEndpointConnectionsResponse:
+      type: object
+      description: List of private endpoint connections for a cluster.
+      properties:
+        connections:
+          type: array
+          description: Array of private endpoint connection objects.
+          items:
+            $ref: '#/components/schemas/PrivateEndpointConnection'
+    PrivateEndpointConnection:
+      type: object
+      description: Represents a private endpoint connection for VPC-level access to a CockroachDB cluster.
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the private endpoint connection.
+        cloud_provider:
+          type: string
+          description: Cloud provider where the endpoint is hosted.
+        status:
+          type: string
+          description: Status of the private endpoint connection.
+        endpoint_id:
+          type: string
+          description: Cloud provider endpoint identifier.
+        region_name:
+          type: string
+          description: Cloud region of the endpoint.
   securitySchemes:
     bearerAuth:
       type: http
