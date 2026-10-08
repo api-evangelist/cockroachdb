@@ -110,3 +110,42 @@ plans:
       - name: Up to 99.999% availability
       - name: CMEK
       - name: PCI/HIPAA controls
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - hybrid
+  - metered
+  units:
+  - compute
+  - data
+  - period
+  plans:
+  - name: Basic
+    access: freemium
+    model: free
+    model_how: derived
+    units:
+    - data
+    - other
+    periods:
+    - month
+  - name: Standard
+    access: paid
+    model: metered
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - per-use
+  - name: Advanced
+    access: enterprise
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    - period
+    periods:
+    - per-use
+    - year
