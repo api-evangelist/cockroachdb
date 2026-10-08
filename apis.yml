@@ -564,6 +564,12 @@ apis:
   - type: APIReference
     url: https://www.cockroachlabs.com/docs/api/cluster/v2
 common:
+  - type: Plans
+    url: plans/cockroachdb-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/cockroachdb-rate-limits.yml
+  - type: FinOps
+    url: finops/cockroachdb-finops.yml
   - type: CapabilityMap
     url: capabilities/cockroachdb-capability-edges.yml
     name: CockroachDB Business Capability Map
