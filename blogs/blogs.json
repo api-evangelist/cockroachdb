@@ -2,21 +2,21 @@
   "repo": "cockroachdb",
   "feeds": [
     {
-      "source": "https://www.cockroachlabs.com/partners/",
-      "feed_url": "https://www.cockroachlabs.com/partners/",
-      "title": "",
-      "saved": 0,
-      "method": "none"
-    },
-    {
       "source": "https://cockroachlabs.com/rss.xml",
       "feed_url": "https://cockroachlabs.com/rss.xml",
       "title": "",
       "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://www.cockroachlabs.com/partners/",
+      "feed_url": "https://www.cockroachlabs.com/partners/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 80,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
