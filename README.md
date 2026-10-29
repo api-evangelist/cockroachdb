@@ -64,6 +64,45 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-This profile has been **merged into [cockroach-labs](https://apis.io/providers/cockroach-labs/)** — the two records described the same company, and that one is canonical.
+> **Retired — merged into [Cockroach Labs](https://apis.io/providers/cockroach-labs/).** The two records described the same company, and that one is canonical. Nothing in this repository is maintained any more.
 
-Nothing here is maintained any more. The company's current profile, rating and artifacts are at [apis.io/providers/cockroach-labs/](https://apis.io/providers/cockroach-labs/).
+**Why:** CockroachDB is Cockroach Labs' product; cockroach-labs is canonical and publishes a superset of the CockroachDB Cloud API split specs cockroachdb held (every one of its 26 APIs has a cockroach-labs counterpart). The unreferenced CHANGEFEED sinks AsyncAPI was moved into cockroach-labs as a new entry. API and artifact pages map 1:1 to the cockroach-labs equivalents, otherwise to the provider page. cockroachdb stays live as a pointer profile with no APIs. Approved by Kin Lane 2026-10-13.
+
+**Retired:** 2026-10-13
+
+## Where to go now
+
+The current profile, APIs, artifacts and rating for Cockroach Labs are on APIs.io at **[apis.io/providers/cockroach-labs/](https://apis.io/providers/cockroach-labs/)**.
+
+Pages that used to belong to this profile now live at:
+
+- [Cockroach Labs Agentic Access](https://apis.io/agentic-access/cockroach-labs/cockroach-labs-agentic-access/)
+- [Cockroach Labs API Keys API](https://apis.io/apis/cockroach-labs/cockroach-labs-api-keys-api/)
+- [Cockroach Labs Audit Logs API](https://apis.io/apis/cockroach-labs/cockroach-labs-audit-logs-api/)
+- [Cockroach Labs Auth API](https://apis.io/apis/cockroach-labs/cockroach-labs-auth-api/)
+- [Cockroach Labs Backup Restore API](https://apis.io/apis/cockroach-labs/cockroach-labs-backup-restore-api/)
+- [Cockroach Labs Billing API](https://apis.io/apis/cockroach-labs/cockroach-labs-billing-api/)
+- [Cockroach Labs Clusters API](https://apis.io/apis/cockroach-labs/cockroach-labs-clusters-api/)
+- [Cockroach Labs Cmek API](https://apis.io/apis/cockroach-labs/cockroach-labs-cmek-api/)
+- [Cockroach Labs Databases API](https://apis.io/apis/cockroach-labs/cockroach-labs-databases-api/)
+- [Cockroach Labs Egressrules API](https://apis.io/apis/cockroach-labs/cockroach-labs-egressrules-api/)
+- [Cockroach Labs Folders API](https://apis.io/apis/cockroach-labs/cockroach-labs-folders-api/)
+- [Cockroach Labs Health API](https://apis.io/apis/cockroach-labs/cockroach-labs-health-api/)
+- [Cockroach Labs Ipallowlists API](https://apis.io/apis/cockroach-labs/cockroach-labs-ipallowlists-api/)
+- [Cockroach Labs Jwtissuers API](https://apis.io/apis/cockroach-labs/cockroach-labs-jwtissuers-api/)
+- [Cockroach Labs Logexport API](https://apis.io/apis/cockroach-labs/cockroach-labs-logexport-api/)
+- [Cockroach Labs Maintenance Windows API](https://apis.io/apis/cockroach-labs/cockroach-labs-maintenance-windows-api/)
+- [Cockroach Labs Metricexport API](https://apis.io/apis/cockroach-labs/cockroach-labs-metricexport-api/)
+- [Cockroach Labs Nodes API](https://apis.io/apis/cockroach-labs/cockroach-labs-nodes-api/)
+- [Cockroach Labs Organizations API](https://apis.io/apis/cockroach-labs/cockroach-labs-organizations-api/)
+- [Cockroach Labs Private Endpoints API](https://apis.io/apis/cockroach-labs/cockroach-labs-private-endpoints-api/)
+- [Cockroach Labs Ranges API](https://apis.io/apis/cockroach-labs/cockroach-labs-ranges-api/)
+- [Cockroach Labs Role Management API](https://apis.io/apis/cockroach-labs/cockroach-labs-role-management-api/)
+- [Cockroach Labs Rules API](https://apis.io/apis/cockroach-labs/cockroach-labs-rules-api/)
+- [Cockroach Labs Service Accounts API](https://apis.io/apis/cockroach-labs/cockroach-labs-service-accounts-api/)
+- [Cockroach Labs Sessions API](https://apis.io/apis/cockroach-labs/cockroach-labs-sessions-api/)
+- …and 140 more on the Cockroach Labs profile
+
+## Open an issue
+
+Issues about Cockroach Labs belong on the canonical profile: [open one on api-evangelist/cockroach-labs](https://github.com/api-evangelist/cockroach-labs/issues/new). If you think this merge was a mistake — these were really two companies — say so there or email [info@apievangelist.com](mailto:info@apievangelist.com).
